@@ -259,7 +259,7 @@ table.grid.prm th:nth-child(1),table.grid.prm th:nth-child(2){width:24%}
 .task-row input[type=date]{font-size:12px;padding:1px 4px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel)}
 .task-row .tdl{display:inline-flex;align-items:center;gap:3px;cursor:pointer}
 .task-row .tj{font-weight:700}
-.task-row .tj.red{color:var(--red)} .task-row .tj.warn{color:var(--warn)} .task-row .tj.blue{color:var(--accent)} .task-row .tj.ok{color:var(--ok)}
+.task-row .tj.red{color:var(--red)} .task-row .tj.task{color:#0b6e91} .task-row .tj.warn{color:var(--warn)} .task-row .tj.blue{color:var(--accent)} .task-row .tj.ok{color:var(--ok)}
 .note.task{background:linear-gradient(90deg,var(--accent-soft) 0 4px,transparent 4px)}
 .note.tdone textarea{text-decoration:line-through;opacity:.55}
 .note .na button{border:0;background:none;color:var(--faint);padding:2px 5px;border-radius:4px;font-size:13px}
@@ -406,6 +406,7 @@ textarea.tpl{width:100%;min-height:300px;border:1px solid var(--line-strong);bor
 .chip.ok{background:var(--ok-soft);color:var(--ok);border-color:color-mix(in srgb,var(--ok) 30%,transparent)}
 .chip.warn{background:var(--warn-soft);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
 .chip.blue{background:var(--accent-soft);color:var(--accent)}
+.chip.task{background:#d7f1fc;color:#0b6e91;border-color:#9ad8f0}
 .chip.mute{background:var(--sunk);color:var(--faint);border-color:var(--line)}
 .chip.ready{background:var(--ready);color:#fff}
 .hero-prog{display:flex;align-items:center;gap:10px;font:500 11.5px var(--mono);color:var(--muted)}
@@ -850,21 +851,21 @@ function taskJ(n){ const d=isoD(n.due); return d?Math.round((d-dd0())/DAYMS):nul
 function tasksOf(c){ return (c.notes||[]).filter(n=>n.task&&!n.done&&(n.t||"").trim()); }
 function taskWhen(j){ return j==null?"date ?":j<0?`en retard de ${-j} j`:j===0?"aujourd'hui":`J-${j}`; }
 function taskRow(n,i){ const j=taskJ(n);
-  return `<div class="task-row"><span>⏰ pour le</span><input type="date" data-p="notes.${i}.due" value="${esc(n.due||"")}" aria-label="Date de la tâche"><label class="tdl"><input type="checkbox" data-ntd="${i}" ${n.done?"checked":""}> fait</label>${n.done?`<span class="tj ok">✓ faite</span>`:`<span class="tj ${j==null?"warn":j<=0?"red":j<=3?"warn":"blue"}">${taskWhen(j)}</span>`}</div>`; }
+  return `<div class="task-row"><span>⏰ pour le</span><input type="date" data-p="notes.${i}.due" value="${esc(n.due||"")}" aria-label="Date de la tâche"><label class="tdl"><input type="checkbox" data-ntd="${i}" ${n.done?"checked":""}> fait</label>${n.done?`<span class="tj ok">✓ faite</span>`:`<span class="tj ${j==null||j>10?"task":"red"}">${taskWhen(j)}</span>`}</div>`; }
 function taskChip(c){ const ts=tasksOf(c); if(!ts.length) return null;
   const withD=ts.filter(n=>isoD(n.due)).sort((a,b)=>isoD(a.due)-isoD(b.due)); const n=withD[0]; const more=ts.length>1?` (+${ts.length-1})`:"";
-  if(!n) return ["warn","Tâche : date ?"+more]; const j=taskJ(n);
-  return [j<=0?"red":j<=3?"warn":"blue",(j<0?"Tâche en retard":j===0?"Tâche aujourd'hui":`Tâche ${frDate(n.due).slice(0,5)} · J-${j}`)+more]; }
+  if(!n) return ["task","⚠ date ?"+more]; const j=taskJ(n);
+  return [j<=10?"red":"task",`⚠ ${frDate(n.due).slice(0,5)}`+more]; } // bleu ciel au-delà de 10 jours, rouge à 10 jours et moins
 function taskAlerts(c,cut){ return tasksOf(c).sort((x,y)=>(isoD(x.due)||9e15)-(isoD(y.due)||9e15)).map(n=>{ const j=taskJ(n), d=isoD(n.due);
-  return [j!=null&&j<=3?"⏰":"🗓",`tâche : ${cut((n.t||"").trim().replace(/\s+/g," "),70)} – ${d?"pour le "+d.toLocaleDateString("fr-FR")+" ("+taskWhen(j)+")":"sans date"}`,1]; }); }
+  return [j!=null&&j<=10?"⏰":"🗓",`tâche : ${cut((n.t||"").trim().replace(/\s+/g," "),70)} – ${d?"pour le "+d.toLocaleDateString("fr-FR")+" ("+taskWhen(j)+")":"sans date"}`,1]; }); }
 function stateChips(c,mini=false){
   const ch=[]; const d=x=>frDate(x).slice(0,5);
   { const t=taskChip(c); if(t) ch.push(t); }
   { const v=devisInfo(c); if(v) ch.push([v.nodate?"warn":v.lvl?"red":"blue",devisTxt(v)]); }
   if(c.bet_ok && !c.checks?.rip?.d) ch.push(["red","À programmer"]); // retour étude OK mais dates RIP pas bloquées
-  if(c.regime==="PPOS") ch.push(["red","PPOS à diffuser"]); else if(c.regime==="PPOS diffusé") ch.push(["ok","PPOS diffusé"+(c.regime_date?" "+d(c.regime_date):"")]); else if(c.regime==="PPOR") ch.push(["blue","PPOR"]); else if(!mini) ch.push(["mute","Régime ?"]);
   const att=etudeAttendue(c);
-  if(retardEtude(c)) ch.push(["red","Retard étude"]); else if(att&&!mini) ch.push(["mute","Étude en attente"]);
+  if(c.regime==="PPOS"){ if(!att) ch.push(["red","PPOS à diffuser"]); } else if(c.regime==="PPOS diffusé") ch.push(["ok","PPOS diffusé"+(c.regime_date?" "+d(c.regime_date):"")]); else if(c.regime==="PPOR") ch.push(["blue","PPOR"]); else if(!mini) ch.push(["mute","Régime ?"]);
+  if(retardEtude(c)) ch.push(["red","Retard étude"]); else if(att) ch.push(["warn","Attente retour étude "+d(c.bet_retour)]);
   if(c.icp==="Faite") ch.push(["ok","ICP faite"+(c.icp_faite?" "+d(c.icp_faite):"")]); else if(att){} else if(c.icp==="Invitation envoyée") ch.push(["warn","ICP invitée"]); else if(c.icp==="A faire") ch.push(["warn","ICP à faire"]); else if(!mini) ch.push(["mute","ICP ?"]);
   if(!mini){ if(c.prescriptions==="oui"){ if(!att) ch.push(["red","Prescriptions"]); } else if(c.prescriptions==="demandées") ch.push(["warn","Prescriptions demandées"+(c.presc_dem?" "+d(c.presc_dem):"")]); else if(c.prescriptions==="retour ok") ch.push(["ok","Prescriptions OK"]); else if(c.prescriptions==="non") ch.push(["mute","Sans prescriptions"]); }
   if(c.pmeo_mode==="le") ch.push(["red","PMEO"+(c.pmeo?" "+d(c.pmeo):" (date ?)")]); else if(c.pmeo_mode==="faite") ch.push(["ok","PMEO faite"+(c.pmeo?" "+d(c.pmeo):"")]); else if(c.pmeo_mode==="sans") ch.push(["ok","SANS PMEO"]); else if(!mini) ch.push(["mute","PMEO ?"]);
@@ -1901,8 +1902,8 @@ function buildRecap(){
   const name=c=>[c.dc,c.rac,c.nature].filter(Boolean).join(" – ")+(c.commune?` (${c.commune})`:"");
   const t12=c=>{ const a=[c.dc,c.rac].filter(Boolean).join(" / "), b=(c.nature||"")+(c.commune?` (${c.commune})`:""); return a?[a,b]:[b||"Chantier",""]; };
   // pastilles au format de la liste des affaires
-  const KIND=([ic,t])=>ic==="🟢"?"ready":ic==="✅"?"ok":(ic==="🔴"||ic==="⏳"||ic==="⚡")?"red":ic==="🟠"?"warn":(ic==="📅"||ic==="📄"||ic==="🗓")?"blue":ic==="⏰"?"red":ic==="🚧"?(/programmer/.test(t)?"red":"blue"):"mute";
-  const CHC={red:["FBE5E3","C2271F","EFB8B3"],warn:["FBEED3","A86A00","ECD29C"],blue:["E3ECF7","1F5FA8","BCD0EA"],mute:["ECEEEA","5F6862","D9DDD6"],ready:["1E7A3C","FFFFFF","1E7A3C"],ok:["E1F1E6","2F7D4A","B5DCC1"]};
+  const KIND=([ic,t])=>ic==="🟢"?"ready":ic==="✅"?"ok":(ic==="🔴"||ic==="⏳"||ic==="⚡")?"red":ic==="🟠"?"warn":ic==="🗓"?"task":(ic==="📅"||ic==="📄")?"blue":ic==="⏰"?"red":ic==="🚧"?(/programmer/.test(t)?"red":"blue"):"mute";
+  const CHC={red:["FBE5E3","C2271F","EFB8B3"],warn:["FBEED3","A86A00","ECD29C"],blue:["E3ECF7","1F5FA8","BCD0EA"],mute:["ECEEEA","5F6862","D9DDD6"],ready:["1E7A3C","FFFFFF","1E7A3C"],ok:["E1F1E6","2F7D4A","B5DCC1"],task:["D7F1FC","0B6E91","9AD8F0"]};
   const cap=t=>t.charAt(0).toUpperCase()+t.slice(1);
   const byOrd=(a,b)=>(a.ordre??1e9)-(b.ordre??1e9);
   const all=[...chantiers.values()];
@@ -1930,10 +1931,11 @@ function buildRecap(){
       else if(c.pmeo_mode==="sans") R.push(["✅","SANS PMEO",0]);
       R.push(...taskAlerts(c,cut)); return R; }
     if(dch) A.push(dch); else if(enCours) A.push(["🚧","à programmer",1]);
-    if(c.regime==="PPOS"){ const dd=iso2d(c.date_debut); if(dd && now>=new Date(dd.getTime()-20*864e5)){ const n=Math.round((dd-now)/864e5); A.push(["🔴",`PPOS à diffuser (début ${dm(dd)}, ${n>0?"J-"+n:n===0?"aujourd'hui":"commencés"})`,1]); } }
-    else if(!c.regime) A.push(["⚪","régime ?",2]);
     const att=etudeAttendue(c);
+    if(c.regime==="PPOS"){ const dd=iso2d(c.date_debut); if(!att && dd && now>=new Date(dd.getTime()-20*864e5)){ const n=Math.round((dd-now)/864e5); A.push(["🔴",`PPOS à diffuser (début ${dm(dd)}, ${n>0?"J-"+n:n===0?"aujourd'hui":"commencés"})`,1]); } }
+    else if(!c.regime) A.push(["⚪","régime ?",2]);
     if(retardEtude(c)) A.push(["🔴",`retard étude (retour souhaité le ${frDate(c.bet_retour)})`,1]);
+    else if(att) A.push(["🟠",`attente retour étude (souhaité le ${frDate(c.bet_retour)})`,1]);
     if(!att){
       if(c.icp==="A faire") A.push(["🟠","ICP à faire",1]); else if(c.icp==="Invitation envoyée") A.push(["🟠","ICP invitée",2]); else if(!c.icp&&c.regime!=="PPOR") A.push(["🟠","ICP ?",2]);
       if(c.prescriptions==="oui") A.push(["🟠","prescriptions à demander",1]); }
@@ -2054,6 +2056,25 @@ function bindSig(root,o,onChange){
   cv.onpointerdown=ev=>{ dn=true; cv.setPointerCapture(ev.pointerId); const [x,y]=pos(ev); cx.beginPath(); cx.moveTo(x,y); ev.preventDefault(); };
   cv.onpointermove=ev=>{ if(!dn) return; const [x,y]=pos(ev); cx.lineTo(x,y); cx.stroke(); };
   cv.onpointerup=cv.onpointercancel=()=>{ dn=false; };
+}
+/* Ouverture sans données en mémoire : reprendre la sauvegarde OneDrive en un clic (cas d'Edge qui efface tout à la fermeture) */
+function restoreFrom(d,h){ if(!d||typeof d.chantiers!=="object") return false; const x={chantiers:d.chantiers,config:d.config||{}}; db.importAll(x);
+  try{ sessionStorage.setItem("sc_resumed","1"); }catch{} return true; }
+function openResume(){
+  const n=Object.keys(window.SC_SEED?.chantiers||{}).length;
+  const m=modal(`<div class="m-h"><h2>Bienvenue dans ING STUDIO</h2></div>
+    <div class="m-b" style="gap:10px"><p class="hint">Edge n'a gardé aucune donnée d'ING STUDIO${n?"":" sur ce PC"}. C'est normal au premier lancement ; sinon, Edge efface sans doute ses données à chaque fermeture.</p>
+    <p class="hint"><b>Tu as déjà une sauvegarde ?</b> Choisis ton dossier de sauvegarde OneDrive (celui qui contient ING-STUDIO-sauvegarde.json) : tes affaires reviennent et la sauvegarde automatique repart.</p></div>
+    <div class="m-f"><span class="msg" id="rs_msg"></span><label class="btn">Choisir un fichier…<input type="file" accept=".json,application/json" id="rs_file" hidden></label><button class="btn" data-new>${n?"Continuer sans reprendre":"Nouveau départ"}</button>${AUTO.ok()?`<button class="btn primary" data-dir>📂 Reprendre ma sauvegarde</button>`:""}</div>`,"sm");
+  const msg=m.querySelector("#rs_msg"), err=t=>{ msg.textContent=t; msg.className="msg err"; };
+  m.querySelector("[data-new]").onclick=()=>{ closeModal(); if(!(settings.moi_nom||"").trim()) setTimeout(()=>openProfile(true),200); };
+  m.querySelector("#rs_file").onchange=async e=>{ const f=e.target.files[0]; if(!f) return; let d=null; try{ d=JSON.parse(await f.text()); }catch{}
+    if(restoreFrom(d)) location.reload(); else err("Ce fichier n'est pas une sauvegarde ING STUDIO."); };
+  const bd=m.querySelector("[data-dir]");
+  if(bd) bd.onclick=async()=>{ let h; try{ h=await window.showDirectoryPicker({id:"ingstudio",mode:"readwrite",startIn:"documents"}); }catch(e){ if(e?.name!=="AbortError") err(e?.message||String(e)); return; }
+    let d=null; try{ const fh=await h.getFileHandle("ING-STUDIO-sauvegarde.json"); d=JSON.parse(await (await fh.getFile()).text()); }catch{ err("Pas de fichier ING-STUDIO-sauvegarde.json dans ce dossier."); return; }
+    try{ await AUTO.idb("readwrite",st=>st.put(h,AUTO.KEY)); }catch{}
+    if(restoreFrom(d)) location.reload(); else err("Le fichier de sauvegarde est illisible."); };
 }
 function openProfile(first){
   const sg={sig:settings.sig||"",sig_w:settings.sig_w||0,sig_h:settings.sig_h||0};
@@ -2191,7 +2212,7 @@ function openRecap(){
 }
 
 /* ---------- Mode autonome (fichier hors de Claude) ---------- */
-let LOCAL=false;
+let LOCAL=false, LOCAL_FRESH=false; // LOCAL_FRESH : Edge n'avait rien en mémoire à l'ouverture (premier lancement ou données effacées)
 /* Sauvegarde automatique dans un dossier choisi (OneDrive…) : API « File System Access » d'Edge / Chrome */
 const AUTO={h:null,st:"off",last:"",err:"",t:null,btn:null,KEY:(window.SC_STORE_KEY||"suivi_chantiers_donnees_v1")+"_auto",
   ok:()=>typeof window.showDirectoryPicker==="function",
@@ -2247,7 +2268,7 @@ function makeLocalDB(){
   const KEY=window.SC_STORE_KEY||"suivi_chantiers_donnees_v1";
   let data=null; try{ data=JSON.parse(localStorage.getItem(KEY)||"null"); }catch{}
   const persist=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(data)); lastErr=null; }catch(e){ lastErr="Le navigateur refuse d'enregistrer (stockage plein ou bloqué)"; } setSave(); AUTO.soon(); };
-  if(!data||!data.chantiers){ data=window.SC_SEED?JSON.parse(JSON.stringify(window.SC_SEED)):{chantiers:{},config:{}}; persist(); }
+  if(!data||!data.chantiers){ LOCAL_FRESH=true; data=window.SC_SEED?JSON.parse(JSON.stringify(window.SC_SEED)):{chantiers:{},config:{}}; persist(); }
   data.config=data.config||{};
   const snap=(id,o)=>({id,exists:o!=null,data:()=>o,metadata:{fromCache:false,hasPendingWrites:false}});
   const colSnap=()=>({docs:Object.entries(data.chantiers).map(([id,o])=>snap(id,o)),metadata:{fromCache:false}});
@@ -2294,7 +2315,17 @@ function setupLocalUI(){
 
 /* ---------- Mode téléphone : consultation seule (interlocuteurs, planning…) ---------- */
 const PH={tab:"travaux",q:"",id:null,arch:false,snap:null,snapAt:"",snapName:""};
-(()=>{ try{ const s=JSON.parse(localStorage.getItem("ing_phone_snap")||"null"); if(s&&s.chantiers){ PH.snap=s.chantiers; PH.snapAt=s.at||""; PH.savedAt=s.savedAt||""; PH.snapName=s.name||""; } }catch{} })();
+/* mémoire du téléphone : localStorage + IndexedDB (double sécurité), stockage « persistant » demandé au navigateur */
+const PHS={K:"ing_phone_snap",
+  idb(mode,fn){ return new Promise((res,rej)=>{ let o; try{ o=indexedDB.open("ing_studio_tel",1); }catch(e){ rej(e); return; } o.onupgradeneeded=()=>o.result.createObjectStore("s");
+    o.onerror=()=>rej(o.error); o.onsuccess=()=>{ try{ const tx=o.result.transaction("s",mode), r=fn(tx.objectStore("s")); tx.oncomplete=()=>res(r&&r.result); tx.onerror=()=>rej(tx.error); }catch(e){ rej(e); } }; }); },
+  apply(s){ if(s&&s.chantiers){ PH.snap=s.chantiers; PH.snapAt=s.at||""; PH.savedAt=s.savedAt||""; PH.snapName=s.name||""; return true; } return false; },
+  async save(o){ let ok=0; try{ localStorage.setItem(this.K,JSON.stringify(o)); if(localStorage.getItem(this.K)) ok++; }catch{}
+    try{ await this.idb("readwrite",st=>st.put(o,this.K)); ok++; }catch{} PH.stored=ok>0; return ok>0; },
+  async clear(){ try{ localStorage.removeItem(this.K); }catch{} try{ await this.idb("readwrite",st=>st.delete(this.K)); }catch{} } };
+(()=>{ try{ PHS.apply(JSON.parse(localStorage.getItem(PHS.K)||"null")); }catch{} })();
+try{ navigator.storage?.persist?.().catch(()=>{}); }catch{}
+if(!PH.snap) PHS.idb("readonly",st=>st.get(PHS.K)).then(o=>{ if(PHS.apply(o)&&PHONE){ PHMAP=null; renderPhone(); } }).catch(()=>{});
 function phData(){ if(PH.snap){ const m=new Map(); for(const [k,v] of Object.entries(PH.snap)) m.set(k,norm(v)); return m; } return chantiers; }
 let PHMAP=null;
 function wazeUrl(c,a){ const g=parseGps(c.gps); return a?`https://waze.com/ul?q=${encodeURIComponent(a)}&navigate=yes`:g?`https://waze.com/ul?ll=${g.lat},${g.lon}&navigate=yes`:""; } // même format que le test qui fonctionne sur iPhone
@@ -2302,7 +2333,7 @@ function phTel(t){ return String(t||"").replace(/[^\d+]/g,""); }
 function phLoadFile(f){ const r=new FileReader(); r.onload=()=>{ let d=null; try{ d=JSON.parse(r.result); }catch{}
     if(!d||typeof d.chantiers!=="object"){ alert("Ce fichier n'est pas une sauvegarde ING STUDIO (ING-STUDIO-sauvegarde.json)."); return; }
     PH.snap=d.chantiers; PH.snapAt=new Date().toISOString(); PH.savedAt=d.savedAt||""; PH.snapName=f.name; PHMAP=null;
-    try{ localStorage.setItem("ing_phone_snap",JSON.stringify({chantiers:d.chantiers,at:PH.snapAt,savedAt:PH.savedAt,name:f.name})); }catch{ alert("Sauvegarde chargée pour cette fois (le téléphone refuse de la garder en mémoire)."); }
+    PHS.save({chantiers:d.chantiers,at:PH.snapAt,savedAt:PH.savedAt,name:f.name}).then(ok=>{ PH.stored=ok; renderPhone(); });
     PH.id=null; renderPhone(); };
   r.readAsText(f); }
 function renderPhone(){
@@ -2321,6 +2352,7 @@ function phHome(){
   const src=PH.snap?(PH.savedAt?`<b>Données du PC du ${esc(fd(PH.savedAt))}</b> (sauvegarde chargée le ${esc(fd(PH.snapAt))})`:`Sauvegarde « ${esc(PH.snapName)} » chargée le ${esc(fd(PH.snapAt))}`)
     :(LOCAL?(window.SC_SEED_AT&&!PH.everLocal?`<b class="ph-warn">Données intégrées au fichier le ${esc(fd(window.SC_SEED_AT))} : pas forcément à jour.</b> Charge ta sauvegarde OneDrive.`:"Données de ce navigateur"):"Données de la version Claude");
   return `<header class="ph-top"><div class="ph-brand">${logo}<b>ING STUDIO</b><label class="ph-load" title="Charger ma sauvegarde OneDrive">📂 Charger<input type="file" class="ph-file" hidden></label></div>
+    ${PH.snap&&PH.stored===false?`<p class="ph-alert">⚠ Ce téléphone refuse de garder la sauvegarde : elle sera perdue à la fermeture. Ouvre ING STUDIO depuis l'icône de l'écran d'accueil, hors navigation privée${/iPhone|iPad/.test(navigator.userAgent)?", et désactive « Bloquer tous les cookies » (Réglages > Safari)":""}.</p>`:""}
     <div class="ph-when">${PH.snap&&PH.savedAt?`Données du PC du ${esc(fd(PH.savedAt))}`:PH.snap?`Sauvegarde chargée le ${esc(fd(PH.snapAt))}`:`Aucune sauvegarde chargée`}</div>
     <input id="ph_q" type="search" placeholder="Rechercher : DC, RAC, nom, commune, interlocuteur…" value="${esc(PH.q)}" autocomplete="off">
     <div class="ph-tabs"><button class="${PH.tab==="travaux"?"on":""}" data-ph="tab" data-t="travaux">Travaux <span>${n("travaux")}</span></button><button class="${PH.tab==="etudes"?"on":""}" data-ph="tab" data-t="etudes">Études <span>${n("etudes")}</span></button></div></header>
@@ -2378,7 +2410,7 @@ function phClick(e){
   else if(a==="copy"){ const v=b.dataset.v, lab=b.textContent; const ok=()=>{ b.textContent="Copié ✓"; setTimeout(()=>b.textContent=lab,1800); };
     const fb=()=>{ const t=document.createElement("textarea"); t.value=v; t.setAttribute("readonly",""); t.style.cssText="position:fixed;opacity:0;top:0"; document.body.appendChild(t); t.select(); t.setSelectionRange(0,99); try{ document.execCommand("copy"); ok(); }catch{ prompt("Numéro :",v); } t.remove(); };
     try{ navigator.clipboard.writeText(v).then(ok,fb); }catch{ fb(); } }
-  else if(a==="unsnap"){ PH.snap=null; try{ localStorage.removeItem("ing_phone_snap"); }catch{} renderPhone(); }
+  else if(a==="unsnap"){ PH.snap=null; PHS.clear(); renderPhone(); }
   else if(a==="full"){ try{ localStorage.setItem("sc_full","1"); }catch{} location.reload(); }
 }
 document.addEventListener("change",e=>{ if(e.target.classList?.contains("ph-file")&&e.target.files[0]){ phLoadFile(e.target.files[0]); e.target.value=""; } });
