@@ -2448,7 +2448,7 @@ function phDetail(c){
   const notes=(c.notes||[]).filter(n=>n.t&&n.t.trim()).sort((x,y)=>(y.imp?1:0)-(x.imp?1:0));
   const prm=(c.prm||[]).filter(p=>p.bat||p.lot||p.prm);
   return `<header class="ph-top ph-dt"><button class="ph-back" data-ph="back">‹ Affaires</button>
-    <h1>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"Affaire")}</h1><p class="ph-nat">${esc(c.nature||"")}</p>${etravauxUrl(c)||eplansUrl(c)?`<div class="ph-nav">${etravauxUrl(c)?`<a class="ph-act ph-ep etrav" href="${esc(etravauxUrl(c))}" target="_blank" rel="noopener" aria-label="e-travaux"><img class="ph-lgw" src="${ICO_ETRAV}" alt="e-travaux"></a>`:""}${eplansUrl(c)?`<a class="ph-act ph-ep" href="${esc(eplansUrl(c))}" target="_blank" rel="noopener"><img class="ph-ico" src="${ICO_EPLANS}" alt=""> e-plans</a>`:""}</div>`:""}
+    <h1>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"Affaire")}</h1><p class="ph-nat">${esc(c.nature||"")}</p>
     ${a?`<a class="ph-addr" href="${esc(maps)}" target="_blank" rel="noopener">📍 ${esc(a)}</a><div class="ph-nav"><a class="ph-act waze" href="${esc(wazeUrl(c,a))}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_WAZE}" alt=""> Waze</a><a class="ph-act gmaps" href="${esc(maps)}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_MAPS}" alt=""> Maps</a><button class="ph-act ph-cpa" data-ph="copy" data-v="${esc(a)}">📋 Copier</button></div>`:""}<div class="ph-chips">${stateChips(c,true)}</div></header>
     <main class="ph-main">
     <section><h2>Interlocuteurs</h2>${cs.length?cs.map(x=>card(x.nom,x.raison,x.tel,x.mail)).join(""):`<p class="ph-empty">Aucun interlocuteur.</p>`}
