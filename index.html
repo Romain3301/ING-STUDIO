@@ -455,6 +455,8 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 .ph-brand .mark svg{width:30px;height:30px}
 .ph-brand b{font-size:15px;letter-spacing:.04em;color:#0b2a66}
 .ph-ro{margin-left:auto;font-size:11px;font-weight:600;color:var(--muted);background:var(--sunk);border-radius:99px;padding:2px 9px}
+.ph-load{margin-left:auto;display:inline-flex;align-items:center;gap:4px;background:#123a73;color:#fff;font-size:14px;font-weight:700;border-radius:10px;padding:8px 14px;cursor:pointer}
+.ph-when{font-size:12px;color:var(--muted);margin:-4px 0 8px}
 #ph_q{width:100%;font-size:16px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:10px;background:var(--bg);color:var(--fg)}
 .ph-tabs{display:flex;gap:6px;margin-top:8px}
 .ph-tabs button{flex:1;border:0;border-radius:10px 10px 0 0;padding:10px 6px;font-size:14px;font-weight:600;background:var(--sunk);color:var(--muted)}
@@ -2318,11 +2320,12 @@ function phHome(){
   const fd=t=>new Date(t).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).replace(" "," à ");
   const src=PH.snap?(PH.savedAt?`<b>Données du PC du ${esc(fd(PH.savedAt))}</b> (sauvegarde chargée le ${esc(fd(PH.snapAt))})`:`Sauvegarde « ${esc(PH.snapName)} » chargée le ${esc(fd(PH.snapAt))}`)
     :(LOCAL?(window.SC_SEED_AT&&!PH.everLocal?`<b class="ph-warn">Données intégrées au fichier le ${esc(fd(window.SC_SEED_AT))} : pas forcément à jour.</b> Charge ta sauvegarde OneDrive.`:"Données de ce navigateur"):"Données de la version Claude");
-  return `<header class="ph-top"><div class="ph-brand">${logo}<b>ING STUDIO</b><span class="ph-ro">Consultation</span></div>
+  return `<header class="ph-top"><div class="ph-brand">${logo}<b>ING STUDIO</b><label class="ph-load" title="Charger ma sauvegarde OneDrive">📂 Charger<input type="file" class="ph-file" hidden></label></div>
+    <div class="ph-when">${PH.snap&&PH.savedAt?`Données du PC du ${esc(fd(PH.savedAt))}`:PH.snap?`Sauvegarde chargée le ${esc(fd(PH.snapAt))}`:`Aucune sauvegarde chargée`}</div>
     <input id="ph_q" type="search" placeholder="Rechercher : DC, RAC, nom, commune, interlocuteur…" value="${esc(PH.q)}" autocomplete="off">
     <div class="ph-tabs"><button class="${PH.tab==="travaux"?"on":""}" data-ph="tab" data-t="travaux">Travaux <span>${n("travaux")}</span></button><button class="${PH.tab==="etudes"?"on":""}" data-ph="tab" data-t="etudes">Études <span>${n("etudes")}</span></button></div></header>
     <main class="ph-main">${!PH.snap&&LOCAL&&window.SC_SEED_AT?`<p class="ph-alert">⚠ Ces affaires sont celles enregistrées dans le fichier le ${esc(fd(window.SC_SEED_AT))}. Charge ta sauvegarde OneDrive (bouton en bas) pour voir les dernières.</p>`:""}<div id="ph_list"></div>
-    <div class="ph-src"><span>${src}</span><label class="ph-btn">📂 Charger ma sauvegarde OneDrive<input type="file" id="ph_file" hidden></label>
+    <div class="ph-src"><span>${src}</span><label class="ph-btn">📂 Charger ma sauvegarde OneDrive<input type="file" class="ph-file" id="ph_file" hidden></label>
     ${PH.snap?`<button class="ph-link" data-ph="unsnap">Revenir aux ${LOCAL?"données de ce navigateur":"données de la version Claude"}</button>`:""}
     ${window.SC_PHONE_APP?"":`<button class="ph-link" data-ph="full">Afficher la version complète (modification)</button>`}</div></main>`;
 }
@@ -2378,7 +2381,7 @@ function phClick(e){
   else if(a==="unsnap"){ PH.snap=null; try{ localStorage.removeItem("ing_phone_snap"); }catch{} renderPhone(); }
   else if(a==="full"){ try{ localStorage.setItem("sc_full","1"); }catch{} location.reload(); }
 }
-document.addEventListener("change",e=>{ if(e.target.id==="ph_file"&&e.target.files[0]) phLoadFile(e.target.files[0]); });
+document.addEventListener("change",e=>{ if(e.target.classList?.contains("ph-file")&&e.target.files[0]){ phLoadFile(e.target.files[0]); e.target.value=""; } });
 
 if(IS_MOBILE&&!PHONE&&!window.SC_PHONE_APP){ setTimeout(()=>{ const b=document.createElement("button"); b.className="ph-back2"; b.textContent="📱 Version téléphone"; b.onclick=()=>{ try{ localStorage.removeItem("sc_full"); }catch{} location.reload(); }; document.body.appendChild(b); },0); }
 /* ---------- Démarrage ---------- */
