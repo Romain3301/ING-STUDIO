@@ -353,7 +353,7 @@ tr.drop-before>td{box-shadow:inset 0 3px 0 var(--accent)}
 tr.drop-after>td{box-shadow:inset 0 -3px 0 var(--accent)}
 .tblwrap{overflow-x:auto}
 table.grid{min-width:560px}
-.prm-box{padding:10px 12px 12px;max-width:620px;border:2px dashed transparent;border-radius:10px}
+.prm-box{padding:10px 12px 12px;max-width:780px;border:2px dashed transparent;border-radius:10px}
 .prm-box.drop-on{border-color:var(--accent);background:var(--sunk)}
 .msig{border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);padding:8px 10px;min-height:60px;font-family:Calibri,Arial,sans-serif;font-size:14px;overflow:auto;max-height:220px}
 .msig:empty::before{content:"Colle ta signature Outlook ici (Ctrl+V)…";color:var(--faint)}
@@ -372,9 +372,9 @@ table.grid.ctb textarea.wrapt{display:block;width:100%;box-sizing:border-box;min
 .mailto{flex:0 0 auto;text-decoration:none;font-size:15px;line-height:1;padding:4px 7px;margin-right:3px;border-radius:6px;color:var(--accent)}
 .mailto:hover{background:var(--sunk)}
 table.grid.prm th{text-align:center}
-table.grid.prm td input{text-align:center}
+table.grid.prm td input{text-align:center} table.grid.prm td:first-child input{text-align:left}
 table.grid.prm{table-layout:fixed;width:100%}
-table.grid.prm th:nth-child(1){width:12%}table.grid.prm th:nth-child(2){width:38%}table.grid.prm th.x{width:34px}
+table.grid.prm th:nth-child(1){width:34%}table.grid.prm th:nth-child(2){width:11%}table.grid.prm th:nth-child(3){width:21%}table.grid.prm th.x{width:34px}
 table.grid.prm td input{font-size:13px;padding:6px 3px}
 .x button{border:0;background:none;color:var(--faint);font-size:16px;line-height:1;padding:4px}
 .x button:hover{color:var(--red)}
@@ -683,7 +683,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.18</span></div>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.19</span></div>
     <div class="tabwrap"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
@@ -721,7 +721,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.18"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.19"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
 /* téléphone : détecté par le type d'appareil (Android/iPhone) ou un petit écran tactile – plus fiable que la seule largeur de la fenêtre */
@@ -1085,7 +1085,7 @@ function blank(type){
   return {type, statut:STATUTS[type][0], dc:"", rac:"", nature:"", client:"", adresse:"", commune:"", cp:"", insee:"",
     eplans:"", gps:"", gps_src:"", gps_for:"", rip_tel:"", bet_retour:"", bet_ok:"", det_retour:"", det_ok:"", rro_lim:"", attente:false, attente_fin:"", tq:{}, regime:"", regime_date:"", icp:"", icp_faite:"", presc_dem:"", presc_ok:"", icp_date:"", prescriptions:"", agglo:"", rip:"", gdo:"",
     livraison:"", ocb:"", date_debut:"", date_fin:"", pmeo:"", pmeo_mode:"",
-    notes:[{t:"",imp:false},{t:"",imp:false},{t:"",imp:false}], contacts:[{nom:"",raison:"",tel:"",mail:""}], planning:[{etape:"",date:""},{etape:"",date:""}], prm:[{bat:"",lot:"",prm:""}],
+    notes:[{t:"",imp:false},{t:"",imp:false},{t:"",imp:false}], contacts:[{nom:"",raison:"",tel:"",mail:""}], planning:[{etape:"",date:""},{etape:"",date:""}], prm:[{voie:"",bat:"",lot:"",prm:""}],
     checks:{}, docs:[], created:today(), updated:today()};
 }
 function norm(c){ c=JSON.parse(JSON.stringify(c||{})); /* les données reçues sont figées : on travaille sur une copie */ const b=blank(c.type||"travaux"); const o={...b,...c};
@@ -1563,8 +1563,8 @@ function pposWhen(c){ const L=[];
   if(c.regime==="PPOS diffusé"&&c.regime_date) L.push(`<span class="when pw ok">PPOS diffusé le ${frDate(c.regime_date)}</span>`);
   return L.join(""); }
 /* Tableau des PRM (bâtiment / lot / n° PRM) sous « Après travaux » */
-function prmHtml(c){ return `<div class="prm-box"><div class="tblwrap"><table class="grid prm"><thead><tr><th>Bâtiment</th><th>N° lot</th><th>Numéro PRM</th><th class="x"><button type="button" class="btn sm ghost prm-mail" data-a="prmmail" title="Préparer le mail « Numéro de PRM » pour le client" aria-label="Préparer le mail Numéro de PRM">✉</button></th></tr></thead><tbody>
-  ${c.prm.map((x,i)=>`<tr><td><input data-p="prm.${i}.bat" value="${esc(x.bat)}" aria-label="Bâtiment ligne ${i+1}"></td><td><input data-p="prm.${i}.lot" value="${esc(x.lot)}" aria-label="N° lot ligne ${i+1}"></td><td><input data-p="prm.${i}.prm" value="${esc(x.prm)}" inputmode="numeric" aria-label="Numéro PRM ligne ${i+1}"></td><td class="x"><button data-a="rowdel" data-l="prm" data-i="${i}" title="Supprimer la ligne" aria-label="Supprimer la ligne">×</button></td></tr>`).join("")}
+function prmHtml(c){ return `<div class="prm-box"><div class="tblwrap"><table class="grid prm"><thead><tr><th>Numéro et voie</th><th>Bâtiment</th><th>N° lot</th><th>Numéro PRM</th><th class="x"><button type="button" class="btn sm ghost prm-mail" data-a="prmmail" title="Préparer le mail « Numéro de PRM » pour le client" aria-label="Préparer le mail Numéro de PRM">✉</button></th></tr></thead><tbody>
+  ${c.prm.map((x,i)=>`<tr><td><input data-p="prm.${i}.voie" value="${esc(x.voie)}" aria-label="Numéro et voie ligne ${i+1}"></td><td><input data-p="prm.${i}.bat" value="${esc(x.bat)}" aria-label="Bâtiment ligne ${i+1}"></td><td><input data-p="prm.${i}.lot" value="${esc(x.lot)}" aria-label="N° lot ligne ${i+1}"></td><td><input data-p="prm.${i}.prm" value="${esc(x.prm)}" inputmode="numeric" aria-label="Numéro PRM ligne ${i+1}"></td><td class="x"><button data-a="rowdel" data-l="prm" data-i="${i}" title="Supprimer la ligne" aria-label="Supprimer la ligne">×</button></td></tr>`).join("")}
   </tbody></table></div><div class="prm-foot"><button class="btn sm addrow" data-a="rowadd" data-l="prm">＋ Ajouter une ligne</button><label class="btn sm addrow prm-imp" title="Importer les PRM depuis un fichier Excel (.xlsx) ou CSV">📂 Importer Excel<input type="file" accept=".xlsx,.csv,.txt" data-prmfile hidden></label><span class="hint prm-drop">ou glisse le fichier Excel sur le tableau</span>${prmMsg?`<span class="msg ${prmMsg[1]}">${esc(prmMsg[0])}</span>`:""}</div></div>`; }
 /* ---------- Signature des mails (lue dans Outlook par le lanceur, sinon collée dans les Réglages, sinon « Mes coordonnées ») ---------- */
 const SIG_URL=(()=>{ try{ return new URLSearchParams(location.search).get("sig")||""; }catch(e){ return ""; } })();
@@ -1615,17 +1615,17 @@ function prmFromRows(rows){
   const first=rows.findIndex(r=>isPrm(r[cp])); let hd=[];
   for(let r=first-1;r>=0&&r>=first-10;r--){ if(rows[r].filter(x=>String(x||"").trim()).length>=2){ hd=rows[r].map(nr); break; } }
   const find=re=>hd.map((h,k)=>re.test(h)?k:-1).filter(k=>k>=0&&k!==cp);
-  const cBat=find(/batiment|^bat\b|^bat\./), cLot=[...find(/\blot\b/),...find(/appartement|logement|^logt|^appt/)];
+  const cVoie=find(/num(ero)? et voie|^voie\b|^adresse$/), cBat=find(/batiment|^bat\b|^bat\./), cLot=[...find(/\blot\b/),...find(/appartement|logement|^logt|^appt/)];
   const pick=(r,cs)=>{ for(const k of cs){ const v=String(r[k]??"").trim(); if(v) return v; } return ""; };
-  return rows.slice(first).filter(r=>isPrm(r[cp])).map(r=>({bat:pick(r,cBat),lot:pick(r,cLot),prm:digits(r[cp])})); }
+  return rows.slice(first).filter(r=>isPrm(r[cp])).map(r=>({voie:pick(r,cVoie),bat:pick(r,cBat),lot:pick(r,cLot),prm:digits(r[cp])})); }
 async function importPrmFile(file){
   const c=chantiers.get(currentId); if(!c||!file) return;
   try{
     if(/\.xls$/i.test(file.name)){ prmMsg=["Ancien format .xls non lu : dans Excel, fais Fichier > Enregistrer sous > .xlsx, puis réessaie.","err"]; renderMain(); prmMsg=null; return; }
     const rows=/\.(csv|txt)$/i.test(file.name)?readCsvRows(await file.text()):await readXlsxRows(await file.arrayBuffer());
     const got=prmFromRows(rows); if(!got.length){ prmMsg=["Aucun numéro PRM trouvé dans « "+file.name+" » (colonne « PRM » ou numéros à 14 chiffres).","err"]; renderMain(); prmMsg=null; return; }
-    const keep=(c.prm||[]).filter(x=>x.bat||x.lot||x.prm), seen=new Set(keep.map(x=>String(x.prm).replace(/\s/g,"")));
-    const add=got.filter(x=>!seen.has(x.prm)&&seen.add(x.prm)); c.prm=[...keep,...add]; if(!c.prm.length) c.prm.push({bat:"",lot:"",prm:""});
+    const keep=(c.prm||[]).filter(x=>x.voie||x.bat||x.lot||x.prm), seen=new Set(keep.map(x=>String(x.prm).replace(/\s/g,"")));
+    const add=got.filter(x=>!seen.has(x.prm)&&seen.add(x.prm)); c.prm=[...keep,...add]; if(!c.prm.length) c.prm.push({voie:"",bat:"",lot:"",prm:""});
     prmMsg=[`${add.length} PRM importé(s) depuis « ${file.name} »${got.length>add.length?` (${got.length-add.length} déjà présent(s))`:""}.`,"ok"];
     scheduleSave(currentId,100); renderMain(); prmMsg=null;
   }catch(e){ prmMsg=["Fichier non lu : enregistre-le en .xlsx ou .csv et réessaie.","err"]; renderMain(); prmMsg=null; } }
@@ -1716,23 +1716,24 @@ const mainClick=e=>{
   else if(a==="notedel"){ c.notes.splice(i,1); if(!c.notes.length) c.notes.push({t:"",imp:false}); }
   else if(a==="noteimp"){ c.notes[i].imp=!c.notes[i].imp; }
   else if(a==="notetask"){ const n=c.notes[i]; if(n.task){ delete n.task; delete n.due; delete n.done; } else { n.task=true; n.due=n.due||""; n.done=false; } }
-  else if(a==="rowadd"){ const l=b.dataset.l; c[l].push(l==="contacts"?{nom:"",raison:"",tel:"",mail:""}:l==="prm"?{bat:"",lot:"",prm:""}:{etape:"",date:""}); }
-  else if(a==="rowdel"){ c[b.dataset.l].splice(i,1); if(b.dataset.l==="prm"&&!c.prm.length) c.prm.push({bat:"",lot:"",prm:""}); }
+  else if(a==="rowadd"){ const l=b.dataset.l; c[l].push(l==="contacts"?{nom:"",raison:"",tel:"",mail:""}:l==="prm"?{voie:"",bat:"",lot:"",prm:""}:{etape:"",date:""}); }
+  else if(a==="rowdel"){ c[b.dataset.l].splice(i,1); if(b.dataset.l==="prm"&&!c.prm.length) c.prm.push({voie:"",bat:"",lot:"",prm:""}); }
   else if(a==="move"){ c.type = c.type==="etudes"?"travaux":"etudes"; c.statut=STATUTS[c.type][0]; tab=c.type; placeLast(currentId); remember(currentId); scheduleSave(currentId,100); renderList(); renderMain(); askTQ(currentId); return; }
   else if(a==="pmeo"){ c.pmeo_mode = c.pmeo_mode===b.dataset.v ? "" : b.dataset.v; }
   else if(a==="prmmail"){ const MK="\u0001PRM\u0001", MP="\u0001PLAN\u0001"; const pl=planLines(c); const mk=b.dataset.k||"prm", dates=mk!=="prm"&&mk!=="prmcond"; // dates : même mail, sans les PRM ; devis : envoi du devis (RIB joint)
     const dl=pl.length?null:(c.date_debut||c.date_fin)?"- du "+(frDate(c.date_debut)||"…")+" au "+(frDate(c.date_fin)||"…"):"-";
     const tk="tpl_mail_"+mk; const lines=fillTemplate(settings[tk]||DEFAULT_SETTINGS[tk], c, {prm:MK,planning:MP}).split("\n").map(l=>/^\s*[-*•]?\s*du …\s*au …\s*$/.test(l)?"-":l);
     let subject=(mk==="devis"?"ENEDIS // Proposition de raccordement ":"ENEDIS // dates travaux "+(dates?"":"et PRM "))+"affaire "+[c.dc,c.rac,c.nature].filter(Boolean).join(" - "); if(/^objet\s*:/i.test(lines[0]||"")){ subject=lines.shift().replace(/^objet\s*:\s*/i,"").trim(); while(lines.length&&!lines[0].trim()) lines.shift(); }
-    const rows=dates?[]:(c.prm||[]).map(x=>[x.bat,x.lot,x.prm].map(v=>String(v||"").trim())).filter(r=>r.some(Boolean)); // exactement le tableau des PRM d'ING (lignes vides ignorées)
+    const withV=(c.prm||[]).some(x=>String(x.voie||"").trim()), HD=[...(withV?["Numéro et voie"]:[]),"Bâtiment","N° lot","Numéro PRM"];
+    const rows=dates?[]:(c.prm||[]).map(x=>[...(withV?[x.voie]:[]),x.bat,x.lot,x.prm].map(v=>String(v||"").trim())).filter(r=>r.some(Boolean)); // exactement le tableau des PRM d'ING (lignes vides ignorées)
     const tdS='style="border:1px solid #9aa0a6;padding:4px 14px;text-align:center"';
-    const table=rows.length?`<table style="border-collapse:collapse;font:inherit"><tr>${["Bâtiment","N° lot","Numéro PRM"].map(h=>`<th ${tdS.replace('"border','"background:#e9ece6;border')}>${h}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(v=>`<td ${tdS}>${esc(v)}</td>`).join("")}</tr>`).join("")}</table>`:"…"; const many=rows.length>10; // plus de 10 PRM : seulement le fichier Excel joint
-    let text=lines.join("\n").replace(MP, dl??pl.map(([e,d])=>"- "+e+(d?" : "+d:"")).join("\n")).replace(MK, many?"détail en pièce jointe":rows.length?rows.map(r=>"* "+[r[0]&&"Bâtiment "+r[0],r[1]&&"Lot "+r[1],r[2]&&"PRM "+r[2]].filter(Boolean).join(" – ")).join("\n"):"…").replace(/\*{2,3}(.+?)\*{2,3}/g,"$1").replace(/__(.+?)__/g,"$1").replace(/^## /gm,"").replace(/^>> /gm,"      ").replace(/^\[logo\] ?/gm,"");
+    const table=rows.length?`<table style="border-collapse:collapse;font:inherit"><tr>${HD.map(h=>`<th ${tdS.replace('"border','"background:#e9ece6;border')}>${h}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(v=>`<td ${tdS}>${esc(v)}</td>`).join("")}</tr>`).join("")}</table>`:"…"; const many=rows.length>10; // plus de 10 PRM : seulement le fichier Excel joint
+    let text=lines.join("\n").replace(MP, dl??pl.map(([e,d])=>"- "+e+(d?" : "+d:"")).join("\n")).replace(MK, many?"détail en pièce jointe":rows.length?rows.map(r=>{ const [v,bt,lt,pm]=withV?r:["",...r]; return "* "+[v,bt&&"Bâtiment "+bt,lt&&"Lot "+lt,pm&&"PRM "+pm].filter(Boolean).join(" – "); }).join("\n"):"…").replace(/\*{2,3}(.+?)\*{2,3}/g,"$1").replace(/__(.+?)__/g,"$1").replace(/^## /gm,"").replace(/^>> /gm,"      ").replace(/^\[logo\] ?/gm,"");
     let html=`<div style="font-family:Calibri,Arial,sans-serif;font-size:11pt">${lines.flatMap(l=>l.includes(MP)?(dl!=null?[dl]:pl.map(([e,d])=>"\u0002"+esc("- "+e)+(d?" : <b>"+esc(d)+"</b>":""))):[l]).map(l=>l.startsWith("\u0002")?l.slice(1):l.includes(MK)?esc(l).split(esc(MK)).join(many?"<i>détail en pièce jointe</i>":table):mailFmt(l)||"&nbsp;").map(l=>l.startsWith("<table")?l:l.startsWith("\u0003LI")?`<ul style="margin:0 0 0 22pt;padding:0"><li>${l.slice(3)}</li></ul>`:l.startsWith("\u0003IN")?`<div style="margin-left:70pt">${l.slice(3)}</div>`:l.startsWith("\u0003CK")?`<div style="margin-left:36pt;text-indent:-16pt"><span style="color:#1F3864">✓</span>&nbsp;&nbsp;&nbsp;${l.slice(3)}</div>`:`<div>${l}</div>`).join("").replace(/<\/ul><ul[^>]*>/g,"")}</div>`;
     const sg=mailSig(); if(sg.text){ text+="\n\n"+sg.text; html=html.replace(/<\/div>$/,"<div>&nbsp;</div><div>"+sg.html+"</div></div>"); }
     if(!downloads){ location.href=`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text.replace(/\n/g,"\r\n"))}`; return; }
     const name=`${{dates:"Mail dates travaux",devis:"Mail devis",prm:"Mail PRM",prmcond:"Mail PRM et conditions travaux"}[mk]} - ${(c.rac||c.dc||"affaire").replace(/[\\/:*?"<>|]/g,"-")}.eml`;
-    (async()=>{ const att={}; if(rows.length){ const ab=new Uint8Array(await makeXlsx([["Bâtiment","N° lot","Numéro PRM"],...rows],[16,16,20]).arrayBuffer()); let bin=""; for(let i=0;i<ab.length;i+=0x8000) bin+=String.fromCharCode.apply(null,ab.subarray(i,i+0x8000));
+    (async()=>{ const att={}; if(rows.length){ const ab=new Uint8Array(await makeXlsx([HD,...rows],withV?[30,16,16,20]:[16,16,20]).arrayBuffer()); let bin=""; for(let i=0;i<ab.length;i+=0x8000) bin+=String.fromCharCode.apply(null,ab.subarray(i,i+0x8000));
       Object.assign(att,{attachName:`PRM - ${(c.rac||c.dc||"affaire").replace(/[\\/:*?"<>|]/g,"-")}.xlsx`,attachB64:btoa(bin),attachType:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}); }
       if(html.includes("cid:logo-enedis")) att.inline=[{cid:"logo-enedis",b64:LOGO_ENEDIS_B64,type:"image/jpeg",name:"logo-enedis.jpg"}];
       if(mk==="devis") Object.assign(att,{attachName:"RIB ENEDIS.pdf",attachB64:RIB_ENEDIS_B64,attachType:"application/pdf"});
@@ -2100,7 +2101,7 @@ function fillTemplate(tpl, c, extra){
     date_debut:frDate(extra.date_debut||c.date_debut), date_fin:frDate(extra.date_fin||c.date_fin),
     date_icp: icpD ? new Date(icpD).toLocaleString("fr-FR",{dateStyle:"full",timeStyle:"short"}) : "",
     destinataire:extra.destinataire||"", destinataire_contact:extra.destinataire_contact||"",
-    interlocuteurs:ints, planning:extra.planning??planLines(c).map(([e,d])=>"- "+e+(d?" : "+d:"")).join("\n"), prm:extra.prm??(c.prm||[]).filter(x=>String(x.prm||"").trim()).map(x=>"* "+[x.bat&&"Bâtiment "+String(x.bat).trim(),x.lot&&"Lot "+String(x.lot).trim(),"PRM "+String(x.prm).trim()].filter(Boolean).join(" – ")).join("\n"), date_jour:longToday()};
+    interlocuteurs:ints, planning:extra.planning??planLines(c).map(([e,d])=>"- "+e+(d?" : "+d:"")).join("\n"), prm:extra.prm??(c.prm||[]).filter(x=>String(x.prm||"").trim()).map(x=>"* "+[String(x.voie||"").trim(),x.bat&&"Bâtiment "+String(x.bat).trim(),x.lot&&"Lot "+String(x.lot).trim(),"PRM "+String(x.prm).trim()].filter(Boolean).join(" – ")).join("\n"), date_jour:longToday()};
   return tpl.replace(/\{\{\s*(\w+)\s*\}\}/g,(m,k)=>{ const x=v[k]; return (x==null||x==="")?"…":String(x); });
 }
 
@@ -3500,7 +3501,7 @@ function phDetail(c){
   const kv=[["Statut",c.statut],["Début travaux",frDate(c.date_debut)],["Fin travaux",frDate(c.date_fin)],["Régime",c.regime==="PPOS diffusé"?"PPOS diffusé"+(c.regime_date?" le "+frDate(c.regime_date):""):c.regime],
     ["PMEO",c.pmeo_mode==="sans"?"Sans PMEO"+(c.pmeo?" le "+frDate(c.pmeo):""):c.pmeo_mode==="le"?"le "+frDate(c.pmeo):c.pmeo_mode==="faite"?"faite le "+frDate(c.pmeo):""],["Client",c.client],["Code GDO poste",c.gdo]].filter(x=>x[1]);
   const notes=(c.notes||[]).filter(n=>n.t&&n.t.trim()).sort((x,y)=>(y.imp?1:0)-(x.imp?1:0));
-  const prm=(c.prm||[]).filter(p=>p.bat||p.lot||p.prm);
+  const prm=(c.prm||[]).filter(p=>p.voie||p.bat||p.lot||p.prm), pv=prm.some(p=>p.voie);
   return `<header class="ph-top ph-dt"><button class="ph-back" data-ph="back">‹ Affaires</button>
     <h1>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"Affaire")}</h1><p class="ph-nat">${esc(c.nature||"")}</p>
     ${a?`<a class="ph-addr" href="${esc(maps)}" target="_blank" rel="noopener">📍 ${esc(a)}</a><div class="ph-nav"><a class="ph-act waze" href="${esc(wazeUrl(c,a))}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_WAZE}" alt=""> Waze</a><a class="ph-act gmaps" href="${esc(maps)}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_MAPS}" alt=""> Maps</a><button class="ph-act ph-cpa" data-ph="copy" data-v="${esc(a)}">📋 Copier</button></div>`:""}<div class="ph-chips">${stateChips(c,true)}</div></header>
@@ -3510,7 +3511,7 @@ function phDetail(c){
     <section><h2>Planning</h2>${pl.length?`<table class="ph-tbl"><tbody>${pl.map(p=>`<tr><td>${esc(p.etape)}</td><td>${esc(/^\d{4}-\d{2}-\d{2}$/.test(p.date||"")?frDate(p.date):p.date)}</td></tr>`).join("")}</tbody></table>`:`<p class="ph-empty">Planning vide.</p>`}</section>
     ${kv.length?`<section><h2>Infos</h2><dl class="ph-kv">${kv.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></section>`:""}
     ${notes.length?`<section><h2>Notes</h2>${notes.map(n=>`<p class="ph-note${n.imp?" imp":""}${n.task&&n.done?" tdone":""}">${n.task?`<span class="ph-task">⏰ ${n.done?"faite":isoD(n.due)?"pour le "+frDate(n.due)+" · "+taskWhen(taskJ(n)):"date ?"}</span>`:""}${esc(n.t)}</p>`).join("")}</section>`:""}
-    ${prm.length?`<section><h2>PRM</h2><table class="ph-tbl"><thead><tr><th>Bâtiment</th><th>Lot</th><th>N° PRM</th></tr></thead><tbody>${prm.map(p=>`<tr><td>${esc(p.bat)}</td><td>${esc(p.lot)}</td><td>${esc(p.prm)}</td></tr>`).join("")}</tbody></table></section>`:""}
+    ${prm.length?`<section><h2>PRM</h2><table class="ph-tbl"><thead><tr>${pv?"<th>Adresse</th>":""}<th>Bâtiment</th><th>Lot</th><th>N° PRM</th></tr></thead><tbody>${prm.map(p=>`<tr>${pv?`<td>${esc(p.voie)}</td>`:""}<td>${esc(p.bat)}</td><td>${esc(p.lot)}</td><td>${esc(p.prm)}</td></tr>`).join("")}</tbody></table></section>`:""}
     </main>`;
 }
 function phClick(e){

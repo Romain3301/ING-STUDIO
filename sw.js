@@ -1,5 +1,5 @@
 // ING STUDIO – fonctionnement hors connexion : la page et ses icônes sont gardées sur le téléphone
-const C="ing-studio-v"+"202611030935";
+const C="ing-studio-v"+"202611030955";
 const F=["./","index.html","manifest.webmanifest","icon-180.png","icon-192.png","icon-512.png"];
 self.addEventListener("install",e=>{ self.skipWaiting(); e.waitUntil(caches.open(C).then(c=>c.addAll(F))); });
 self.addEventListener("activate",e=>{ e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())); });
