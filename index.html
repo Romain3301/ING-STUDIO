@@ -337,6 +337,13 @@ textarea.autog.gdo-ta{flex:1;min-width:0;font-size:12.5px;line-height:1.3;paddin
 .rip-v input{border:0;background:transparent;width:100%;min-width:0;padding:3px 8px}
 .rip-v .rip-n{font-weight:600;padding-bottom:0}
 .rip-v .rip-t{font-size:12.5px;color:var(--muted,#555);padding-top:0}
+/* RIP : 2e numéro (pro / perso) sur 3 lignes compactes, mentions affichées seulement s'il y a 2 numéros (v2.20) */
+.rip-v .rip-n{font-size:12.5px;padding:1px 8px 0;line-height:1.2}
+.rip-tl{display:flex;align-items:baseline;min-width:0;margin:0}
+.rip-v .rip-tl .rip-t{font-size:11.5px;padding:0 8px;line-height:1.2}
+.rip-v .rip-l,.tel2c .rip-l,.rip-l{display:none;font-size:10px;color:var(--faint);padding:0 0 0 8px;margin:0;border:0;background:transparent;flex:none;width:auto;min-width:22px;max-width:64px;field-sizing:content;box-sizing:border-box;line-height:1.2;text-overflow:ellipsis;padding-right:4px}.rip-l:focus{color:var(--fg);outline:1px dotted var(--line-strong)}
+.rip-cell.two .rip-l{display:inline-block}.rip-cell.two .rip-tl .rip-t{padding-left:0}
+.rip-v .rip-t2::placeholder{font-size:10.5px;opacity:.55}
 .rip-b{align-self:center;margin-right:4px;padding:2px 6px}
 .lbl-gr{background:#46d14a;color:#10220f;padding:0 3px}
 table.grid th{background:var(--sunk);font-size:12px;font-weight:700;padding:6px 8px;text-align:left}
@@ -366,6 +373,9 @@ table.grid.prm{min-width:0}
 table.grid.ctb{table-layout:fixed}
 table.grid.ctb td input{text-overflow:ellipsis}
 table.grid.ctb td:nth-child(3) input{padding:6px 6px}
+/* interlocuteurs : 2e numéro (pro / perso), comme le RIP (v2.21) */
+table.grid.ctb td .tel2c input{padding:0 6px;font-size:11.5px;line-height:15px;height:15px;box-sizing:content-box}table.grid.ctb td .tel2c .t2{font-size:11px}table.grid.ctb .tel2c .t2::placeholder{font-size:10.5px;opacity:.55}
+.tel2c{display:flex;flex-direction:column;justify-content:center;padding:1px 0}table.grid.ctb td .tel2c .rip-l{padding:0 3px 0 6px;font-size:9.5px}.tel2c.two .rip-l{display:inline-block}table.grid.ctb td .tel2c.two input:not(.rip-l){padding-left:0}
 .mailc{display:flex;align-items:center}
 .mailc textarea.wrapt{flex:1}
 table.grid.ctb textarea.wrapt{display:block;width:100%;box-sizing:border-box;min-width:0;border:0;background:transparent;padding:6px 8px;resize:none;overflow:hidden;overflow-wrap:anywhere;font:inherit;line-height:1.35;min-height:0}
@@ -683,7 +693,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.19</span></div>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.21</span></div>
     <div class="tabwrap"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
@@ -721,7 +731,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.19"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.21"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
 /* téléphone : détecté par le type d'appareil (Android/iPhone) ou un petit écran tactile – plus fiable que la seule largeur de la fenêtre */
@@ -1083,7 +1093,7 @@ const longToday = ()=>new Date().toLocaleDateString("fr-FR",{day:"numeric",month
 
 function blank(type){
   return {type, statut:STATUTS[type][0], dc:"", rac:"", nature:"", client:"", adresse:"", commune:"", cp:"", insee:"",
-    eplans:"", gps:"", gps_src:"", gps_for:"", rip_tel:"", bet_retour:"", bet_ok:"", det_retour:"", det_ok:"", rro_lim:"", attente:false, attente_fin:"", tq:{}, regime:"", regime_date:"", icp:"", icp_faite:"", presc_dem:"", presc_ok:"", icp_date:"", prescriptions:"", agglo:"", rip:"", gdo:"",
+    eplans:"", gps:"", gps_src:"", gps_for:"", rip_tel:"", rip_tel2:"", bet_retour:"", bet_ok:"", det_retour:"", det_ok:"", rro_lim:"", attente:false, attente_fin:"", tq:{}, regime:"", regime_date:"", icp:"", icp_faite:"", presc_dem:"", presc_ok:"", icp_date:"", prescriptions:"", agglo:"", rip:"", gdo:"",
     livraison:"", ocb:"", date_debut:"", date_fin:"", pmeo:"", pmeo_mode:"",
     notes:[{t:"",imp:false},{t:"",imp:false},{t:"",imp:false}], contacts:[{nom:"",raison:"",tel:"",mail:""}], planning:[{etape:"",date:""},{etape:"",date:""}], prm:[{voie:"",bat:"",lot:"",prm:""}],
     checks:{}, docs:[], created:today(), updated:today()};
@@ -1451,7 +1461,7 @@ function renderMain(){ if(PHONE) return;
 /* tableau des PRM : la police se réduit dans une case tant que le texte ne rentre pas en entier */
 function fitIn(el){ el.style.fontSize=""; let f=parseFloat(getComputedStyle(el).fontSize)||13; while(el.scrollWidth>el.clientWidth+1&&f>9.5){ f-=0.5; el.style.fontSize=f+"px"; } }
 function fitPrmAll(){ document.querySelectorAll("#main table.grid.prm td input").forEach(fitIn); }
-document.addEventListener("input",e=>{ if(e.target.matches?.("table.grid.prm td input")) fitIn(e.target); });
+document.addEventListener("input",e=>{ if(e.target.matches?.("table.grid.prm td input")) fitIn(e.target); if(e.target.id==="f_rip_tel2") e.target.closest(".rip-cell")?.classList.toggle("two",!!e.target.value.trim()); if(e.target.classList?.contains("t2")) e.target.closest(".tel2c")?.classList.toggle("two",!!e.target.value.trim()); });
 window.addEventListener("resize",()=>{ clearTimeout(fitPrmAll._t); fitPrmAll._t=setTimeout(fitPrmAll,150); });
 /* prescriptions « non » ou « retour ok » → étape « Demander les prescriptions » cochée automatiquement */
 const prescFaite=c=>c.prescriptions==="non"||c.prescriptions==="retour ok";
@@ -1510,7 +1520,7 @@ function renderMain0(){
          <tr><td>OCB</td><td>${inp("ocb",c.ocb)}</td></tr>
        </tbody></table>
        <table class="kv"><tbody>
-         <tr><td><span class="lbl-gr">RIP</span></td><td><div class="rip-cell"><div class="rip-v"><input id="f_rip" data-p="rip" class="rip-n" value="${esc(c.rip)}" placeholder="Nom Prénom" aria-label="RIP : nom prénom"><input id="f_rip_tel" data-p="rip_tel" class="rip-t" value="${esc(c.rip_tel)}" placeholder="Téléphone" aria-label="RIP : téléphone"></div><button class="btn sm ghost rip-b" data-a="annurip" title="Annuaire des RIP" aria-label="Annuaire des RIP">📇</button></div></td></tr>
+         <tr><td><span class="lbl-gr">RIP</span></td><td><div class="rip-cell${String(c.rip_tel2||"").trim()?" two":""}"><div class="rip-v"><input id="f_rip" data-p="rip" class="rip-n" value="${esc(c.rip)}" placeholder="Nom Prénom" aria-label="RIP : nom prénom"><div class="rip-tl"><input class="rip-l" data-p="rip_l1" value="${esc(c.rip_l1||"pro")}" placeholder="pro" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_rip_tel" data-p="rip_tel" class="rip-t" value="${esc(c.rip_tel)}" placeholder="Téléphone" aria-label="RIP : téléphone"></div><div class="rip-tl"><input class="rip-l" data-p="rip_l2" value="${esc(c.rip_l2||"perso")}" placeholder="perso" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_rip_tel2" data-p="rip_tel2" class="rip-t rip-t2" value="${esc(c.rip_tel2)}" placeholder="+ 2e numéro" aria-label="RIP : 2e téléphone"></div></div><button class="btn sm ghost rip-b" data-a="annurip" title="Annuaire des RIP" aria-label="Annuaire des RIP">📇</button></div></td></tr>
          <tr><td><span class="lbl-cy">Code GDO Poste</span></td><td><div class="gdo-cell"><textarea class="autog gdo-ta" rows="1" id="f_gdo" data-p="gdo" aria-label="Code GDO poste" spellcheck="false">${esc(c.gdo)}</textarea><button type="button" class="btn sm ghost gdo-b" data-a="gdocopy" title="Copier le code GDO poste" aria-label="Copier le code GDO poste">📋</button></div></td></tr>
          
          <tr><td>Début travaux</td><td>${inp("date_debut",c.date_debut,"","date")}</td></tr>
@@ -1532,7 +1542,7 @@ function renderMain0(){
      <div style="min-width:0">
        <h3 class="sec">Interlocuteurs</h3>
        <div class="tblwrap"><table class="grid ctb"><colgroup><col style="width:21%"><col style="width:18%"><col style="width:126px"><col><col style="width:52px"></colgroup><thead><tr><th><span>Nom de l'interlocuteur</span></th><th><span>Entreprise</span></th><th><span>Téléphone</span></th><th><span>Mail</span></th><th></th></tr></thead><tbody>
-       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td>${inp(`contacts.${i}.tel`,x.tel,"","tel")}</td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
+       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td><div class="tel2c${String(x.tel2||"").trim()?" two":""}"><div class="rip-tl"><input class="rip-l" data-p="contacts.${i}.l1" value="${esc(x.l1||"pro")}" placeholder="pro" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro">${inp(`contacts.${i}.tel`,x.tel,"","tel")}</div><div class="rip-tl"><input class="rip-l" data-p="contacts.${i}.l2" value="${esc(x.l2||"perso")}" placeholder="perso" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_contacts.${i}.tel2" data-p="contacts.${i}.tel2" type="tel" class="t2" value="${esc(x.tel2)}" placeholder="+ 2e numéro" aria-label="2e téléphone"></div></div></td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
        </tbody></table></div>
        <div class="head-row addrow"><button class="btn sm primary" data-a="annu">🔍 Rechercher dans l'annuaire</button><button class="btn sm" data-a="rowadd" data-l="contacts">＋ Ajouter une ligne vide</button></div>
      </div>
@@ -2034,7 +2044,7 @@ function openAnnuaire(){
       ANNU.splice(+d.dataset.del,1); draw(); msg.textContent=`${x.n} (${x.e}) supprimé de l'annuaire.`; msg.className="msg"; await saveAnnu(); return; }
     const b=e.target.closest("[data-ai]"); if(!b) return; const x=ANNU[+b.dataset.ai]; if(!x) return;
     const row={nom:x.n, raison:x.e, tel:x.p||x.t, mail:x.m};
-    const empty=c.contacts.findIndex(r=>!r.nom&&!r.raison&&!r.tel&&!r.mail);
+    const empty=c.contacts.findIndex(r=>!r.nom&&!r.raison&&!r.tel&&!r.tel2&&!r.mail);
     if(empty>=0) c.contacts[empty]=row; else c.contacts.push(row);
     scheduleSave(currentId,100); renderMain();
     pushRecent(x); b.textContent="Ajouté ✓"; b.disabled=true; msg.textContent=`${x.n} (${x.e}) ajouté aux interlocuteurs.`; msg.className="msg ok"; });
@@ -2075,7 +2085,7 @@ function openAnnuRip(){
       if(!d.classList.contains("confirm")){ d.classList.add("confirm"); d.textContent="Supprimer ?"; setTimeout(()=>{ if(d.isConnected){ d.classList.remove("confirm"); d.textContent="🗑"; } },3000); return; }
       ANNU_RIP.splice(+d.dataset.del,1); msg.textContent=`${x.n} supprimé de l'annuaire des RIP.`; msg.className="msg"; draw(); await save(); return; }
     const b=e.target.closest("[data-pick]"); if(!b) return; const x=ANNU_RIP[+b.dataset.pick]; if(!x) return;
-    c.rip=x.n; c.rip_tel=x.p||""; scheduleSave(currentId,100); closeModal(); renderMain();
+    c.rip=x.n; c.rip_tel=x.p||""; c.rip_tel2=""; scheduleSave(currentId,100); closeModal(); renderMain();
   });
   m.querySelector("[data-x]").onclick=closeModal; m.querySelector("[data-x2]").onclick=closeModal;
 }
@@ -2094,7 +2104,7 @@ function confirmDelete(){
 /* lignes du planning pour les mails : [étape, date] (étape avec majuscule, date ISO → jj/mm/aaaa) */
 function planLines(c){ return (c.planning||[]).map(x=>[String(x.etape||"").trim(),String(x.date||"").trim()]).filter(([e,d])=>e||d).map(([e,d])=>[e?e[0].toUpperCase()+e.slice(1):"",/^\d{4}-\d{2}-\d{2}$/.test(d)?frDate(d):d]); }
 function fillTemplate(tpl, c, extra){
-  const ints=(c.contacts||[]).filter(x=>x.nom||x.raison).map(x=>`- ${[x.nom,x.raison].filter(Boolean).join(" – ")}${x.tel?" – "+x.tel:""}${x.mail?" – "+x.mail:""}`).join("\n");
+  const ints=(c.contacts||[]).filter(x=>x.nom||x.raison).map(x=>`- ${[x.nom,x.raison].filter(Boolean).join(" – ")}${x.tel?" – "+(x.tel2?(x.l1||"pro")+" "+x.tel:x.tel):""}${x.tel2?" / "+(x.l2||"perso")+" "+x.tel2:""}${x.mail?" – "+x.mail:""}`).join("\n");
   const icpD = extra.date_icp || c.icp_date;
   tpl=tpl.replace(/\{\{adresse\}\},? \{\{commune\}\}/g,"{{adresse}}");
   const v={...settings, ...c, adresse:fullAddr(c),
@@ -2602,7 +2612,7 @@ function mergeImport(map,payload,todayStr){
       const RW=r._raw||{};
       if(RW.nature && c.nature===RW.nature) c.nature=r.nature;
       if(RW.adresse && c.adresse===RW.adresse && r.adresse){ c.adresse=r.adresse; for(const f of ["cp","commune","insee"]) if(r[f]) c[f]=r[f]; }
-      (RW.contacts||[]).forEach((rc,i)=>{ const f=(r.contacts||[])[i]; if(!f) return; const j=c.contacts.findIndex(x=>x.nom===rc.nom&&(x.tel||"")===(rc.tel||"")&&(x.raison||"")===(rc.raison||"")&&(x.mail||"")===(rc.mail||"")); if(j>=0) c.contacts[j]={nom:f.nom||"",raison:f.raison||"",tel:f.tel||"",mail:f.mail||""}; });
+      (RW.contacts||[]).forEach((rc,i)=>{ const f=(r.contacts||[])[i]; if(!f) return; const j=c.contacts.findIndex(x=>x.nom===rc.nom&&(x.tel||"")===(rc.tel||"")&&(x.raison||"")===(rc.raison||"")&&(x.mail||"")===(rc.mail||"")); if(j>=0) c.contacts[j]={...c.contacts[j],nom:f.nom||"",raison:f.raison||"",tel:f.tel||"",mail:f.mail||""}; });
       for(const f of F){ if(empty(c[f]) && !empty(r[f])) c[f]=r[f]; }
       if(r.nature && c.nature && nrm(r.nature)!==nrm(c.nature) && nrm(r.nature).includes(nrm(c.nature))) c.nature=r.nature;
       if(c.client && nrm(c.nature).includes(nrm(c.client))) c.client="";
@@ -2618,7 +2628,7 @@ function mergeImport(map,payload,todayStr){
       const k=nameKey(rc.nom); const m=k && c.contacts.find(x=>nameKey(x.nom)===k);
       if(m){ for(const f of ["raison","tel","mail"]) if(empty(m[f]) && rc[f]) m[f]=rc[f]; }
       else if(!c.contacts.some(x=>(rc.mail&&x.mail&&x.mail.toLowerCase()===rc.mail.toLowerCase()))){
-        c.contacts=c.contacts.filter(x=>x.nom||x.raison||x.tel||x.mail); c.contacts.push({nom:rc.nom||"",raison:rc.raison||"",tel:rc.tel||"",mail:rc.mail||""});
+        c.contacts=c.contacts.filter(x=>x.nom||x.raison||x.tel||x.tel2||x.mail); c.contacts.push({nom:rc.nom||"",raison:rc.raison||"",tel:rc.tel||"",mail:rc.mail||""});
       }
     }
     if((r.planning||[]).length && !c.planning.some(p=>p.etape||p.date)) c.planning=r.planning.map(p=>({etape:p.etape||"",date:p.date||""}));
@@ -3441,7 +3451,7 @@ function wazeUrl(c,a){ const g=parseGps(c.gps); return a?`https://waze.com/ul?q=
 /* recherche par numéro de téléphone : on compare seulement les chiffres (06.12…, 06 12…, +33 6 12… → 0612…) */
 function telKey(t){ let d=String(t||"").replace(/\D/g,""); if(/^0033\d{9}$/.test(d)) d="0"+d.slice(4); else if(/^33\d{9}$/.test(d)) d="0"+d.slice(2); return d; }
 function telQuery(q){ q=String(q||"").trim(); return /^\+?[\d\s.\-()\/]+$/.test(q)&&q.replace(/\D/g,"").length>=4?telKey(q):""; }
-function telHit(c,k){ return !!k&&[...(c.contacts||[]).map(x=>x.tel),c.rip_tel,c.tel].some(t=>t&&telKey(t).includes(k)); }
+function telHit(c,k){ return !!k&&[...(c.contacts||[]).flatMap(x=>[x.tel,x.tel2]),c.rip_tel,c.rip_tel2,c.tel].some(t=>t&&telKey(t).includes(k)); }
 function phTel(t){ return String(t||"").replace(/[^\d+]/g,""); }
 function phLoadFile(f){ const r=new FileReader(); r.onload=()=>{ let d=null; try{ d=JSON.parse(r.result); }catch{}
     if(!d||typeof d.chantiers!=="object"){ alert("Ce fichier n'est pas une sauvegarde ING STUDIO (ING-STUDIO-sauvegarde.json)."); return; }
@@ -3477,7 +3487,7 @@ function phHome(){
 function phList(only){
   const el=document.getElementById("ph_list"); if(!el) return;
   const q=nrm(PH.q.trim()), tq=telQuery(PH.q), all=[...PHMAP.entries()];
-  const hit=c=>!q||telHit(c,tq)||nrm([c.dc,c.rac,c.nature,c.client,c.adresse,c.commune,c.rip,c.rip_tel,...(c.contacts||[]).map(x=>[x.nom,x.raison,x.tel,x.mail].join(" "))].join(" ")).includes(q);
+  const hit=c=>!q||telHit(c,tq)||nrm([c.dc,c.rac,c.nature,c.client,c.adresse,c.commune,c.rip,c.rip_tel,c.rip_tel2,...(c.contacts||[]).map(x=>[x.nom,x.raison,x.tel,x.tel2,x.mail].join(" "))].join(" ")).includes(q);
   const ord=(a,b)=>((a[1].ordre??1e9)-(b[1].ordre??1e9))||(a[1].dc||a[1].rac||"zz").localeCompare(b[1].dc||b[1].rac||"zz");
   let html="";
   for(const t of (q?["travaux","etudes"]:[PH.tab])) for(const st of STATUTS[t]){
@@ -3494,9 +3504,10 @@ function phList(only){
 }
 function phDetail(c){
   const a=fullAddr(c), maps=a?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a)}`:"";
-  const cs=(c.contacts||[]).filter(x=>x.nom||x.raison||x.tel||x.mail);
-  const card=(nom,sub,tel,mail)=>`<div class="ph-card"><div class="ph-cn"><b>${esc(nom||"—")}</b>${sub?`<span>${esc(sub)}</span>`:""}</div>
-    ${tel?`<div class="ph-telrow"><a class="ph-act tel" href="tel:${esc(phTel(tel))}" target="_blank" rel="noopener" data-tel="${esc(phTel(tel))}">📞 ${esc(tel)}</a><button class="ph-copy" data-ph="copy" data-v="${esc(tel)}">Copier</button></div>`:""}${mail?`<a class="ph-act mail" href="mailto:${esc(mail)}" target="_blank" rel="noopener">✉ ${esc(mail)}</a>`:""}</div>`;
+  const cs=(c.contacts||[]).filter(x=>x.nom||x.raison||x.tel||x.tel2||x.mail);
+  const telRow=(tel,lab)=>tel?`<div class="ph-telrow"><a class="ph-act tel" href="tel:${esc(phTel(tel))}" target="_blank" rel="noopener" data-tel="${esc(phTel(tel))}">📞 ${lab?`<small>${lab}</small> `:""}${esc(tel)}</a><button class="ph-copy" data-ph="copy" data-v="${esc(tel)}">Copier</button></div>`:"";
+  const card=(nom,sub,tel,mail,tel2,l1,l2)=>`<div class="ph-card"><div class="ph-cn"><b>${esc(nom||"—")}</b>${sub?`<span>${esc(sub)}</span>`:""}</div>
+    ${tel2?telRow(tel,tel?esc(l1||"pro"):"")+telRow(tel2,esc(l2||"perso")):telRow(tel,"")}${mail?`<a class="ph-act mail" href="mailto:${esc(mail)}" target="_blank" rel="noopener">✉ ${esc(mail)}</a>`:""}</div>`;
   const pl=(c.planning||[]).filter(p=>p.etape||p.date);
   const kv=[["Statut",c.statut],["Début travaux",frDate(c.date_debut)],["Fin travaux",frDate(c.date_fin)],["Régime",c.regime==="PPOS diffusé"?"PPOS diffusé"+(c.regime_date?" le "+frDate(c.regime_date):""):c.regime],
     ["PMEO",c.pmeo_mode==="sans"?"Sans PMEO"+(c.pmeo?" le "+frDate(c.pmeo):""):c.pmeo_mode==="le"?"le "+frDate(c.pmeo):c.pmeo_mode==="faite"?"faite le "+frDate(c.pmeo):""],["Client",c.client],["Code GDO poste",c.gdo]].filter(x=>x[1]);
@@ -3506,8 +3517,8 @@ function phDetail(c){
     <h1>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"Affaire")}</h1><p class="ph-nat">${esc(c.nature||"")}</p>
     ${a?`<a class="ph-addr" href="${esc(maps)}" target="_blank" rel="noopener">📍 ${esc(a)}</a><div class="ph-nav"><a class="ph-act waze" href="${esc(wazeUrl(c,a))}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_WAZE}" alt=""> Waze</a><a class="ph-act gmaps" href="${esc(maps)}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_MAPS}" alt=""> Maps</a><button class="ph-act ph-cpa" data-ph="copy" data-v="${esc(a)}">📋 Copier</button></div>`:""}<div class="ph-chips">${stateChips(c,true)}</div></header>
     <main class="ph-main">
-    <section><h2>Interlocuteurs</h2>${cs.length?cs.map(x=>card(x.nom,x.raison,x.tel,x.mail)).join(""):`<p class="ph-empty">Aucun interlocuteur.</p>`}
-      ${c.rip||c.rip_tel?card(c.rip,"RIP",c.rip_tel,""):""}</section>
+    <section><h2>Interlocuteurs</h2>${cs.length?cs.map(x=>card(x.nom,x.raison,x.tel,x.mail,x.tel2,x.l1,x.l2)).join(""):`<p class="ph-empty">Aucun interlocuteur.</p>`}
+      ${c.rip||c.rip_tel||c.rip_tel2?card(c.rip,"RIP",c.rip_tel,"",c.rip_tel2,c.rip_l1,c.rip_l2):""}</section>
     <section><h2>Planning</h2>${pl.length?`<table class="ph-tbl"><tbody>${pl.map(p=>`<tr><td>${esc(p.etape)}</td><td>${esc(/^\d{4}-\d{2}-\d{2}$/.test(p.date||"")?frDate(p.date):p.date)}</td></tr>`).join("")}</tbody></table>`:`<p class="ph-empty">Planning vide.</p>`}</section>
     ${kv.length?`<section><h2>Infos</h2><dl class="ph-kv">${kv.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></section>`:""}
     ${notes.length?`<section><h2>Notes</h2>${notes.map(n=>`<p class="ph-note${n.imp?" imp":""}${n.task&&n.done?" tdone":""}">${n.task?`<span class="ph-task">⏰ ${n.done?"faite":isoD(n.due)?"pour le "+frDate(n.due)+" · "+taskWhen(taskJ(n)):"date ?"}</span>`:""}${esc(n.t)}</p>`).join("")}</section>`:""}
