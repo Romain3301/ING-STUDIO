@@ -633,6 +633,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 .ph-g span{color:var(--muted);font-weight:400}
 .ph-item{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;text-align:left;border:1px solid var(--line);border-left:4px solid var(--travaux);background:var(--panel);border-radius:10px;padding:10px 12px;margin-bottom:8px;color:var(--fg)}
 .ph-item b{font-size:14.5px}
+.ph-item .ph-l1{display:flex;align-items:center;gap:6px;width:100%;font-style:normal;min-width:0} .ph-l1 b{flex:0 1 auto;min-width:0;overflow-wrap:anywhere} .ph-l1 .dem{flex:none;font:700 9.5px var(--sans);font-style:normal;padding:1px 6px;white-space:nowrap;letter-spacing:0} /* badge démarrage à côté du n° d'affaire (v2.18) */
 .ph-item span{font-size:13.5px;color:var(--muted)}
 .ph-item.ready{border-left-color:var(--ready);background:#e9f6ee}
 .ph-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;font-style:normal}
@@ -682,7 +683,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.17</span></div>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.18</span></div>
     <div class="tabwrap"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
@@ -720,7 +721,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.17"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.18"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
 /* téléphone : détecté par le type d'appareil (Android/iPhone) ou un petit écran tactile – plus fiable que la seule largeur de la fenêtre */
@@ -3484,7 +3485,7 @@ function phList(only){
     if(st==="Travaux en cours"){ const rd=x=>x[1].checks?.pret?.d?1:0; g.sort((x,y)=>rd(x)-rd(y)); }
     if(!g.length) continue;
     html+=`<h2 class="ph-g">${esc(q?(t==="travaux"?"Travaux · ":"Études · ")+st:st)} <span>${g.length}</span></h2>`+g.map(([id,c])=>{ const rd=c.checks?.pret?.d&&c.statut==="Travaux en cours";
-      return `<button class="ph-item${rd?" ready":""}" data-ph="open" data-id="${esc(id)}"><b>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"—")}</b><span>${esc([c.nature,c.commune].filter(Boolean).join(" · "))}</span>${["Travaux terminés","Archive"].includes(c.statut)?((h=>h?`<i class="ph-chips">${h}</i>`:"")(((t=>t?`<span class="chip ${t[0]}">${esc(t[1])}</span>`:"")(taskChip(c)))+finChips(c))):`<i class="ph-chips">${stateChips(c,true)}</i>`}</button>`; }).join("");
+      return `<button class="ph-item${rd?" ready":""}" data-ph="open" data-id="${esc(id)}"><i class="ph-l1"><b>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"—")}</b>${c.type==="travaux"&&c.statut===STATUTS.travaux[0]&&isoD(c.date_debut)?`<em class="chip white dem">Démarrage le ${esc(frDate(c.date_debut))}</em>`:""}</i><span>${esc([c.nature,c.commune].filter(Boolean).join(" · "))}</span>${["Travaux terminés","Archive"].includes(c.statut)?((h=>h?`<i class="ph-chips">${h}</i>`:"")(((t=>t?`<span class="chip ${t[0]}">${esc(t[1])}</span>`:"")(taskChip(c)))+finChips(c))):`<i class="ph-chips">${stateChips(c,true)}</i>`}</button>`; }).join("");
   }
   if(!q&&!PH.arch) html+=`<button class="ph-link" data-ph="arch">Afficher aussi les archives</button>`;
   if(!html||!all.length) html=all.length?`<p class="ph-empty">Aucune affaire trouvée.</p>`:`<p class="ph-empty">Aucune affaire ici. Charge ta sauvegarde <b>ING-STUDIO-sauvegarde.json</b> depuis ton OneDrive avec le bouton ci-dessous.</p>`;
