@@ -273,7 +273,7 @@ h3.sec .prog{font:500 12px var(--mono);color:var(--muted);letter-spacing:0;text-
 .rosa-h.nf{color:#8a5a00;background:#fbeed3;border-color:#ecd29c}
 .btn.rosa{background:#e3f2fb;border-color:#7fbfe3;color:#0b5d8a;font-weight:700}
 .btn.rosa .rosa-t{font-size:11px;line-height:1.05;text-align:left}
-.rosa-st{display:flex;gap:8px;align-items:flex-start;line-height:1.7}
+.rosa-skip{font-size:13px;background:#fff6e5;border:1px solid #f0c36d;border-radius:8px;padding:6px 10px}.rosa-skip summary{cursor:pointer;font-weight:600}.rosa-skip ul{margin:6px 0 0 18px;padding:0}.rosa-st{display:flex;gap:8px;align-items:flex-start;line-height:1.7}
 .rosa-st>b{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center;margin-top:3px}
 .rosa-bm{background:#fff4c2;border-color:#e0b400;font-weight:700;cursor:grab}
 .imp-cb{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--sunk);flex:0 0 auto;cursor:pointer}
@@ -313,6 +313,8 @@ table.kv.plan td:last-child{width:42%}
 textarea.autog{display:block;width:100%;border:0;background:transparent;resize:none;padding:6px 8px;min-height:32px;overflow:hidden;field-sizing:content;line-height:1.4;font:inherit;color:inherit;white-space:pre-wrap;overflow-wrap:anywhere}
 .xdel{border:0;background:none;color:var(--faint);font-size:16px;line-height:1;padding:4px 6px}
 .xdel:hover{color:var(--red)}
+.plcal{border:0;background:none;color:var(--faint);padding:4px 3px;line-height:0;border-radius:4px;cursor:pointer;align-self:flex-start;margin-top:4px}
+.plcal:hover,.plcal.on{color:var(--accent,#1f5fa8);background:var(--sunk)}
 table.kv td input,table.kv td select,table.grid td input{border:0;background:transparent;width:100%;padding:6px 8px;min-width:0}
 table.kv td select{color:var(--red);font-weight:500}
 table.kv td select.reg-ppor,table.kv td select.reg-diff,table.kv td select.reg-none{color:var(--fg)}
@@ -338,13 +340,16 @@ textarea.autog.gdo-ta{flex:1;min-width:0;font-size:12.5px;line-height:1.3;paddin
 .rip-v .rip-n{font-weight:600;padding-bottom:0}
 .rip-v .rip-t{font-size:12.5px;color:var(--muted,#555);padding-top:0}
 /* RIP : 2e numéro (pro / perso) sur 3 lignes compactes, mentions affichées seulement s'il y a 2 numéros (v2.20) */
-.rip-v .rip-n{font-size:12.5px;padding:1px 8px 0;line-height:1.2}
+.rip-cell.two .rip-v .rip-n{font-size:12.5px;padding:1px 8px 0;line-height:1.2}
 .rip-tl{display:flex;align-items:baseline;min-width:0;margin:0}
 .rip-v .rip-tl .rip-t{font-size:11.5px;padding:0 8px;line-height:1.2}
 .rip-v .rip-l,.tel2c .rip-l,.rip-l{display:none;font-size:10px;color:var(--faint);padding:0 0 0 8px;margin:0;border:0;background:transparent;flex:none;width:auto;min-width:22px;max-width:64px;field-sizing:content;box-sizing:border-box;line-height:1.2;text-overflow:ellipsis;padding-right:4px}.rip-l:focus{color:var(--fg);outline:1px dotted var(--line-strong)}
 .rip-cell.two .rip-l{display:inline-block}.rip-cell.two .rip-tl .rip-t{padding-left:0}
 .rip-v .rip-t2::placeholder{font-size:10.5px;opacity:.55}
-.rip-b{align-self:center;margin-right:4px;padding:2px 6px}
+.telro{font-size:12.5px;color:var(--muted,#555);padding:0 8px 3px;cursor:default;overflow-wrap:anywhere}.telro.two{font-size:11.5px;line-height:1.25;padding-bottom:2px}.telro .tl{font-size:10px;color:var(--faint);margin-right:4px}
+table.grid.ctb .telro{color:inherit;font-size:inherit;padding:6px 6px}table.grid.ctb .telro.two{font-size:11px;line-height:14px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}table.grid.ctb .telro.two>div{overflow:hidden;text-overflow:ellipsis}table.grid.ctb .telro .tl{font-size:9px;margin-right:3px;display:inline-block;max-width:36px;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}table.grid.ctb .telro.two{padding:0 4px}
+.an-form .ar-tels{grid-column:span 2}
+.rip-b{align-self:center;margin-right:4px;padding:2px 6px}.rip-cell{position:relative}.rip-b.rip-x{position:absolute;top:1px;right:34px;display:none;margin:0;padding:0 5px;font-size:11px;line-height:16px;color:var(--faint);background:var(--panel)}.rip-cell:hover .rip-x,.rip-cell:focus-within .rip-x,.rip-b.rip-x.confirm{display:block}.rip-x:hover,.rip-x.confirm{color:var(--red)}
 .lbl-gr{background:#46d14a;color:#10220f;padding:0 3px}
 table.grid th{background:var(--sunk);font-size:12px;font-weight:700;padding:6px 8px;text-align:left}
 table.grid th span{background:var(--hl);color:var(--hl-fg);padding:0 3px}
@@ -485,6 +490,9 @@ section:has(>.checks){container-type:inline-size}
 .an-del{color:var(--faint)}
 .an-del:hover,.an-del.confirm{color:var(--red);border-color:var(--red)}
 .an-form{border:1px solid var(--line-strong);border-radius:8px;padding:10px;background:var(--sunk)}
+.ar-tl{display:flex;gap:6px}.ar-tl+.ar-tl{margin-top:6px}
+.f .ar-tl .ar-l{display:none;flex:0 0 90px;width:90px;font-size:12px;color:var(--muted)}
+.ar-tels.two .ar-tl .ar-l{display:block}
 .an-co{color:var(--accent);font-weight:600;font-size:12.5px}
 .an-meta{font-size:12px;color:var(--muted)}
 .an-meta.mono{font-family:var(--mono);font-size:11.5px;overflow-wrap:anywhere}
@@ -562,6 +570,10 @@ input[type="date"]::-webkit-calendar-picker-indicator{pointer-events:none}
 .wkcal th{font-size:11px;font-weight:700;color:var(--muted,#6b7785);padding:2px 0;width:32px;text-align:center}
 .wkcal th.wk{width:38px;color:var(--accent,#1f5fa8);background:color-mix(in srgb,var(--accent,#1f5fa8) 9%,transparent);border-radius:6px;font-size:11px}
 .wkcal tbody th.wk{font-weight:800}
+.wkcal th.wk button{border:0;background:none;font:inherit;color:inherit;width:100%;height:28px;border-radius:6px;cursor:pointer;padding:0}
+.wkcal tr.wsel th.wk button{background:var(--accent,#1f5fa8);color:#fff}
+.wkcal tr.wsel td button:not(.sel){background:color-mix(in srgb,var(--accent,#1f5fa8) 10%,transparent)}
+.wkcal th.wk button:hover{background:var(--accent,#1f5fa8);color:#fff}
 .wkcal td{padding:1px}
 .wkcal td button{width:32px;height:28px;border:0;border-radius:6px;background:none;cursor:pointer;font:inherit;color:inherit}
 .wkcal td button.we{color:var(--muted,#6b7785)}
@@ -693,7 +705,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.21</span></div>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.29</span></div>
     <div class="tabwrap"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
@@ -731,7 +743,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.21"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.29"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
 /* téléphone : détecté par le type d'appareil (Android/iPhone) ou un petit écran tactile – plus fiable que la seule largeur de la fenêtre */
@@ -1280,14 +1292,31 @@ function stateChips(c,mini=false){
 /* ---------- Calendrier des champs date, avec numéro de semaine en début de ligne (remplace le calendrier d'Edge) ---------- */
 const WKCAL={el:null,inp:null,y:0,m:0};
 function isoWeek(d){ const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); const day=t.getUTCDay()||7; t.setUTCDate(t.getUTCDate()+4-day); const y0=new Date(Date.UTC(t.getUTCFullYear(),0,1)); return Math.ceil(((t-y0)/864e5+1)/7); }
-function wkcalClose(){ if(WKCAL.el){ WKCAL.el.remove(); WKCAL.el=null; } WKCAL.inp=null; }
-function wkcalSet(v){ const i=WKCAL.inp; if(!i) return; i.value=v; i.dispatchEvent(new Event("input",{bubbles:true})); i.dispatchEvent(new Event("change",{bubbles:true})); wkcalClose(); i.focus(); }
+function wkcalClose(){ if(WKCAL.el){ WKCAL.el.remove(); WKCAL.el=null; } WKCAL.inp=null; document.querySelectorAll(".plcal.on").forEach(b=>b.classList.remove("on")); }
+const PLDATE_RE=/(\d{1,2})\s*\/\s*(\d{1,2})(?:\s*\/\s*(\d{2,4}))?/;
+function wkcalTxt(i){ return i&&i.tagName==="TEXTAREA"; }
+function wkMonday(txt,ref){ const m=String(txt||"").match(/\bS\s?(\d{1,2})\b/i); if(!m) return null; const w=+m[1]; if(w<1||w>53) return null;
+  const at=y=>{ const j4=new Date(y,0,4), mon=new Date(y,0,4-((j4.getDay()+6)%7)); return new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+7*(w-1)); };
+  let d=at(ref.getFullYear()); if(d<new Date(ref.getTime()-180*864e5)) d=at(ref.getFullYear()+1); else if(d>new Date(ref.getTime()+185*864e5)) d=at(ref.getFullYear()-1); return d; }
+function wkcalCur(i){ if(!wkcalTxt(i)) return i?.value||""; const d=planDate(i.value,new Date())||wkMonday(i.value,new Date()); return d?`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`:""; }
+function wkcalTxtVal(old,v){ /* remplace la date déjà écrite (jj/mm) ou, sans date, tout le champ ; garde le reste du texte */
+  if(!v){ return PLDATE_RE.test(old)?old.replace(PLDATE_RE,"").replace(/\(\s*\)/,"").replace(/\s{2,}/g," ").trim():old; }
+  const [y,m,d]=v.split("-"), t=`${d}/${m}/${y}`;
+  const rest=old.replace(/\bS\s?\d{1,2}\b/i,"").replace(PLDATE_RE,"").replace(/\(\s*\)/,"").replace(/\s{2,}/g," ").trim();
+  return rest?rest+" "+t:t; }
+function wkcalSetWeek(v){ const i=WKCAL.inp; if(!i) return; const [y,m,d]=v.split("-"), now=new Date(); now.setHours(0,0,0,0);
+  const t=`${d}/${m}/${y}`;
+  const w=`S${isoWeek(new Date(+y,+m-1,+d))} (${t})`;
+  const rest=i.value.replace(/\bS\s?\d{1,2}\b/i,"").replace(PLDATE_RE,"").replace(/\(\s*\)/,"").replace(/\s{2,}/g," ").trim();
+  i.value=rest?rest+" "+w:w; i.dispatchEvent(new Event("input",{bubbles:true})); i.dispatchEvent(new Event("change",{bubbles:true})); wkcalClose(); i.focus(); }
+function wkcalSet(v){ const i=WKCAL.inp; if(!i) return; if(wkcalTxt(i)) v=wkcalTxtVal(i.value,v); i.value=v; i.dispatchEvent(new Event("input",{bubbles:true})); i.dispatchEvent(new Event("change",{bubbles:true})); wkcalClose(); i.focus(); }
 function wkcalDraw(){ const el=WKCAL.el, y=WKCAL.y, m=WKCAL.m; if(!el) return;
   const p2=n=>String(n).padStart(2,"0"), iso=d=>`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`;
-  const cur=WKCAL.inp?.value||"", td=iso(new Date());
+  const cur=wkcalCur(WKCAL.inp), td=iso(new Date());
   const first=new Date(y,m,1), start=new Date(y,m,1-((first.getDay()+6)%7));
   let rows=""; for(let w=0;w<6;w++){ const d0=new Date(start.getFullYear(),start.getMonth(),start.getDate()+7*w); if(w>=4&&d0.getMonth()!==m&&d0>first) break;
-    rows+=`<tr><th class="wk" title="Semaine ${isoWeek(d0)}">S${isoWeek(d0)}</th>`;
+    const wsel=wkcalTxt(WKCAL.inp)&&/\bS\s?\d{1,2}\b/i.test(WKCAL.inp.value)&&cur&&cur>=iso(d0)&&cur<=iso(new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+6));
+    rows+=wkcalTxt(WKCAL.inp)?`<tr${wsel?' class="wsel"':""}><th class="wk"><button type="button" data-wk="${iso(d0)}" title="Mettre « S${isoWeek(d0)} (${p2(d0.getDate())}/${p2(d0.getMonth()+1)}/${d0.getFullYear()}) » : semaine ${isoWeek(d0)}, lundi ${p2(d0.getDate())}/${p2(d0.getMonth()+1)}">S${isoWeek(d0)}</button></th>`:`<tr><th class="wk" title="Semaine ${isoWeek(d0)}">S${isoWeek(d0)}</th>`;
     for(let k=0;k<7;k++){ const d=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+k), v=iso(d);
       rows+=`<td><button type="button" data-v="${v}" class="${d.getMonth()!==m?"out":""} ${v===td?"td":""} ${v===cur?"sel":""} ${k>4?"we":""}">${d.getDate()}</button></td>`; }
     rows+="</tr>"; }
@@ -1295,15 +1324,17 @@ function wkcalDraw(){ const el=WKCAL.el, y=WKCAL.y, m=WKCAL.m; if(!el) return;
   el.innerHTML=`<div class="wkc-h"><button type="button" data-nav="-1" aria-label="Mois précédent">‹</button><b>${mois.charAt(0).toUpperCase()+mois.slice(1)}</b><button type="button" data-nav="1" aria-label="Mois suivant">›</button></div>
     <table><thead><tr><th class="wk">Sem.</th>${["L","M","M","J","V","S","D"].map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table>
     <div class="wkc-f"><button type="button" data-clr>Effacer</button><button type="button" data-tdy>Aujourd'hui</button></div>`; }
-function wkcalOpen(inp){ wkcalClose(); WKCAL.inp=inp; const d=isoD(inp.value)||new Date(); WKCAL.y=d.getFullYear(); WKCAL.m=d.getMonth();
+function wkcalOpen(inp){ wkcalClose(); WKCAL.inp=inp; const d=isoD(wkcalCur(inp))||new Date(); WKCAL.y=d.getFullYear(); WKCAL.m=d.getMonth();
   const el=document.createElement("div"); el.className="wkcal"; WKCAL.el=el; document.body.appendChild(el); wkcalDraw();
   const r=inp.getBoundingClientRect(), h=el.offsetHeight, w=el.offsetWidth;
   el.style.top=(r.bottom+4+h>innerHeight&&r.top>h+4?r.top-h-4:r.bottom+4)+"px"; el.style.left=Math.max(4,Math.min(r.right-w,innerWidth-w-4))+"px";
   el.addEventListener("mousedown",e=>e.preventDefault());
   el.addEventListener("click",e=>{ e.stopPropagation(); const b=e.target.closest("button"); if(!b) return;
     if(b.dataset.nav){ WKCAL.m+=+b.dataset.nav; if(WKCAL.m<0){ WKCAL.m=11; WKCAL.y--; } if(WKCAL.m>11){ WKCAL.m=0; WKCAL.y++; } wkcalDraw(); }
-    else if(b.dataset.v) wkcalSet(b.dataset.v); else if("clr" in b.dataset) wkcalSet(""); else if("tdy" in b.dataset){ const t=new Date(); wkcalSet(`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`); } }); }
-document.addEventListener("click",e=>{ const i=e.target.closest?.('input[type="date"]');
+    else if(b.dataset.wk) wkcalSetWeek(b.dataset.wk); else if(b.dataset.v) wkcalSet(b.dataset.v); else if("clr" in b.dataset) wkcalSet(""); else if("tdy" in b.dataset){ const t=new Date(); wkcalSet(`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`); } }); }
+document.addEventListener("click",e=>{ const pb=e.target.closest?.(".plcal");
+  if(pb){ e.preventDefault(); e.stopPropagation(); const t=pb.closest(".pd")?.querySelector("textarea"); if(t&&!t.disabled&&!t.readOnly){ if(WKCAL.inp===t) wkcalClose(); else { wkcalOpen(t); pb.classList.add("on"); } } return; }
+  const i=e.target.closest?.('input[type="date"]');
   if(i&&!i.disabled&&!i.readOnly){ const r=i.getBoundingClientRect(); if(e.clientX>=r.right-30){ e.preventDefault(); if(WKCAL.inp===i) wkcalClose(); else wkcalOpen(i); return; } }
   if(WKCAL.el&&!WKCAL.el.contains(e.target)) wkcalClose(); },true);
 document.addEventListener("keydown",e=>{ if(WKCAL.el&&e.key==="Escape"){ e.stopPropagation(); wkcalClose(); } else if(e.key==="F4"||(e.altKey&&e.key==="ArrowDown")){ const i=e.target.closest?.('input[type="date"]'); if(i&&!i.disabled&&!i.readOnly){ e.preventDefault(); wkcalOpen(i); } } },true);
@@ -1315,6 +1346,13 @@ const ROSA_URL="https://rosanatv2.enedis.fr/Affaire/Search?search=";
 const ROSA_BM="javascript:"+encodeURIComponent(ROSA_BM_SRC);
 const isDC26=c=>/^DC\s*26/i.test(String(c?.dc||"").trim()); // seules les affaires avec un DC26 ont des imputations
 const rosaRacs=()=>[...new Set([...chantiers.values()].filter(c=>c.type==="travaux"&&c.statut!=="Archive"&&isDC26(c)&&/^RAC-/i.test(String(c.rac||"").trim())).map(c=>String(c.rac).trim().toUpperCase()))];
+/* affaires travaux (non archivées) que l'extraction ne peut pas chercher, avec la raison */
+function rosaSkipped(){ const seen=new Map(), L=[];
+  for(const c of [...chantiers.values()].filter(c=>c.type==="travaux"&&c.statut!=="Archive")){ const r=String(c.rac||"").trim(), R=r.toUpperCase(), dc=String(c.dc||"").trim();
+    const why=!isDC26(c)?(dc?`N° DC « ${dc} » : pas un DC26`:"pas de N° DC"):!r?"pas de réf. RAC":!/^RAC-/i.test(r)?`réf. RAC « ${r} » : ne commence pas par RAC-`:seen.has(R)?`même réf. RAC que l’affaire ${seen.get(R)} (cherchée une seule fois)`:"";
+    if(/^RAC-/i.test(r)&&isDC26(c)&&!seen.has(R)) seen.set(R,String(c.dc||"").trim()||R);
+    if(why) L.push({c,why}); }
+  return L; }
 const rosaEur=v=>Math.round(v||0).toLocaleString("fr-FR")+" €";
 /* DIE + écart autorisé (en % de la DIE) − dépenses réalisées − dépenses engagées */
 function rosaMoney(c){ const f=c?.rosanat?.fin; if(!f) return null; const n=t=>parseFloat(String(t||"").replace(/[\s\u00a0]/g,"").replace(",","."))||0;
@@ -1345,6 +1383,7 @@ function openRosanat(){ if(RO) return;
    <div class="m-b" style="gap:10px">
      ${name?"":`<p class="msg err">Renseigne ton « Nom Prénom » dans les Réglages : il sert à ne garder que tes heures.</p>`}
      <p class="hint">Va chercher dans ROSANAT (Analyse MO) les heures « Réalisé (h) » où <b>${esc(name||"ton nom")}</b> apparaît (+ les « Redressement » de ton CCS), pour tes ${racs.length} affaire(s) travaux avec un DC26, ainsi que la DIE et les dépenses réalisées et engagées (État financier), et les affiche sous « Imputé ».</p>
+     ${(L=>L.length?`<details class="rosa-skip"><summary>${L.length} affaire(s) travaux non cherchée(s) dans ROSANAT : voir pourquoi</summary><ul>${L.map(x=>`<li><b>${esc(x.c.dc||"(sans DC)")}</b> ${esc([x.c.rac,x.c.client].filter(Boolean).join(" · "))} : ${esc(x.why)}</li>`).join("")}</ul></details>`:"")(rosaSkipped())}
      <div class="rosa-st"><b>1.</b> <span>Une seule fois : glisse ce bouton dans ta barre des favoris d’Edge → <a class="btn sm rosa-bm" href="${esc(ROSA_BM)}" title="Glisse-moi dans la barre des favoris" onclick="return false">⭐ Heures ING</a> <button class="btn sm ghost" data-cp>ou copier le code</button></span></div>
      <div class="rosa-st"><b>2.</b> <span><button class="btn primary sm" data-open ${racs.length?"":"disabled"}>Ouvrir ROSANAT</button> puis, dans l’onglet ROSANAT, clique sur le favori <b>⭐ Heures ING</b> et attends la fin.</span></div>
      <div class="rosa-st"><b>3.</b> <span>Clique sur « 📋 Copier pour ING STUDIO » dans ROSANAT, reviens ici et fais <b>Ctrl+V</b> dans cette case :<textarea data-paste rows="2" placeholder="Ctrl+V ici" style="width:100%;margin-top:6px"></textarea></span></div>
@@ -1408,6 +1447,10 @@ function field(path,label,val,{type="text",cls="",opts=null,ph=""}={}){
 }
 function sel(path,val,opts){ return `<select id="f_${path}" data-p="${path}">${opts.map(o=>`<option value="${esc(o)}" ${o===val?"selected":""}>${esc(o||"—")}</option>`).join("")}</select>`; }
 function ta(path,val){ return `<textarea class="autog" rows="1" id="f_${path}" data-p="${path}">${esc(val)}</textarea>`; }
+function telRO(t,t2,l1,l2){ // numéros affichés seulement : on les modifie dans l'annuaire (pop-up)
+  t=String(t||"").trim(); t2=String(t2||"").trim(); const ti=' title="Pour modifier : annuaire (📇 / ✏️)"';
+  if(!t2) return `<div class="telro"${ti}>${esc(t)}</div>`;
+  return `<div class="telro two"${ti}><div><span class="tl">${esc(l1||"pro")}</span>${esc(t||"—")}</div><div><span class="tl">${esc(l2||"perso")}</span>${esc(t2)}</div></div>`; }
 function inp(path,val,ph="",type="text"){ return `<input id="f_${path}" data-p="${path}" type="${type}" value="${esc(val)}" placeholder="${esc(ph)}">`; }
 
 function eplansUrl(c){ const r=[c.rac,c.dc].map(x=>String(x||"").trim()).find(x=>/^RAC-[A-Z0-9]+(-[A-Z0-9]+)+$/i.test(x)); return r?"https://www.e-plans.fr/Affaire/"+encodeURIComponent(r.toUpperCase()):""; }
@@ -1520,14 +1563,14 @@ function renderMain0(){
          <tr><td>OCB</td><td>${inp("ocb",c.ocb)}</td></tr>
        </tbody></table>
        <table class="kv"><tbody>
-         <tr><td><span class="lbl-gr">RIP</span></td><td><div class="rip-cell${String(c.rip_tel2||"").trim()?" two":""}"><div class="rip-v"><input id="f_rip" data-p="rip" class="rip-n" value="${esc(c.rip)}" placeholder="Nom Prénom" aria-label="RIP : nom prénom"><div class="rip-tl"><input class="rip-l" data-p="rip_l1" value="${esc(c.rip_l1||"pro")}" placeholder="pro" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_rip_tel" data-p="rip_tel" class="rip-t" value="${esc(c.rip_tel)}" placeholder="Téléphone" aria-label="RIP : téléphone"></div><div class="rip-tl"><input class="rip-l" data-p="rip_l2" value="${esc(c.rip_l2||"perso")}" placeholder="perso" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_rip_tel2" data-p="rip_tel2" class="rip-t rip-t2" value="${esc(c.rip_tel2)}" placeholder="+ 2e numéro" aria-label="RIP : 2e téléphone"></div></div><button class="btn sm ghost rip-b" data-a="annurip" title="Annuaire des RIP" aria-label="Annuaire des RIP">📇</button></div></td></tr>
+         <tr><td><span class="lbl-gr">RIP</span></td><td><div class="rip-cell${String(c.rip_tel2||"").trim()?" two":""}"><div class="rip-v"><input id="f_rip" data-p="rip" class="rip-n" value="${esc(c.rip)}" placeholder="Nom Prénom" aria-label="RIP : nom prénom">${telRO(c.rip_tel,c.rip_tel2,c.rip_l1,c.rip_l2)}</div>${String(c.rip||c.rip_tel||c.rip_tel2||"").trim()?`<button class="btn sm ghost rip-b rip-x" data-a="ripclear" title="Retirer ce RIP de la fiche" aria-label="Retirer ce RIP">✕</button>`:""}<button class="btn sm ghost rip-b" data-a="annurip" title="Annuaire des RIP" aria-label="Annuaire des RIP">📇</button></div></td></tr>
          <tr><td><span class="lbl-cy">Code GDO Poste</span></td><td><div class="gdo-cell"><textarea class="autog gdo-ta" rows="1" id="f_gdo" data-p="gdo" aria-label="Code GDO poste" spellcheck="false">${esc(c.gdo)}</textarea><button type="button" class="btn sm ghost gdo-b" data-a="gdocopy" title="Copier le code GDO poste" aria-label="Copier le code GDO poste">📋</button></div></td></tr>
          
          <tr><td>Début travaux</td><td>${inp("date_debut",c.date_debut,"","date")}</td></tr>
          <tr><td>Fin travaux</td><td>${inp("date_fin",c.date_fin,"","date")}</td></tr>
        </tbody></table>
        <div><table class="kv plan"><thead><tr><th colspan="2">PLANNING</th></tr></thead><tbody>
-         ${c.planning.map((x,i)=>`<tr data-dl="planning" data-di="${i}"><td>${ta(`planning.${i}.etape`,x.etape)}</td><td><div class="pd">${ta(`planning.${i}.date`,/^\d{4}-\d{2}-\d{2}$/.test(x.date||"")?frDate(x.date):x.date)}<span class="grip" draggable="true" data-dl="planning" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button class="xdel" data-a="rowdel" data-l="planning" data-i="${i}" title="Supprimer la ligne" aria-label="Supprimer la ligne">×</button></div></td></tr>`).join("")}
+         ${c.planning.map((x,i)=>`<tr data-dl="planning" data-di="${i}"><td>${ta(`planning.${i}.etape`,x.etape)}</td><td><div class="pd">${ta(`planning.${i}.date`,/^\d{4}-\d{2}-\d{2}$/.test(x.date||"")?frDate(x.date):x.date)}<button type="button" class="plcal" title="Choisir une date dans le calendrier (tu peux aussi l’écrire à la main)" aria-label="Choisir une date"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg></button><span class="grip" draggable="true" data-dl="planning" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button class="xdel" data-a="rowdel" data-l="planning" data-i="${i}" title="Supprimer la ligne" aria-label="Supprimer la ligne">×</button></div></td></tr>`).join("")}
        </tbody></table>
        <button class="btn sm addrow" data-a="rowadd" data-l="planning">＋ Ajouter une ligne</button></div>
      </div>
@@ -1542,7 +1585,7 @@ function renderMain0(){
      <div style="min-width:0">
        <h3 class="sec">Interlocuteurs</h3>
        <div class="tblwrap"><table class="grid ctb"><colgroup><col style="width:21%"><col style="width:18%"><col style="width:126px"><col><col style="width:52px"></colgroup><thead><tr><th><span>Nom de l'interlocuteur</span></th><th><span>Entreprise</span></th><th><span>Téléphone</span></th><th><span>Mail</span></th><th></th></tr></thead><tbody>
-       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td><div class="tel2c${String(x.tel2||"").trim()?" two":""}"><div class="rip-tl"><input class="rip-l" data-p="contacts.${i}.l1" value="${esc(x.l1||"pro")}" placeholder="pro" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro">${inp(`contacts.${i}.tel`,x.tel,"","tel")}</div><div class="rip-tl"><input class="rip-l" data-p="contacts.${i}.l2" value="${esc(x.l2||"perso")}" placeholder="perso" title="Renommer (ex. pro, perso, portable, bureau…)" aria-label="Nom du numéro"><input id="f_contacts.${i}.tel2" data-p="contacts.${i}.tel2" type="tel" class="t2" value="${esc(x.tel2)}" placeholder="+ 2e numéro" aria-label="2e téléphone"></div></div></td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
+       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td>${x.an||String(x.tel2||"").trim()?telRO(x.tel,x.tel2,x.l1,x.l2):inp(`contacts.${i}.tel`,x.tel,"","tel")}</td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
        </tbody></table></div>
        <div class="head-row addrow"><button class="btn sm primary" data-a="annu">🔍 Rechercher dans l'annuaire</button><button class="btn sm" data-a="rowadd" data-l="contacts">＋ Ajouter une ligne vide</button></div>
      </div>
@@ -1773,6 +1816,9 @@ const mainClick=e=>{
   else if(a==="aps"){ sendToAps(c,e); return; }
   else if(a==="annu"){ openAnnuaire(); return; }
   else if(a==="annurip"){ openAnnuRip(); return; }
+  else if(a==="ripclear"){ const c=chantiers.get(currentId); if(!c) return;
+    if(!b.classList.contains("confirm")){ b.classList.add("confirm"); b.textContent="Retirer ?"; setTimeout(()=>{ if(b.isConnected){ b.classList.remove("confirm"); b.textContent="✕"; } },3000); return; }
+    c.rip=""; c.rip_tel=""; c.rip_tel2=""; delete c.rip_l1; delete c.rip_l2; scheduleSave(currentId,100); renderMain(); return; }
   else if(a==="cadastre"){ openCadastre(); return; }
   else if(a==="rosanat"){ openRosanat(); return; }
   else if(a==="betok"){ c.bet_ok=today(); c.bet_ok_u=1; }
@@ -1997,7 +2043,8 @@ function openAnnuaire(){
      <div style="display:flex;gap:8px"><input id="an_q" type="search" placeholder="Nom, entreprise, marché (ex. amiante, élagage, TG)…" aria-label="Rechercher dans l'annuaire" style="flex:1;min-width:0;border:1px solid var(--line-strong);border-radius:6px;padding:8px 10px;background:var(--bg)"><button class="btn" data-new>＋ Nouvelle personne</button></div>
      <div class="an-form" id="an_form" hidden>
        <div class="fgrid">
-         ${[["n","Nom Prénom *"],["e","Entreprise *"],["f","Fonction / rôle"],["p","Portable"],["t","Fixe"],["m","Mail"],["k","Marché (TG, amiante…)"]].map(([k,l])=>`<div class="f"><label for="an_${k}">${l}</label><input id="an_${k}" data-af="${k}"></div>`).join("")}
+         ${[["n","Nom Prénom *"],["e","Entreprise *"],["f","Fonction / rôle"],["m","Mail"],["k","Marché (TG, amiante…)"]].map(([k,l])=>`<div class="f"><label for="an_${k}">${l}</label><input id="an_${k}" data-af="${k}"></div>`).join("")}
+         <div class="f ar-tels"><label for="an_p">Téléphone</label><div class="ar-tl"><input id="an_l1" data-af="l1" class="ar-l" placeholder="pro" title="Renommer (ex. pro, portable…)" aria-label="Nom du 1er numéro"><input id="an_p" data-af="p" type="tel" placeholder="Numéro"></div><div class="ar-tl"><input id="an_l2" data-af="l2" class="ar-l" placeholder="perso" title="Renommer (ex. perso, fixe…)" aria-label="Nom du 2e numéro"><input id="an_t" data-af="t" type="tel" placeholder="+ 2e numéro (si besoin)" aria-label="2e téléphone"></div></div>
        </div>
        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px"><button class="btn" data-cancel>Annuler</button><button class="btn primary" data-save>Enregistrer dans l'annuaire</button></div>
      </div>
@@ -2008,7 +2055,7 @@ function openAnnuaire(){
   const key=x=>x.n+"|"+x.e;
   const getRecent=()=>{ try{ return JSON.parse(localStorage.getItem("sc_annu_recent")||"[]"); }catch{ return []; } };
   const pushRecent=x=>{ const r=getRecent().filter(k=>k!==key(x)); r.unshift(key(x)); try{ localStorage.setItem("sc_annu_recent",JSON.stringify(r.slice(0,10))); }catch{} };
-  const rowHtml=x=>`<div class="an-row"><div class="an-who"><b>${esc(x.n)}</b> <span class="an-co">${esc(x.e)}</span><div class="an-meta">${esc([x.f,x.k].filter(Boolean).join(" · "))}</div><div class="an-meta mono">${esc([x.p,x.t,x.m].filter(Boolean).join(" · "))}</div></div><button class="btn sm" data-ai="${ANNU.indexOf(x)}">Ajouter</button><button class="btn sm ghost" data-ed="${ANNU.indexOf(x)}" title="Modifier ce contact" aria-label="Modifier ce contact">✏️</button><button class="btn sm ghost an-del" data-del="${ANNU.indexOf(x)}" title="Supprimer de l'annuaire" aria-label="Supprimer de l'annuaire">🗑</button></div>`;
+  const rowHtml=x=>`<div class="an-row"><div class="an-who"><b>${esc(x.n)}</b> <span class="an-co">${esc(x.e)}</span><div class="an-meta">${esc([x.f,x.k].filter(Boolean).join(" · "))}</div><div class="an-meta mono">${[x.p&&x.t?`<span style="white-space:nowrap">${esc(annL(x,1))} ${esc(x.p)}</span> · <span style="white-space:nowrap">${esc(annL(x,2))} ${esc(x.t)}</span>`:esc(x.p||x.t||""),esc(x.m||"")].filter(Boolean).join(" · ")}</div></div><button class="btn sm" data-ai="${ANNU.indexOf(x)}">Ajouter</button><button class="btn sm ghost" data-ed="${ANNU.indexOf(x)}" title="Modifier ce contact" aria-label="Modifier ce contact">✏️</button><button class="btn sm ghost an-del" data-del="${ANNU.indexOf(x)}" title="Supprimer de l'annuaire" aria-label="Supprimer de l'annuaire">🗑</button></div>`;
   const draw=()=>{
     const t=nrm(q.value).split(" ").filter(Boolean);
     if(!t.length){
@@ -2023,12 +2070,16 @@ function openAnnuaire(){
   q.addEventListener("input",draw);
   const saveAnnu=async()=>{ if(!db) return; try{ await db.doc("config/annuaire").set({items:ANNU.map(({_n,...x})=>x),maj:today()}); }catch(err){ msg.textContent="Erreur d'enregistrement de l'annuaire."; msg.className="msg err"; } };
   const form=m.querySelector("#an_form"), saveB=m.querySelector("[data-save]"); let edit=null; // contact en cours de modification
-  const setMode=x=>{ edit=x; saveB.textContent=x?"Enregistrer les modifications":"Enregistrer dans l'annuaire"; form.querySelectorAll("[data-af]").forEach(i=>i.value=x?(x[i.dataset.af]||""):""); };
+  const tb=form.querySelector(".ar-tels"), two=()=>tb.classList.toggle("two",!!m.querySelector("#an_t").value.trim()); m.querySelector("#an_t").addEventListener("input",two);
+  const setMode=x=>{ edit=x; saveB.textContent=x?"Enregistrer les modifications":"Enregistrer dans l'annuaire"; form.querySelectorAll("[data-af]").forEach(i=>i.value=x?(x[i.dataset.af]||""):"");
+    const P=m.querySelector("#an_p"), T=m.querySelector("#an_t"); if(!P.value.trim()&&T.value.trim()){ P.value=T.value; T.value=""; }
+    m.querySelector("#an_l1").value=x&&x.p&&x.t?annL(x,1):(x?.l1||"pro"); m.querySelector("#an_l2").value=x&&x.p&&x.t?annL(x,2):(x?.l2||"perso"); two(); };
   m.querySelector("[data-new]").onclick=()=>{ if(edit){ setMode(null); form.hidden=false; } else form.hidden=!form.hidden; if(!form.hidden){ const t=q.value.trim(); const n=m.querySelector("#an_n"); if(t&&!n.value) n.value=t; n.focus(); } };
   m.querySelector("[data-cancel]").onclick=()=>{ form.hidden=true; setMode(null); };
   m.querySelector("[data-save]").onclick=async()=>{
-    const x={}; form.querySelectorAll("[data-af]").forEach(i=>x[i.dataset.af]=i.value.trim());
+    const x={}; form.querySelectorAll("[data-af]").forEach(i=>x[i.dataset.af]=i.value.trim()); x.p=fmtTel(x.p); x.t=fmtTel(x.t);
     if(!x.n||!x.e){ msg.textContent="Le nom et l'entreprise sont obligatoires."; msg.className="msg err"; return; }
+    if(!x.t){ delete x.l1; delete x.l2; } else { x.l1=x.l1||"pro"; x.l2=x.l2||"perso"; }
     x._n=nrm([x.n,x.e,x.f,x.k,x.m].join(" "));
     if(edit){ const old=key(edit); Object.assign(edit,x); const r=getRecent().map(k=>k===old?key(edit):k); try{ localStorage.setItem("sc_annu_recent",JSON.stringify(r)); }catch{}
       setMode(null); form.hidden=true; draw(); msg.textContent=`${x.n} (${x.e}) modifié dans l'annuaire.`; msg.className="msg ok"; await saveAnnu(); return; }
@@ -2043,20 +2094,21 @@ function openAnnuaire(){
       if(!d.classList.contains("confirm")){ d.classList.add("confirm"); d.textContent="Supprimer ?"; setTimeout(()=>{ if(d.isConnected){ d.classList.remove("confirm"); d.textContent="🗑"; } },3000); return; }
       ANNU.splice(+d.dataset.del,1); draw(); msg.textContent=`${x.n} (${x.e}) supprimé de l'annuaire.`; msg.className="msg"; await saveAnnu(); return; }
     const b=e.target.closest("[data-ai]"); if(!b) return; const x=ANNU[+b.dataset.ai]; if(!x) return;
-    const row={nom:x.n, raison:x.e, tel:x.p||x.t, mail:x.m};
+    const row={nom:x.n, raison:x.e, tel:x.p||x.t, mail:x.m, an:1}; if(x.p&&x.t){ row.tel2=x.t; row.l1=annL(x,1); row.l2=annL(x,2); }
     const empty=c.contacts.findIndex(r=>!r.nom&&!r.raison&&!r.tel&&!r.tel2&&!r.mail);
     if(empty>=0) c.contacts[empty]=row; else c.contacts.push(row);
     scheduleSave(currentId,100); renderMain();
     pushRecent(x); b.textContent="Ajouté ✓"; b.disabled=true; msg.textContent=`${x.n} (${x.e}) ajouté aux interlocuteurs.`; msg.className="msg ok"; });
   m.querySelector("[data-x]").onclick=closeModal; m.querySelector("[data-x2]").onclick=closeModal;
 }
+function annL(x,i){ return x["l"+i]||(x.l1==null?(i==1?"portable":"fixe"):(i==1?"pro":"perso")); } // anciennes fiches : Portable / Fixe
 function openAnnuRip(){
   const c=chantiers.get(currentId); if(!c) return;
   const m=modal(`<div class="m-h"><h2>Annuaire des RIP</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
    <div class="m-b" style="gap:10px">
      <div style="display:flex;gap:8px"><input id="ar_q" type="search" placeholder="Rechercher un RIP…" aria-label="Rechercher un RIP" style="flex:1;min-width:0;border:1px solid var(--line-strong);border-radius:6px;padding:8px 10px;background:var(--bg)"><button class="btn" data-new>＋ Nouveau RIP</button></div>
      <div class="an-form" id="ar_form" hidden>
-       <div class="fgrid"><div class="f"><label for="ar_n">Nom Prénom *</label><input id="ar_n"></div><div class="f"><label for="ar_p">Téléphone</label><input id="ar_p" type="tel"></div></div>
+       <div class="fgrid"><div class="f"><label for="ar_n">Nom Prénom *</label><input id="ar_n"></div><div class="f ar-tels"><label for="ar_p">Téléphone</label><div class="ar-tl"><input id="ar_l1" class="ar-l" placeholder="pro" title="Renommer (ex. pro, bureau…)" aria-label="Nom du 1er numéro"><input id="ar_p" type="tel" placeholder="Numéro"></div><div class="ar-tl"><input id="ar_l2" class="ar-l" placeholder="perso" title="Renommer (ex. perso, portable…)" aria-label="Nom du 2e numéro"><input id="ar_p2" type="tel" placeholder="+ 2e numéro (si besoin)" aria-label="2e téléphone"></div></div></div>
        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px"><button class="btn" data-cancel>Annuler</button><button class="btn primary" data-save>Enregistrer</button></div>
      </div>
      <div id="ar_r" class="an-list"></div>
@@ -2064,28 +2116,46 @@ function openAnnuRip(){
    <div class="m-f"><span class="msg" id="ar_msg"></span><button class="btn" data-x2>Fermer</button></div>`,"sm");
   const q=m.querySelector("#ar_q"), out=m.querySelector("#ar_r"), msg=m.querySelector("#ar_msg"), form=m.querySelector("#ar_form");
   const save=async()=>{ if(!db) return; try{ await db.doc("config/annuaire_rip").set({items:ANNU_RIP,maj:today()}); }catch{ msg.textContent="Erreur d'enregistrement de l'annuaire."; msg.className="msg err"; } };
+  const tels=x=>String(x.p2||"").trim()?`<span style="white-space:nowrap">${esc(x.l1||"pro")} ${esc(x.p||"—")}</span> · <span style="white-space:nowrap">${esc(x.l2||"perso")} ${esc(x.p2)}</span>`:esc(x.p||"—");
   const draw=()=>{
     const t=nrm(q.value).split(" ").filter(Boolean);
-    const list=ANNU_RIP.map((x,i)=>({x,i})).filter(({x})=>t.every(w=>nrm(x.n+" "+x.p).includes(w))).sort((a,b)=>a.x.n.localeCompare(b.x.n));
-    out.innerHTML=list.length?list.map(({x,i})=>`<div class="an-row"><div class="an-who"><b>${esc(x.n)}</b><div class="an-meta mono">${esc(x.p||"—")}</div></div><button class="btn sm primary" data-pick="${i}">Choisir</button><button class="btn sm ghost an-del" data-del="${i}" title="Supprimer de l'annuaire" aria-label="Supprimer de l'annuaire">🗑</button></div>`).join("")
+    const list=ANNU_RIP.map((x,i)=>({x,i})).filter(({x})=>t.every(w=>nrm(x.n+" "+x.p+" "+(x.p2||"")).includes(w)||telKey(w).length>=4&&[x.p,x.p2].some(v=>telKey(v).includes(telKey(w))))).sort((a,b)=>a.x.n.localeCompare(b.x.n));
+    out.innerHTML=list.length?list.map(({x,i})=>`<div class="an-row"><div class="an-who"><b>${esc(x.n)}</b><div class="an-meta mono">${tels(x)}</div></div><button class="btn sm primary" data-pick="${i}">Choisir</button><button class="btn sm ghost" data-ed="${i}" title="Modifier ce RIP" aria-label="Modifier ce RIP">✏️</button><button class="btn sm ghost an-del" data-del="${i}" title="Supprimer de l'annuaire" aria-label="Supprimer de l'annuaire">🗑</button></div>`).join("")
       :`<p class="hint" style="padding:10px">${ANNU_RIP.length?"Aucun RIP trouvé.":"L'annuaire des RIP est vide : clique sur « ＋ Nouveau RIP » pour ajouter une personne."}</p>`;
     if(!msg.className.includes("ok")&&!msg.className.includes("err")) msg.textContent=ANNU_RIP.length?ANNU_RIP.length+" RIP dans l'annuaire":"";
   };
   draw(); setTimeout(()=>q.focus(),0); q.addEventListener("input",draw);
-  m.querySelector("[data-new]").onclick=()=>{ form.hidden=!form.hidden; if(!form.hidden){ const n=m.querySelector("#ar_n"); if(q.value.trim()&&!n.value) n.value=q.value.trim(); n.focus(); } };
-  m.querySelector("[data-cancel]").onclick=()=>{ form.hidden=true; };
-  m.querySelector("[data-save]").onclick=async()=>{
-    const n=m.querySelector("#ar_n").value.trim(), p=m.querySelector("#ar_p").value.trim();
+  const F=k=>m.querySelector("#ar_"+k), tb=form.querySelector(".ar-tels"), saveB=form.querySelector("[data-save]"); let edit=null; // RIP en cours de modification
+  const two=()=>tb.classList.toggle("two",!!F("p2").value.trim()); F("p2").addEventListener("input",two);
+  const setMode=x=>{ edit=x; saveB.textContent=x?"Enregistrer les modifications":"Enregistrer";
+    let v={n:"",p:"",p2:"",l1:"",l2:"",...(x||{})};
+    if(x&&!String(x.p2||"").trim()){ // ancienne fiche : 2 numéros tapés dans une seule case (ou dans le nom)
+      const re=/(?:([A-Za-zÀ-ÿ]+)\s*:?\s*)?((?:\+33\s?|0033\s?|0)[1-9](?:[\s.\-]?\d{2}){4})/g;
+      const src=String(x.p||"")+" "+String(x.n||""), hits=[...src.matchAll(re)], seen=[];
+      hits.forEach(h=>{ if(!seen.some(o=>telKey(o[2])===telKey(h[2]))) seen.push(h); });
+      if(seen.length>=2){ v.p=seen[0][2].trim(); v.p2=seen[1][2].trim(); v.l1=seen[0][1]||v.l1; v.l2=seen[1][1]||v.l2; }
+      const cut=String(v.n).search(/\s(?:[A-Za-zÀ-ÿ]+\s*:?\s*)?(?:\+33|0033|0)[1-9][\s.\-]?\d{2}/); if(cut>0) v.n=v.n.slice(0,cut).trim();
+    }
+    F("n").value=v.n; F("p").value=v.p; F("p2").value=v.p2; F("l1").value=v.l1||"pro"; F("l2").value=v.l2||"perso"; two(); };
+  setMode(null);
+  m.querySelector("[data-new]").onclick=()=>{ if(edit){ setMode(null); form.hidden=false; } else form.hidden=!form.hidden; if(!form.hidden){ const n=F("n"); if(q.value.trim()&&!n.value) n.value=q.value.trim(); n.focus(); } };
+  m.querySelector("[data-cancel]").onclick=()=>{ form.hidden=true; setMode(null); };
+  saveB.onclick=async()=>{
+    const n=F("n").value.trim(), p=fmtTel(F("p").value.trim()), p2=fmtTel(F("p2").value.trim());
     if(!n){ msg.textContent="Le nom est obligatoire."; msg.className="msg err"; return; }
-    ANNU_RIP.push({n,p}); m.querySelector("#ar_n").value=""; m.querySelector("#ar_p").value=""; form.hidden=true; q.value=""; msg.textContent=`${n} ajouté à l'annuaire des RIP.`; msg.className="msg ok"; draw(); await save();
+    const x={n,p}; if(p2){ x.p2=p2; x.l1=F("l1").value.trim()||"pro"; x.l2=F("l2").value.trim()||"perso"; }
+    if(edit){ const i=ANNU_RIP.indexOf(edit); if(i>=0) ANNU_RIP[i]=x; else ANNU_RIP.push(x); msg.textContent=`${n} modifié dans l'annuaire des RIP.`; }
+    else { ANNU_RIP.push(x); msg.textContent=`${n} ajouté à l'annuaire des RIP.`; }
+    setMode(null); form.hidden=true; q.value=""; msg.className="msg ok"; draw(); await save();
   };
   out.addEventListener("click",async e=>{
+    const ed=e.target.closest("[data-ed]"); if(ed){ const x=ANNU_RIP[+ed.dataset.ed]; if(!x) return; setMode(x); form.hidden=false; F("n").focus(); form.scrollIntoView({block:"nearest"}); msg.textContent=`Modification de ${x.n}.`; msg.className="msg"; return; }
     const d=e.target.closest("[data-del]");
     if(d){ const x=ANNU_RIP[+d.dataset.del]; if(!x) return;
       if(!d.classList.contains("confirm")){ d.classList.add("confirm"); d.textContent="Supprimer ?"; setTimeout(()=>{ if(d.isConnected){ d.classList.remove("confirm"); d.textContent="🗑"; } },3000); return; }
       ANNU_RIP.splice(+d.dataset.del,1); msg.textContent=`${x.n} supprimé de l'annuaire des RIP.`; msg.className="msg"; draw(); await save(); return; }
     const b=e.target.closest("[data-pick]"); if(!b) return; const x=ANNU_RIP[+b.dataset.pick]; if(!x) return;
-    c.rip=x.n; c.rip_tel=x.p||""; c.rip_tel2=""; scheduleSave(currentId,100); closeModal(); renderMain();
+    c.rip=x.n; c.rip_tel=x.p||""; c.rip_tel2=x.p2||""; c.rip_l1=x.p2?(x.l1||"pro"):(c.rip_l1||"pro"); c.rip_l2=x.p2?(x.l2||"perso"):(c.rip_l2||"perso"); scheduleSave(currentId,100); closeModal(); renderMain();
   });
   m.querySelector("[data-x]").onclick=closeModal; m.querySelector("[data-x2]").onclick=closeModal;
 }
@@ -2547,11 +2617,11 @@ function openSettings(){
    <div class="m-b">
      <h3 class="sec" style="margin:0">Mes coordonnées (en-tête et signature des courriers)</h3>
      <div class="fgrid">
-       ${[["moi_nom","Nom Prénom"],["moi_fonction","Fonction"],["moi_tel","Téléphone"],["moi_mail","Mail"]].map(([k,l])=>`<div class="f"><label for="s_${k}">${l}</label><input id="s_${k}" data-s="${k}" value="${esc(draft[k])}"></div>`).join("")}
+       ${[["moi_nom","Nom Prénom"],["moi_fonction","Fonction"],["moi_tel","Téléphone"],["moi_mail","Mail"]].map(([k,l])=>`<div class="f"><label for="s_${k}">${l}</label><input id="s_${k}" data-s="${k}"${/_tel$/.test(k)?' type="tel"':""} value="${esc(draft[k])}"></div>`).join("")}
      </div>
      <h3 class="sec" style="margin:14px 0 0">Responsable de groupe (représentant Enedis dans le PPOS)</h3>
      <div class="fgrid">
-       ${[["resp_nom","Prénom NOM"],["resp_fonction","Fonction"],["resp_tel","Téléphone"],["resp_mail","Mail"]].map(([k,l])=>`<div class="f"><label for="s_${k}">${l}</label><input id="s_${k}" data-s="${k}" value="${esc(draft[k])}"></div>`).join("")}
+       ${[["resp_nom","Prénom NOM"],["resp_fonction","Fonction"],["resp_tel","Téléphone"],["resp_mail","Mail"]].map(([k,l])=>`<div class="f"><label for="s_${k}">${l}</label><input id="s_${k}" data-s="${k}"${/_tel$/.test(k)?' type="tel"':""} value="${esc(draft[k])}"></div>`).join("")}
      </div>
      <h3 class="sec" style="margin:14px 0 0">Signature des mails <span class="hint" style="font-weight:400;text-transform:none;letter-spacing:0">(ajoutée en bas des mails générés)</span></h3>
      ${outlookSig()?`<p class="hint" style="margin:4px 0 6px;color:var(--ok,#1a7f37)">✓ Ta signature Outlook « ${esc(window.ING_OUTLOOK_SIG.name||"")} » est reprise automatiquement, rien à coller.</p><div class="msig" aria-label="Signature Outlook">${outlookSig()}</div>
@@ -3449,6 +3519,10 @@ let PHMAP=null;
 const PH_ICO_WAZE="data:image/png;base64,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", PH_ICO_MAPS="data:image/png;base64,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";
 function wazeUrl(c,a){ const g=parseGps(c.gps); return a?`https://waze.com/ul?q=${encodeURIComponent(a)}&navigate=yes`:g?`https://waze.com/ul?ll=${g.lat},${g.lon}&navigate=yes`:""; } // même format que le test qui fonctionne sur iPhone
 /* recherche par numéro de téléphone : on compare seulement les chiffres (06.12…, 06 12…, +33 6 12… → 0612…) */
+function fmtTel(v){ const t=String(v||"").trim(); if(!/^[\d\s.\-+()\/]+$/.test(t)) return v; const d=telKey(t); return /^0\d{9}$/.test(d)?d.replace(/(\d{2})(?=\d)/g,"$1 "):v; } // 0600000000 → 06 00 00 00 00
+document.addEventListener("change",e=>{ const i=e.target; if(!(i instanceof HTMLInputElement)) return;
+  if(!(i.type==="tel"||/^Tel/.test(i.dataset.pp||""))) return;
+  const v=fmtTel(i.value); if(v!==i.value){ i.value=v; i.dispatchEvent(new Event("input",{bubbles:true})); } },true);
 function telKey(t){ let d=String(t||"").replace(/\D/g,""); if(/^0033\d{9}$/.test(d)) d="0"+d.slice(4); else if(/^33\d{9}$/.test(d)) d="0"+d.slice(2); return d; }
 function telQuery(q){ q=String(q||"").trim(); return /^\+?[\d\s.\-()\/]+$/.test(q)&&q.replace(/\D/g,"").length>=4?telKey(q):""; }
 function telHit(c,k){ return !!k&&[...(c.contacts||[]).flatMap(x=>[x.tel,x.tel2]),c.rip_tel,c.rip_tel2,c.tel].some(t=>t&&telKey(t).includes(k)); }
