@@ -735,6 +735,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 .cr-subj small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
 .cr-done{background:#fff4dc;border:1px solid #ecd29c;border-radius:12px;padding:10px 12px;font-size:13.5px}
 .cr-done p{margin:0 0 8px}
+.cr-mt{margin-top:6px;white-space:normal;text-align:center}
 #phone section h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 2px 8px}
 .ph-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;flex-direction:column;gap:6px}
 .ph-cn b{font-size:15px;display:block}
@@ -767,7 +768,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.41</span></div>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.42</span></div>
     <div class="tabwrap"><div class="tw-btns"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button></div>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
@@ -805,7 +806,7 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.41"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.42"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
 { const v=document.querySelector('span.ver[title="Version d\'ING STUDIO"]'); if(v) v.textContent="v"+APP_VERSION; } /* v2.38 : numéro sous le logo toujours à jour */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
@@ -3895,7 +3896,8 @@ function crEditor(c){ const d=CR.d, i=CR.edit, p=d.pts[i], u=crUrl(p), std=p.std
   </main>`; }
 function crSendView(c){ const f=CR.pdf, can=crCanShare(f.file);
   return `<main class="ph-main cr"><div class="cr-ok"><b>📄 Compte rendu prêt</b><span>${esc(f.file.name)}</span><span>${f.pages} page${f.pages>1?"s":""} · ${(f.file.size/1048576).toFixed(1).replace(".",",")} Mo · ${CR.d.pts.length} remarque${CR.d.pts.length>1?"s":""}</span></div>
-    ${can?`<button class="cr-go" data-cr="share">📧 Envoyer par mail</button><p class="cr-hint">Choisis ton appli mail (Mail, Outlook, Gmail…) : le PDF est joint et l'objet est rempli. L'objet est aussi copié : colle-le si l'appli ne l'a pas mis.</p>`
+    ${can?`<button class="cr-go" data-cr="share">📧 Envoyer par mail (PDF joint)</button><p class="cr-hint">Choisis ton appli mail : le PDF est joint. ${CR_ANDROID?"L'objet est rempli par Gmail ou Outlook. ":""}<b>L'objet est copié</b> en même temps : si le champ Objet est vide, appuie dessus puis <b>Coller</b>.</p>
+      <button class="cr-btn2 cr-mt" data-cr="mailto2">✉️ Mail avec l'objet déjà rempli (PDF à joindre)</button><p class="cr-hint">Ouvre un mail avec l'objet et le texte. Enregistre d'abord le PDF (⬇ Enregistrer › Fichiers), puis dans le mail : appui dans le texte › joindre un fichier.</p>`
       :`<button class="cr-go" data-cr="mailto">📧 Préparer le mail</button><p class="cr-hint">Ce téléphone ne sait pas joindre un fichier directement : le PDF est d'abord enregistré, puis le mail s'ouvre avec l'objet et le texte. Joins le PDF depuis tes téléchargements.</p>`}
     <div class="cr-add sm"><button class="cr-btn2" data-cr="view">👁 Voir le PDF</button><button class="cr-btn2" data-cr="dl">⬇ Enregistrer</button></div>
     <p class="cr-subj"><small>Objet</small>${esc(f.subject)}</p>
@@ -3936,7 +3938,8 @@ function crClick(e){ const b=e.target.closest("[data-cr]"); if(!b||!CR.d) return
       catch(err){ alert("Le PDF n'a pas pu être fabriqué : "+(err?.message||err)); } renderPhone(); window.scrollTo(0,0); },30); return; }
   if(a==="edit-back"){ CR.pdf=null; renderPhone(); return; }
   const f=CR.pdf; if(!f) return;
-  if(a==="share"){ crCopy(f.subject); navigator.share({files:[f.file],title:f.subject,...(CR_ANDROID?{text:f.text}:{})}) /* iPhone : sans texte, sinon Mail laisse l'objet vide (l'objet vient du nom du PDF) ; Android : le titre devient l'objet (Gmail, Outlook), le texte le corps du mail */.then(()=>{ CR.sent=true; renderPhone(); },err=>{ if(err?.name!=="AbortError") alert("Partage impossible : "+(err?.message||err)); }); return; }
+  if(a==="share"){ crCopy(f.subject); const t0=document.title; document.title=f.subject; /* l'iPhone peut reprendre le titre de la page comme objet */ setTimeout(()=>{ document.title=t0; },5000); navigator.share({files:[f.file],title:f.subject,...(CR_ANDROID?{text:f.text}:{})}) /* iPhone : sans texte, sinon Mail laisse l'objet vide (l'objet vient du nom du PDF) ; Android : le titre devient l'objet (Gmail, Outlook), le texte le corps du mail */.then(()=>{ CR.sent=true; renderPhone(); },err=>{ if(err?.name!=="AbortError") alert("Partage impossible : "+(err?.message||err)); }); return; }
+  if(a==="mailto2"){ crCopy(f.subject); CR.sent=true; location.href=`mailto:?subject=${encodeURIComponent(f.subject)}&body=${encodeURIComponent(f.text)}`; setTimeout(renderPhone,600); return; }
   if(a==="mailto"){ crDl(f.file); CR.sent=true; setTimeout(()=>{ location.href=`mailto:?subject=${encodeURIComponent(f.subject)}&body=${encodeURIComponent(f.text)}`; renderPhone(); },600); return; }
   if(a==="view"){ if(CR_ANDROID){ crDl(f.file); return; } const u=URL.createObjectURL(f.file); const w=window.open(u,"_blank"); if(!w) location.href=u; setTimeout(()=>URL.revokeObjectURL(u),120000); return; }
   if(a==="dl"){ crDl(f.file); return; }
