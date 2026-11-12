@@ -52,6 +52,10 @@ button{cursor:pointer}
 .brand .mark{width:22px;height:22px;border-radius:4px;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font:600 12px var(--mono)}
 .tabs{display:flex;gap:4px}
 .tabwrap{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.tw-btns{display:flex;align-items:center;gap:8px}
+.man-btn{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 12px 0 6px;border-radius:99px;text-decoration:none;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.02em;border:2px solid transparent;background:radial-gradient(circle at 50% 30%,#3b86ff 0%,#1f5fd6 50%,#0b2a66 100%) padding-box,linear-gradient(160deg,#fdfdfd 0%,#9aa3ad 30%,#3b4046 55%,#e6e9ec 78%,#6c737b 100%) border-box;box-shadow:0 2px 5px #0b2a6655,inset 0 2px 3px #ffffff55,inset 0 -3px 5px #00000040;transition:transform .12s,box-shadow .12s}
+.man-btn:hover{transform:translateY(-1px);box-shadow:0 4px 9px #0b2a6677,inset 0 2px 3px #ffffff66,inset 0 -3px 5px #00000040}
+.man-btn svg{filter:drop-shadow(0 1px 1px #0006)}
 .rc-btn{position:relative;display:inline-flex;align-items:center;gap:0;height:28px;margin:0 12px 0 16px;padding:0 14px 0 26px;border:0;border-radius:7px 3px 3px 7px;cursor:pointer;font:inherit;font-size:14.5px;font-weight:900;letter-spacing:.08em;color:#fff;background:linear-gradient(180deg,#2a63c9 0%,#123c8f 48%,#0a2763 100%);box-shadow:0 3px 10px #0b2a6655,inset 0 1px 0 #ffffff40;text-shadow:0 1px 2px #0006;transition:transform .12s,box-shadow .12s}
 .rc-btn::after{content:"";position:absolute;right:-7px;top:50%;margin-top:-7px;border:7px solid transparent;border-right:0;border-left-color:#123c8f}
 .rc-btn .rc-ic{position:absolute;left:-14px;top:50%;margin-top:-16px;filter:drop-shadow(0 1px 2px #0b2a6666);transition:transform .25s}
@@ -275,6 +279,9 @@ h3.sec .prog{font:500 12px var(--mono);color:var(--muted);letter-spacing:0;text-
 .btn.rosa .rosa-t{font-size:11px;line-height:1.05;text-align:left}
 .rosa-skip{font-size:13px;background:#fff6e5;border:1px solid #f0c36d;border-radius:8px;padding:6px 10px}.rosa-skip summary{cursor:pointer;font-weight:600}.rosa-skip ul{margin:6px 0 0 18px;padding:0}.rosa-st{display:flex;gap:8px;align-items:flex-start;line-height:1.7}
 .rosa-st>b{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center;margin-top:3px}
+.rac-in{position:relative}.rac-in input{width:100%;box-sizing:border-box;padding-right:28px}.rac-ok{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:#1a7f37;font-weight:700;font-size:16px;cursor:pointer}.rac-ok[hidden]{display:none}
+tr.ct-rc td,tr.ct-rc textarea,tr.ct-rc input,tr.ct-rc a,tr.ct-rc span{font-weight:700}
+.rosa-fill{margin-top:6px;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:#e8f4fb;border-color:#00a3e0;color:#0b5c84;font-weight:600;font-family:var(--sans)}.rosa-fill img{width:16px;height:16px;border-radius:3px}.rosa-fill[hidden]{display:none}.rac-f #rac_msg:empty{display:none}
 .rosa-bm{background:#fff4c2;border-color:#e0b400;font-weight:700;cursor:grab}
 .imp-cb{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--sunk);flex:0 0 auto;cursor:pointer}
 .imp-cb input{width:18px;height:18px;margin:0;cursor:pointer}
@@ -292,7 +299,7 @@ table.kv.plan td:first-child{padding:0;width:auto;font-weight:400}
 table.kv.plan td:last-child{width:42%}
 .pd{display:flex;align-items:flex-start}
 .pd textarea{flex:1}
-.ro #addBtn,.ro #undoBtn,.ro #settingsBtn,.ro #pasBtn,.ro .tools>button:not(#roBtn):not(#roSend):not(#recapBtn),.ro .tools .save,.ro #main button:not(.ck-h),.ro #main .grip,.ro .resizer{display:none!important}
+.ro #addBtn,.ro #undoBtn,.ro #manBtn,.ro #settingsBtn,.ro #pasBtn,.ro .tools>button:not(#roBtn):not(#roSend):not(#recapBtn),.ro .tools .save,.ro #main button:not(.ck-h),.ro #main .grip,.ro .resizer{display:none!important}
 .ro-tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px;background:#FBEED3;color:#7a4b00;border:1px solid #ECD29C;font-size:12px;font-weight:700;white-space:nowrap}
 .ro-pts{margin:0 0 12px;padding:12px 16px;border:3px solid #F2B300;background:#FFF1A8;border-radius:10px;font-size:15px;font-weight:600;color:#3a2a00;white-space:pre-wrap;box-shadow:0 0 0 4px #FFF1A866,0 4px 14px #f2b30055}
 .ro-pts b{display:block;color:#9a4d00;margin-bottom:6px;font-size:14px;letter-spacing:.03em;text-transform:uppercase}
@@ -317,6 +324,24 @@ textarea.autog{display:block;width:100%;border:0;background:transparent;resize:n
 .plcal:hover,.plcal.on{color:var(--accent,#1f5fa8);background:var(--sunk)}
 table.kv td input,table.kv td select,table.grid td input{border:0;background:transparent;width:100%;padding:6px 8px;min-width:0}
 table.kv td select{color:var(--red);font-weight:500}
+.ocb-one{display:flex;align-items:center}.ocb-one input{flex:1}
+.ocb-add{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 7px;opacity:.45;border-radius:6px}
+tr:hover .ocb-add,.ocb-add:focus-visible{opacity:1}.ocb-add:hover{background:var(--line);color:var(--fg)}
+.kvcol{min-width:0}
+.ocb-box{margin-top:10px;padding:2px 2px 0}
+.ocb-h{font-weight:700;font-size:13px;margin:0 0 4px 6px}.ocb-h span{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+.ocb-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:2px 10px;font-size:13px}
+.ocb-list.sm{font-size:12px;grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
+.ocb-it{display:flex;align-items:center;min-width:0;border-bottom:1px dashed var(--line-strong)}
+.ocb-it input{border:0;background:transparent;font:inherit;color:var(--fg);padding:3px 4px;min-width:0;field-sizing:content}
+.ocb-it input:focus{outline:1px solid var(--line-strong);border-radius:4px}
+.ocb-b{font-weight:600;width:8ch;max-width:14ch}
+@supports (field-sizing:content){.ocb-b{width:auto;min-width:2.5ch}}
+.ocb-n{flex:1;font-variant-numeric:tabular-nums}
+.ocb-s{color:var(--muted)}
+.ocb-del{border:0;background:transparent;color:var(--muted);cursor:pointer;opacity:0;padding:0 4px;font-size:14px}
+.ocb-it:hover .ocb-del,.ocb-del:focus-visible{opacity:1}.ocb-del:hover{color:var(--red)}
+.ocb-box .addrow{margin-top:6px}
 table.kv td select.reg-ppor,table.kv td select.reg-diff,table.kv td select.reg-none{color:var(--fg)}
 .regcell{display:flex;align-items:center;flex-wrap:wrap}
 .regcell select{flex:1 1 120px}
@@ -673,6 +698,43 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 .ph-addr{display:block;margin-top:6px;font-size:14px;color:var(--accent);text-decoration:none}
 .ph-dt .ph-chips{margin-top:8px}
 #phone section{margin-top:16px}
+/* compte rendu de visite (v2.40) */
+.ph-row1{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.ph-crb{flex:none;display:flex;flex-direction:column;align-items:center;border:0;border-radius:12px;background:#123a73;color:#fff;font-size:12.5px;font-weight:700;line-height:1.15;padding:7px 10px;margin-top:-2px;box-shadow:0 2px 6px rgba(18,58,115,.25)}
+.ph-crb i{font-style:normal;font-size:19px;line-height:1;margin-bottom:2px}
+.ph-crb small{font-size:10.5px;font-weight:600;color:#ffd75e;margin-top:2px}
+.cr-top h1{color:#123a73}
+.cr-when{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+.ph-main.cr{display:flex;flex-direction:column;gap:10px;padding-top:12px}
+.cr-l{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--fg)}
+.cr-l input,.cr-l textarea{font:inherit;font-size:16px;font-weight:400;padding:10px 12px;border:1px solid var(--line-strong);border-radius:10px;background:var(--panel);color:var(--fg);width:100%;box-sizing:border-box}
+.cr-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--red);margin:8px 2px 0}
+.cr-h span{color:var(--muted);font-weight:400}
+.cr-pt{display:flex;gap:10px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px;color:var(--fg)}
+.cr-pt img,.cr-noimg{flex:none;width:64px;height:64px;object-fit:cover;border-radius:8px;background:var(--sunk);display:flex;align-items:center;justify-content:center;font-size:24px}
+.cr-ptx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cr-ptx b{font-size:14px;color:#1f6fbf}
+.cr-ptx span{font-size:13px;color:var(--muted);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cr-add{display:flex;gap:8px}
+.cr-big{flex:1;display:flex;align-items:center;justify-content:center;background:#1f6fbf;color:#fff;font-size:16px;font-weight:700;border-radius:12px;padding:16px 10px;cursor:pointer}
+.cr-btn2{flex:none;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);background:var(--panel);color:var(--fg);font-size:14px;font-weight:600;border-radius:12px;padding:10px 14px;cursor:pointer}
+.cr-add.sm .cr-btn2{flex:1}
+.cr-busy{margin:0;color:var(--muted);font-size:13.5px}
+.cr-go{border:0;border-radius:12px;background:#123a73;color:#fff;font-size:16px;font-weight:700;padding:15px 12px;margin-top:6px}
+.cr-go:disabled{opacity:.6}
+.cr-del{color:var(--red);align-self:center}
+.cr-photo{width:100%;max-height:48vh;object-fit:contain;border-radius:10px;background:#111}
+.cr-std{display:flex;flex-wrap:wrap;gap:6px}
+.cr-std button{border:1px solid var(--line-strong);background:var(--panel);color:var(--fg);border-radius:99px;padding:7px 11px;font-size:13px;text-align:left}
+.cr-std button.on{background:#e3eefb;border-color:#1f6fbf;color:#0b4a8f;font-weight:600}
+.cr-ok{display:flex;flex-direction:column;gap:3px;background:#e9f6ee;border:1px solid #b9e0c7;border-radius:12px;padding:12px 14px;font-size:13px;color:var(--muted)}
+.cr-ok b{font-size:16px;color:#17673a}
+.cr-ok span{overflow-wrap:anywhere}
+.cr-hint{margin:0;font-size:12.5px;color:var(--muted)}
+.cr-subj{margin:4px 0 0;font-size:13px;overflow-wrap:anywhere}
+.cr-subj small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.cr-done{background:#fff4dc;border:1px solid #ecd29c;border-radius:12px;padding:10px 12px;font-size:13.5px}
+.cr-done p{margin:0 0 8px}
 #phone section h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 2px 8px}
 .ph-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;flex-direction:column;gap:6px}
 .ph-cn b{font-size:15px;display:block}
@@ -705,8 +767,8 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <div class="app" id="app">
   <header class="top" id="top">
     <button class="btn sm menu-btn" id="menuBtn" aria-label="Afficher la liste des chantiers">☰ Chantiers</button>
-    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.29</span></div>
-    <div class="tabwrap"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button>
+    <div class="brand"><span class="mark logo" title="ING STUDIO"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><defs><linearGradient id="lgIS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#0b2a66"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="url(#lgIS)"/><path d="M31.5 3.6l-3.1 4.6h2.3l-1.5 3.9 4.1-5.2h-2.4l1.8-3.3z" fill="#ffc928"/><text x="20" y="24" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="14.5" fill="#fff" letter-spacing=".3">ING</text><text x="20.4" y="32.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="5.6" fill="#cfe0ff" letter-spacing="1.6">STUDIO</text></svg></span><span class="ver" title="Version d'ING STUDIO">v2.40</span></div>
+    <div class="tabwrap"><div class="tw-btns"><button class="undo-btn" id="undoBtn" title="Retour arrière : annule la dernière modification de cette affaire (Ctrl+Z)" aria-label="Retour arrière" disabled><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M16.8 20.2 C19.6 14.6 17.2 8.6 10.4 8.9" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M11.6 3.9 L4.6 9.1 L11.4 13.9 Z" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"/></svg></button></div>
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="travaux">Affaires travaux<span class="n" id="nT">0</span></button>
       <button class="tab" data-t="etudes">Affaires études<span class="n" id="nE">0</span></button>
@@ -743,7 +805,8 @@ body.phone .app,body.phone #modalRoot{display:none!important}
 <script>
 const SRC0="<!doctype html>\n"+document.documentElement.outerHTML; // le fichier tel qu'ouvert (avant tout affichage) : sert à fabriquer la copie « lecture seule » pour la passation
 const RO=window.SC_READONLY||null; // copie « lecture seule » envoyée à un collègue pendant une absence
-const APP_VERSION="2.29"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+const APP_VERSION="2.40"; /* numéro de version : à incrémenter à chaque livraison (aussi dans <span class="ver"> de l'en-tête) */
+{ const v=document.querySelector('span.ver[title="Version d\'ING STUDIO"]'); if(v) v.textContent="v"+APP_VERSION; } /* v2.38 : numéro sous le logo toujours à jour */
 /* ---------- Référentiels ---------- */
 /* téléphone (écran étroit + tactile) : mode consultation, sauf si « version complète » demandée */
 /* téléphone : détecté par le type d'appareil (Android/iPhone) ou un petit écran tactile – plus fiable que la seule largeur de la fenêtre */
@@ -1106,10 +1169,22 @@ const longToday = ()=>new Date().toLocaleDateString("fr-FR",{day:"numeric",month
 function blank(type){
   return {type, statut:STATUTS[type][0], dc:"", rac:"", nature:"", client:"", adresse:"", commune:"", cp:"", insee:"",
     eplans:"", gps:"", gps_src:"", gps_for:"", rip_tel:"", rip_tel2:"", bet_retour:"", bet_ok:"", det_retour:"", det_ok:"", rro_lim:"", attente:false, attente_fin:"", tq:{}, regime:"", regime_date:"", icp:"", icp_faite:"", presc_dem:"", presc_ok:"", icp_date:"", prescriptions:"", agglo:"", rip:"", gdo:"",
-    livraison:"", ocb:"", date_debut:"", date_fin:"", pmeo:"", pmeo_mode:"",
+    livraison:"", ocb:"", ocb_list:[{bat:"",num:""}], date_debut:"", date_fin:"", pmeo:"", pmeo_mode:"",
     notes:[{t:"",imp:false},{t:"",imp:false},{t:"",imp:false}], contacts:[{nom:"",raison:"",tel:"",mail:""}], planning:[{etape:"",date:""},{etape:"",date:""}], prm:[{voie:"",bat:"",lot:"",prm:""}],
     checks:{}, docs:[], created:today(), updated:today()};
 }
+/* OCB : un ou plusieurs numéros (un par bâtiment). c.ocb_list = [{bat,num}] ; c.ocb = texte (modèles, recherche, import) */
+function parseOcb(t){ t=String(t??"").trim(); if(!t) return [{bat:"",num:""}];
+  if(t.includes(":")){ const out=[]; const re=/\s*([^:]+?)\s*:\s*([^\s,;:]+)[\s,;\/–-]*/gy; let m, last=0;
+    while((m=re.exec(t))){ out.push({bat:m[1].replace(/^[\s,;\/–-]+/,""),num:m[2]}); last=re.lastIndex; }
+    if(out.length && last>=t.length) return out;
+    if(out.length){ out.push({bat:"",num:t.slice(last).trim()}); return out; } }
+  const p=t.split(/[\s,;\/]+/).filter(Boolean);
+  if(p.length>1 && p.every(x=>/^\d{4,}$/.test(x))) return p.map(n=>({bat:"",num:n}));
+  return [{bat:"",num:t}]; }
+function ocbStr(c){ const l=(c.ocb_list||[]).map(x=>({bat:String(x.bat||"").trim(),num:String(x.num||"").trim()})).filter(x=>x.bat||x.num);
+  return l.length>1 ? l.map(x=>x.bat?x.bat+" : "+x.num:x.num).join(" – ") : (l[0]?.num||""); }
+function syncOcb(c){ if(!Array.isArray(c.ocb_list)||!c.ocb_list.length||ocbStr(c)!==String(c.ocb||"")) c.ocb_list=parseOcb(c.ocb); c.ocb=ocbStr(c); }
 function norm(c){ c=JSON.parse(JSON.stringify(c||{})); /* les données reçues sont figées : on travaille sur une copie */ const b=blank(c.type||"travaux"); const o={...b,...c};
   ["notes","contacts","planning","docs","prm"].forEach(k=>{ if(!Array.isArray(o[k])) o[k]=b[k]; });
   if(typeof o.checks!=="object"||!o.checks) o.checks={};
@@ -1120,6 +1195,7 @@ function norm(c){ c=JSON.parse(JSON.stringify(c||{})); /* les données reçues s
   if(o.bet_ok && !o.bet_ok_u && !o.bet_retour && (o.bet_ok===(o.checks.bet?.at||"")||o.bet_ok===o.created)) o.bet_ok=""; // annule une conversion automatique provisoire
   while(o.planning.length>2 && !o.planning.at(-1).etape && !o.planning.at(-1).date) o.planning.pop();
   if(!o.planning.length) o.planning.push({etape:"",date:""});
+  syncOcb(o);
   return o; }
 const STOPC=new Set(["saint","sainte","le","la","les","de","du","des","en","sur","et","l","d","medoc","mer"]);
 function comInName(c){ if(!c.commune) return true; const n=new Set(nrm(c.nature).split(" ")); const t=nrm(c.commune).split(" ").filter(w=>w.length>1&&!STOPC.has(w)); return t.length? t.some(w=>n.has(w)) : nrm(c.nature).includes(nrm(c.commune)); }
@@ -1339,7 +1415,7 @@ document.addEventListener("click",e=>{ const pb=e.target.closest?.(".plcal");
   if(WKCAL.el&&!WKCAL.el.contains(e.target)) wkcalClose(); },true);
 document.addEventListener("keydown",e=>{ if(WKCAL.el&&e.key==="Escape"){ e.stopPropagation(); wkcalClose(); } else if(e.key==="F4"||(e.altKey&&e.key==="ArrowDown")){ const i=e.target.closest?.('input[type="date"]'); if(i&&!i.disabled&&!i.readOnly){ e.preventDefault(); wkcalOpen(i); } } },true);
 addEventListener("scroll",e=>{ if(WKCAL.el&&!WKCAL.el.contains(e.target)) wkcalClose(); },true); addEventListener("resize",wkcalClose);
-const ROSA_BM_SRC="(async()=>{const m=location.hash.match(/ingh=([^&]+)/);let P;try{P=JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));}catch(e){alert(\"Heures ING : clique d'abord sur « Heures ROSANAT » dans ING STUDIO, puis reviens sur l'onglet ROSANAT qui s'est ouvert.\");return;}const N=s=>String(s||\"\").normalize(\"NFD\").replace(/[̀-ͯ]/g,\"\").toUpperCase().replace(/[^A-Z]+/g,\" \").trim().split(\" \").filter(w=>w.length>1);const W=N(P.n),num=t=>parseFloat(String(t).replace(/[\\s ]/g,\"\").replace(\",\",\".\"))||0;const B=document.createElement(\"div\");B.style.cssText=\"position:fixed;z-index:2147483647;top:16px;right:16px;width:400px;max-width:90vw;background:#fff;color:#123;border:3px solid #1f5fa8;border-radius:12px;padding:14px 16px;font:14px/1.4 Arial,sans-serif;box-shadow:0 10px 34px rgba(0,0,0,.35)\";document.body.appendChild(B);const get=async u=>new DOMParser().parseFromString(await (await fetch(u,{credentials:\"include\"})).text(),\"text/html\");const par=d=>{const p=d.querySelector(\"#collapseAnalyseMo\");if(!p)return null;const t=p.querySelector(\"table\");if(!t)return 0;const G=[];let g=null;for(const tr of t.querySelectorAll(\"tbody tr\")){const td=tr.querySelectorAll(\"td\"),o=td.length-4;if(o<0)continue;if(o>0||!g){g={me:0,rd:0,meE:0,rdE:0,cp:false};G.push(g);}const w=N(td[o].textContent),h=num(td[o+2].textContent),eu=td[o+3]?num(td[o+3].textContent):0;if(W.length&&W.every(x=>w.includes(x))){g.me+=h;g.meE+=eu;g.cp=true;}else if(w.join(\" \")===\"REDRESSEMENT\"){g.rd+=h;g.rdE+=eu;}}let s=0,se=0;for(const x of G)if(x.cp){s+=x.me+x.rd;se+=x.meE+x.rdE;}EU=Math.round(se*100)/100;return Math.round(s*100)/100;};let EU=0;const fin=d=>{const t=d.querySelector(\"table.etat-financier\");if(!t)return null;const Y=[...t.querySelectorAll(\"thead th\")].map(x=>x.textContent.trim());const F={};const cl=x=>x.textContent.replace(/\\s+/g,\" \").trim();for(const tr of t.querySelectorAll(\"tbody tr\")){const td=[...tr.querySelectorAll(\"td\")];if(td.length<3)continue;const k=cl(td[0]);const yr=()=>{const o={};Y.forEach((y,j)=>{if(/^\\d{4}$/.test(y)&&td[j]){const v=cl(td[j]);if(v&&num(v))o[y]=num(v);}});return o;};if(/^Prévu DIE/i.test(k))F.die=cl(td[1]);else if(/^Réalisé$/i.test(k)){F.rea=num(cl(td[1]));F.reaY=yr();}else if(/^Engagement$/i.test(k)){F.eng=num(cl(td[1]));F.engY=yr();}}return F;};const R={},FI={},EE={};let i=0,ok=0;for(const r of P.r){i++;B.innerHTML=\"<b>ING STUDIO · heures ROSANAT<\/b><br>⏳ \"+i+\" / \"+P.r.length+\" : \"+r;try{let d=await get(\"/Affaire/Search?search=\"+encodeURIComponent(r));if(!d.querySelector(\"#collapseAnalyseMo\")){const a=[...d.querySelectorAll('a[href*=\"/Affaire/Details/\"]')].find(x=>!/#/.test(x.getAttribute(\"href\")));if(a)d=await get(a.href);}EU=0;const h=par(d);R[r]=h;if(h!=null)EE[r]=EU;const f=fin(d);if(f)FI[r]=f;if(h!=null)ok++;}catch(e){R[r]=null;}}const T=\"INGH:\"+JSON.stringify({v:1,at:new Date().toISOString().slice(0,10),n:P.n,h:R,f:FI,e:EE});B.innerHTML=\"<b>ING STUDIO · heures ROSANAT<\/b><br>✅ \"+ok+\" affaire(s) lue(s) sur \"+P.r.length+\".<br><button id=ingc style='margin-top:10px;padding:8px 14px;font:bold 14px Arial;background:#1f5fa8;color:#fff;border:0;border-radius:8px;cursor:pointer'>📋 Copier pour ING STUDIO<\/button> <button id=ingx style='margin-top:10px;padding:8px 10px;border:1px solid #bbb;background:#fff;border-radius:8px;cursor:pointer'>Fermer<\/button><div id=ingm style='margin-top:8px;color:#555'><\/div><textarea id=ingt style='width:100%;height:60px;margin-top:6px;display:none'><\/textarea>\";B.querySelector(\"#ingx\").onclick=()=>B.remove();B.querySelector(\"#ingc\").onclick=async()=>{try{await navigator.clipboard.writeText(T);B.querySelector(\"#ingm\").textContent=\"Copié ! Retourne dans ING STUDIO : les heures se mettent à jour.\";}catch(e){const t=B.querySelector(\"#ingt\");t.style.display=\"block\";t.value=T;t.select();document.execCommand(\"copy\");B.querySelector(\"#ingm\").textContent=\"Copié (ou fais Ctrl+C). Retourne dans ING STUDIO.\";}};})();";
+const ROSA_BM_SRC="(async()=>{if(location.hostname===\"racing.enedis.fr\"){const B=document.createElement(\"div\");B.style.cssText=\"position:fixed;z-index:2147483647;top:16px;right:16px;width:400px;max-width:90vw;background:#fff;color:#123;border:3px solid #1f5fa8;border-radius:12px;padding:14px 16px;font:14px/1.4 Arial,sans-serif;box-shadow:0 10px 34px rgba(0,0,0,.35)\";document.body.appendChild(B);B.innerHTML=\"<b>ING STUDIO · fiche RACING<\/b><br>⏳ Lecture…\";const t=x=>x?x.textContent.replace(/\\s+/g,\" \").trim():\"\";const want=((location.hash.match(/RAC-[A-Z0-9-]+/i)||[\"\"])[0]).toUpperCase();let ref=\"\";for(let k=0;k<40;k++){ref=t(document.querySelector('[data-cy=\"header_reference-affaire\"]')).toUpperCase();if(ref&&(!want||ref===want))break;ref=\"\";await new Promise(r=>setTimeout(r,250));}if(!ref){B.innerHTML=\"<b>ING STUDIO · fiche RACING<\/b><br>La page de l’affaire n’est pas encore affichée : attends qu’elle soit chargée puis reclique sur le favori.\";setTimeout(()=>B.remove(),6000);return;}const ti=document.querySelector(\".c--infos .c__title\");let lib=ti?(ti.getAttribute(\"title\")||t(ti)):\"\";if(!lib)lib=t(document.querySelector('[data-cy=\"synthese-card-informations-generales-libelle\"] .value'));lib=lib.replace(/\\s+/g,\" \").trim();const dm=/(?:^|[^A-Z0-9])(DC\\s*\\d{2}\\s*\\/\\s*\\d+)/i.exec(\" \"+[...document.querySelectorAll(\".c__code span, .c--infos span\")].map(t).join(\" \"));const o={dc:dm?dm[1].replace(/\\s+/g,\"\").toUpperCase():\"\",lib:lib,src:\"racing\"};const a=t(document.querySelector(\".c__adresse\"));const am=/^(.*?)[,\\s]+(\\d{5})\\s+(.+)$/.exec(a);if(am){o.adr=am[1].trim();o.cp=am[2];o.com=am[3].trim();}else if(a)o.adr=a;const sl=ms=>new Promise(r=>setTimeout(r,ms));const wt=async(f,ms)=>{for(let k=0;k<ms/200;k++){const v=f();if(v)return v;await sl(200);}return null;};const AC=[];const home=\"#/accueil/\"+ref;try{if(!location.hash.startsWith(home)||/\\/acteur\\//.test(location.hash)){location.hash=home;}const btns=()=>{const L=document.querySelectorAll('[data-cy^=\"card-acteur-bouton-redirection-acteur\"]');return L.length?L:null;};let L=await wt(btns,15000);const n=L?L.length:0;for(let k=0;k<n;k++){B.innerHTML=\"<b>ING STUDIO · fiche RACING<\/b><br>⏳ Acteurs : \"+(k+1)+\" / \"+n;L=await wt(btns,10000);if(!L||!L[k])break;L[k].click();const ok=await wt(()=>/\\/acteur\\//.test(location.hash)&&document.querySelector('[data-cy=\"fiche-client-nom-prenom-ou-denomination-sociale\"]'),10000);if(ok){await sl(400);for(const fc of document.querySelectorAll(\"ui-fiche-client\")){const v=s=>{const x=fc.querySelector('[data-cy=\"'+s+'\"] .value');const y=x?t(x):\"\";return y===\"-\"?\"\":y;};const nm=t(fc.querySelector('[data-cy=\"fiche-client-nom-prenom-ou-denomination-sociale\"]'));const ro=t(fc.querySelector(\".c__function\"));const ml=v(\"fiche-client-email\").replace(/^mailto:\\s*/i,\"\");const mo=v(\"fiche-client-telephone-portable\"),fx=v(\"fiche-client-telephone-fixe\");if(nm&&(ml||mo||fx))AC.push({nom:nm,role:ro,tel:mo||fx,mail:ml});}}history.back();await wt(()=>!/\\/acteur\\//.test(location.hash)&&btns(),10000);}}catch(e){}if(AC.length)o.ac=AC;const T=\"INGH:\"+JSON.stringify({v:4,at:new Date().toISOString().slice(0,10),n:\"\",h:{},f:{},e:{},i:{[ref]:o}});let sent=false;if(window.opener){try{window.opener.postMessage(T,\"*\");sent=true;}catch(e){}}B.innerHTML=\"<b>ING STUDIO · fiche RACING<\/b><br>\"+(sent?\"✅ Envoyé : retourne sur ING STUDIO, la fiche est remplie.\":\"✅ Lu : \"+ref)+\"<br><button id=ingc style='margin-top:10px;padding:8px 14px;font:bold 14px Arial;background:#1f5fa8;color:#fff;border:0;border-radius:8px;cursor:pointer'>📋 Copier pour ING STUDIO<\/button> <button id=ingx style='margin-top:10px;padding:8px 10px;border:1px solid #bbb;background:#fff;border-radius:8px;cursor:pointer'>Fermer<\/button><div id=ingm style='margin-top:8px;color:#555'><\/div><textarea id=ingt style='width:100%;height:60px;margin-top:6px;display:none'><\/textarea>\";B.querySelector(\"#ingx\").onclick=()=>B.remove();B.querySelector(\"#ingc\").onclick=async()=>{try{await navigator.clipboard.writeText(T);B.querySelector(\"#ingm\").textContent=\"Copié ! Fais Ctrl+V dans ING STUDIO.\";}catch(e){const x=B.querySelector(\"#ingt\");x.style.display=\"block\";x.value=T;x.select();document.execCommand(\"copy\");B.querySelector(\"#ingm\").textContent=\"Copié (ou fais Ctrl+C). Fais Ctrl+V dans ING STUDIO.\";}};if(sent){try{window.opener.focus();}catch(e){}setTimeout(()=>{try{window.close();}catch(e){}},1500);}return;}const m=location.hash.match(/ingh=([^&]+)/);let P;try{P=JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));}catch(e){alert(\"ING Récup : clique d'abord sur « Heures ROSANAT » dans ING STUDIO, puis reviens sur l'onglet ROSANAT qui s'est ouvert.\");return;}const N=s=>String(s||\"\").normalize(\"NFD\").replace(/[̀-ͯ]/g,\"\").toUpperCase().replace(/[^A-Z]+/g,\" \").trim().split(\" \").filter(w=>w.length>1);const W=N(P.n),num=t=>parseFloat(String(t).replace(/[\\s ]/g,\"\").replace(\",\",\".\"))||0;const B=document.createElement(\"div\");B.style.cssText=\"position:fixed;z-index:2147483647;top:16px;right:16px;width:400px;max-width:90vw;background:#fff;color:#123;border:3px solid #1f5fa8;border-radius:12px;padding:14px 16px;font:14px/1.4 Arial,sans-serif;box-shadow:0 10px 34px rgba(0,0,0,.35)\";document.body.appendChild(B);const get=async u=>new DOMParser().parseFromString(await (await fetch(u,{credentials:\"include\"})).text(),\"text/html\");const par=d=>{const p=d.querySelector(\"#collapseAnalyseMo\");if(!p)return null;const t=p.querySelector(\"table\");if(!t)return 0;const G=[];let g=null;for(const tr of t.querySelectorAll(\"tbody tr\")){const td=tr.querySelectorAll(\"td\"),o=td.length-4;if(o<0)continue;if(o>0||!g){g={me:0,rd:0,meE:0,rdE:0,cp:false};G.push(g);}const w=N(td[o].textContent),h=num(td[o+2].textContent),eu=td[o+3]?num(td[o+3].textContent):0;if(W.length&&W.every(x=>w.includes(x))){g.me+=h;g.meE+=eu;g.cp=true;}else if(w.join(\" \")===\"REDRESSEMENT\"){g.rd+=h;g.rdE+=eu;}}let s=0,se=0;for(const x of G)if(x.cp){s+=x.me+x.rd;se+=x.meE+x.rdE;}EU=Math.round(se*100)/100;return Math.round(s*100)/100;};let EU=0;const fin=d=>{const t=d.querySelector(\"table.etat-financier\");if(!t)return null;const Y=[...t.querySelectorAll(\"thead th\")].map(x=>x.textContent.trim());const F={};const cl=x=>x.textContent.replace(/\\s+/g,\" \").trim();for(const tr of t.querySelectorAll(\"tbody tr\")){const td=[...tr.querySelectorAll(\"td\")];if(td.length<3)continue;const k=cl(td[0]);const yr=()=>{const o={};Y.forEach((y,j)=>{if(/^\\d{4}$/.test(y)&&td[j]){const v=cl(td[j]);if(v&&num(v))o[y]=num(v);}});return o;};if(/^Prévu DIE/i.test(k))F.die=cl(td[1]);else if(/^Réalisé$/i.test(k)){F.rea=num(cl(td[1]));F.reaY=yr();}else if(/^Engagement$/i.test(k)){F.eng=num(cl(td[1]));F.engY=yr();}}return F;};const inf=d=>{const c=x=>x.textContent.replace(/\\s+/g,\" \").trim();const h=[...d.querySelectorAll(\"h1\")].find(x=>/^Affaire\\b/.test(c(x)));if(!h)return null;const s=c(h).replace(/^Affaire\\s+\\S+\\s*/,\"\");const dm=/^-?\\s*(DC\\s*\\d{2}\\s*\\/\\s*\\d+)?\\s*-?\\s*/i.exec(s);const o={dc:(dm[1]||\"\").replace(/\\s+/g,\"\"),lib:s.slice(dm[0].length).replace(/^[-\\s]+/,\"\").trim()};for(const st of d.querySelectorAll(\"td strong\")){const k=c(st).replace(/\\s*:$/,\"\").toLowerCase(),td=st.closest(\"td\");if(!td)continue;const v=c(td).slice(c(st).length).trim();if(k===\"adresse\")o.adr=v;else if(k===\"commune\")o.com=v;else if(k===\"territoire\")o.ter=v;}return o;};const R={},FI={},EE={},IN={};let i=0,ok=0;for(const r of P.r){i++;B.innerHTML=\"<b>ING STUDIO · heures ROSANAT<\/b><br>⏳ \"+i+\" / \"+P.r.length+\" : \"+r;try{let d=await get(\"/Affaire/Search?search=\"+encodeURIComponent(r));if(!d.querySelector(\"#collapseAnalyseMo\")){const a=[...d.querySelectorAll('a[href*=\"/Affaire/Details/\"]')].find(x=>!/#/.test(x.getAttribute(\"href\")));if(a)d=await get(a.href);}EU=0;const h=par(d);R[r]=h;if(h!=null)EE[r]=EU;const f=fin(d);if(f)FI[r]=f;const q=inf(d);if(q)IN[r]=q;if(h!=null)ok++;}catch(e){R[r]=null;}}const T=\"INGH:\"+JSON.stringify({v:2,at:new Date().toISOString().slice(0,10),n:P.n,h:R,f:FI,e:EE,i:IN});B.innerHTML=\"<b>ING STUDIO · heures ROSANAT<\/b><br>✅ \"+ok+\" affaire(s) lue(s) sur \"+P.r.length+\".<br><button id=ingc style='margin-top:10px;padding:8px 14px;font:bold 14px Arial;background:#1f5fa8;color:#fff;border:0;border-radius:8px;cursor:pointer'>📋 Copier pour ING STUDIO<\/button> <button id=ingx style='margin-top:10px;padding:8px 10px;border:1px solid #bbb;background:#fff;border-radius:8px;cursor:pointer'>Fermer<\/button><div id=ingm style='margin-top:8px;color:#555'><\/div><textarea id=ingt style='width:100%;height:60px;margin-top:6px;display:none'><\/textarea>\";let sent=false;if(window.opener){try{window.opener.postMessage(T,\"*\");sent=true;}catch(e){}}if(sent){B.querySelector(\"#ingm\").textContent=P.f?\"✅ Envoyé : retourne sur ING STUDIO, la fiche est remplie.\":\"✅ Envoyé : retourne sur ING STUDIO, les heures sont à jour.\";try{window.opener.focus();}catch(e){}if(P.f)setTimeout(()=>{try{window.close();}catch(e){}},1500);}B.querySelector(\"#ingx\").onclick=()=>B.remove();B.querySelector(\"#ingc\").onclick=async()=>{try{await navigator.clipboard.writeText(T);B.querySelector(\"#ingm\").textContent=\"Copié ! Retourne dans ING STUDIO : les heures se mettent à jour.\";}catch(e){const t=B.querySelector(\"#ingt\");t.style.display=\"block\";t.value=T;t.select();document.execCommand(\"copy\");B.querySelector(\"#ingm\").textContent=\"Copié (ou fais Ctrl+C). Retourne dans ING STUDIO.\";}};})();";
 /* ---------- Heures ROSANAT (Analyse MO) : lues par un favori lancé dans ROSANAT, renvoyées par le presse-papiers ---------- */
 const ICO_ROSA="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2042%2042%22%3E%3Crect%20width%3D%2242%22%20height%3D%2242%22%20rx%3D%227%22%20fill%3D%22%2300a3e0%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2221%22%20r%3D%2216%22%20fill%3D%22%23ecf0f0%22/%3E%3Crect%20x%3D%2211%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%2215%22%20rx%3D%221%22%20fill%3D%22%23238ab4%22/%3E%3Crect%20x%3D%2218.5%22%20y%3D%2218%22%20width%3D%225%22%20height%3D%2212%22%20rx%3D%221%22%20fill%3D%22%233a9785%22/%3E%3Crect%20x%3D%2226%22%20y%3D%2212%22%20width%3D%225%22%20height%3D%2218%22%20rx%3D%221%22%20fill%3D%22%23bd3e25%22/%3E%3C/svg%3E";
 const ROSA_URL="https://rosanatv2.enedis.fr/Affaire/Search?search=";
@@ -1375,27 +1451,158 @@ function rosaApply(txt){ const m=/INGH:(\{[\s\S]*\})/.exec(String(txt||"")); if(
   let n=0, nf=0, ai=0; for(const [id,c] of chantiers){ const r=String(c.rac||"").trim().toUpperCase(); if(c.type==="travaux"&&r&&r in o.h){ const h=o.h[r]; c.rosanat=h==null?{nf:1,at:o.at}:{h,at:o.at}; if(o.f?.[r]) c.rosanat.fin=o.f[r]; if(o.e?.[r]!=null) c.rosanat.e=o.e[r];
       if(h!=null&&h>80&&!c.impute){ c.impute=true; c.impute_at=today(); ai++; } // plus de 80 h : imputation considérée faite, l'affaire sort du récap
       scheduleSave(id,300); if(h==null) nf++; else n++; } }
-  renderMain(); renderList(); return {n,nf,ai,at:o.at}; }
+  const inf=rosaInfoApply(o.i);
+  renderMain(); renderList(); return {n,nf,ai,at:o.at,inf}; }
+/* ---------- v2.33 : extension Edge « ING STUDIO - ROSANAT » ----------
+   L'extension lit les pages ROSANAT avec la session Edge (une page enregistrée sur le PC ne peut pas le faire seule)
+   et renvoie leur HTML ; tout le décodage se fait ici. Sans extension : favori ⭐ ING Récup + Ctrl+V (inchangé). */
+let EXT=null; const extReq=new Map(); let extSeq=0;
+window.addEventListener("message",e=>{ if(e.source!==window) return; const d=e.data; if(!d||typeof d!=="object") return;
+  if(d.ingx==="hello"){ const was=EXT; EXT={v:String(d.v||"")}; if(!was&&currentId&&!RO){ const c=chantiers.get(currentId); updRosaFill(c); } return; }
+  if(d.ingx==="res"){ const r=extReq.get(d.id); if(r){ extReq.delete(d.id); r(d); } } });
+window.postMessage({ingx:"ping"},"*");
+function extGet(url){ return new Promise(res=>{ const id=++extSeq; extReq.set(id,res); window.postMessage({ingx:"get",id,url},"*");
+  setTimeout(()=>{ if(extReq.has(id)){ extReq.delete(id); res({ok:false,err:"pas de réponse de l’extension"}); } },45000); }); }
+const ROSA_BASE="https://rosanatv2.enedis.fr";
+const rosaN=s=>String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toUpperCase().replace(/[^A-Z]+/g," ").trim().split(" ").filter(w=>w.length>1);
+const rosaNum=t=>parseFloat(String(t).replace(/[\s  ]/g,"").replace(",","."))||0;
+const rosaTx=x=>x.textContent.replace(/\s+/g," ").trim();
+/* Analyse MO : heures (et euros) à ton nom + « Redressement » de ton CCS — même calcul que le favori */
+function rosaPar(d,W){ const p=d.querySelector("#collapseAnalyseMo"); if(!p) return null; const t=p.querySelector("table"); if(!t) return {h:0,e:0};
+  const G=[]; let g=null;
+  for(const tr of t.querySelectorAll("tbody tr")){ const td=tr.querySelectorAll("td"), o=td.length-4; if(o<0) continue;
+    if(o>0||!g){ g={me:0,rd:0,meE:0,rdE:0,cp:false}; G.push(g); }
+    const w=rosaN(td[o].textContent), h=rosaNum(td[o+2].textContent), eu=td[o+3]?rosaNum(td[o+3].textContent):0;
+    if(W.length&&W.every(x=>w.includes(x))){ g.me+=h; g.meE+=eu; g.cp=true; } else if(w.join(" ")==="REDRESSEMENT"){ g.rd+=h; g.rdE+=eu; } }
+  let h=0,e=0; for(const x of G) if(x.cp){ h+=x.me+x.rd; e+=x.meE+x.rdE; }
+  return {h:Math.round(h*100)/100,e:Math.round(e*100)/100}; }
+/* État financier : DIE, réalisé, engagé */
+function rosaFin(d){ const t=d.querySelector("table.etat-financier"); if(!t) return null; const Y=[...t.querySelectorAll("thead th")].map(x=>x.textContent.trim()); const F={};
+  for(const tr of t.querySelectorAll("tbody tr")){ const td=[...tr.querySelectorAll("td")]; if(td.length<3) continue; const k=rosaTx(td[0]);
+    const yr=()=>{ const o={}; Y.forEach((y,j)=>{ if(/^\d{4}$/.test(y)&&td[j]){ const v=rosaTx(td[j]); if(v&&rosaNum(v)) o[y]=rosaNum(v); } }); return o; };
+    if(/^Prévu DIE/i.test(k)) F.die=rosaTx(td[1]); else if(/^Réalisé$/i.test(k)){ F.rea=rosaNum(rosaTx(td[1])); F.reaY=yr(); } else if(/^Engagement$/i.test(k)){ F.eng=rosaNum(rosaTx(td[1])); F.engY=yr(); } }
+  return F; }
+/* en-tête de l'affaire : « Affaire RAC-… - DC26/… - libellé », Adresse, Commune, Territoire */
+function rosaInf(d){ const h=[...d.querySelectorAll("h1")].find(x=>/^Affaire\b/.test(rosaTx(x))); if(!h) return null;
+  const t=rosaTx(h).replace(/^Affaire\s+\S+\s*/,""), m=/^-?\s*(DC\s*\d{2}\s*\/\s*\d+)?\s*-?\s*/i.exec(t);
+  const o={dc:(m[1]||"").replace(/\s+/g,""),lib:t.slice(m[0].length).replace(/^[-\s]+/,"").trim()};
+  for(const st of d.querySelectorAll("td strong")){ const k=rosaTx(st).replace(/\s*:$/,"").toLowerCase(), td=st.closest("td"); if(!td) continue; const v=rosaTx(td).slice(rosaTx(st).length).trim();
+    if(k==="adresse") o.adr=v; else if(k==="commune") o.com=v; else if(k==="territoire") o.ter=v; }
+  return o; }
+/* lit une liste de réf. RAC dans ROSANAT ; renvoie le même texte « INGH:… » que le favori (appliqué par rosaApply) */
+async function rosaRead(racs,prog){ const W=rosaN(settings.moi_nom), P=new DOMParser(), o={v:2,at:today(),n:String(settings.moi_nom||"").trim(),h:{},f:{},e:{},i:{}}; let k=0;
+  const get=async u=>{ const r=await extGet(u); if(!r.ok&&!r.html) throw new Error(r.err||("erreur "+(r.status||""))); const d=P.parseFromString(r.html||"","text/html");
+    if(!/rosanat/i.test(d.title||"")&&!d.querySelector("#IdCurrentAffaire")) throw Object.assign(new Error("login"),{login:true}); return d; };
+  for(const r of racs){ prog?.(++k,racs.length,r);
+    try{ let d=await get(ROSA_BASE+"/Affaire/Search?search="+encodeURIComponent(r));
+      if(!d.querySelector("#IdCurrentAffaire")&&!d.querySelector("#collapseAnalyseMo")){ const a=[...d.querySelectorAll('a[href*="/Affaire/Details/"]')].find(x=>!/#/.test(x.getAttribute("href"))); if(a) d=await get(new URL(a.getAttribute("href"),ROSA_BASE).href); }
+      const h=rosaPar(d,W), i=rosaInf(d); if(h||!i) o.h[r]=h?h.h:null; if(h) o.e[r]=h.e; const f=rosaFin(d); if(f) o.f[r]=f; if(i) o.i[r]=i; } // fiche trouvée sans Analyse MO : heures laissées telles quelles
+    catch(err){ if(err.login) throw err; o.h[r]=null; } }
+  return "INGH:"+JSON.stringify(o); }
+/* N° DC, nom du chantier, adresse et INSEE : ne remplit que les champs vides. Code postal / INSEE : communes de Gironde (hors ligne), sinon Base Adresse Nationale */
+const rosaLib=t=>String(t||"").replace(/\s+/g," ").replace(/^\s*[A-Z]\d{1,2}\s*-\s*/,"").trim(); // « D3 - DO BT - … » : on retire le code devant
+function rosaCommune(nom,ter){ const t=nrm(nom); if(!t) return null; const L=COMMUNES.filter(x=>x.n===t); return L.find(x=>ter&&x.insee.startsWith(String(ter).trim()))||L[0]||null; }
+const RAC_OK=r=>/^RAC-[A-Z0-9]+-\d{2}-\d{4,}$/i.test(String(r||"").trim());
+const rosaNeed=c=>!!c&&RAC_OK(c.rac)&&!(String(c.dc||"").trim()&&String(c.nature||"").trim()&&String(c.adresse||"").trim()&&String(c.insee||"").trim());
+const racKey=c=>String(c?.rac||"").trim().toUpperCase();
+const racDone=c=>!!c&&!!c.rac_fill&&c.rac_fill===racKey(c); // v2.36 : déjà rempli depuis RACING avec cette réf. RAC
+const rosaShow=c=>!!c&&RAC_OK(c.rac)&&!racDone(c)&&(!!c.rac_fill||rosaNeed(c));
+function rosaInfoApply(I){ const res={old:!I,n:0,f:{}}; if(!I) return res;
+  for(const [id,c] of chantiers){ const x=I[String(c.rac||"").trim().toUpperCase()]; if(!x) continue; const f=[];
+    if(!String(c.dc||"").trim()&&x.dc){ c.dc=x.dc; f.push("N° DC"); }
+    if(!String(c.nature||"").trim()&&x.lib){ c.nature=rosaLib(x.lib); f.push("nom du chantier"); }
+    const xc=nrm(x.com), com=(x.cp&&(COMMUNES.find(k=>k.cp===x.cp&&k.n===xc)||COMMUNES.find(k=>k.cp===x.cp&&xc&&(k.n.startsWith(xc)||xc.startsWith(k.n)))))||rosaCommune(x.com,x.ter);
+    if(!String(c.adresse||"").trim()&&(x.adr||x.com)){ c.adresse=[x.adr,com?`${com.cp} ${com.nom}`:[x.cp,x.com].filter(Boolean).join(" ")].filter(Boolean).join(" "); f.push("adresse");
+      if(com){ c.commune=com.nom.toUpperCase(); c.cp=com.cp; } else if(x.com){ c.commune=String(x.com).toUpperCase(); if(x.cp) c.cp=x.cp; } }
+    if(!String(c.insee||"").trim()){ const p=parseAddr(c.adresse)||com;
+      if(p){ c.insee=p.insee; if(!c.cp) c.cp=p.cp; f.push("INSEE"); }
+      else if(c.adresse) fetchBan(c.adresse,1).then(r=>{ const b=r&&r[0]; if(!b||b.score<0.5||c.insee) return; c.insee=b.insee; if(b.cp) c.cp=b.cp; scheduleSave(id,100); if(id===currentId){ const e=$("#f_insee"); if(e) e.value=c.insee; } }); }
+    /* v2.37 : acteurs RACING → Interlocuteurs (représentant, interlocuteur technique… ; bénéficiaire particulier = « client ») ; pas de doublon */
+    if(Array.isArray(x.ac)&&x.ac.length){ const key=v=>nrm(String(v||"").replace(/^\s*(m|mme|mlle|mr|me)\.?\s+/i,"")).split(" ").filter(Boolean).sort().join(" ");
+      c.contacts=Array.isArray(c.contacts)?c.contacts:[]; const have=new Set(c.contacts.map(k=>key(k.nom)).filter(Boolean)); let na=0;
+      for(const a of x.ac){ const kk=key(a.nom); if(!kk) continue; if(have.has(kk)){ const ex=c.contacts.find(k=>key(k.nom)===kk); if(ex){ ex.rc=1; if(!ex.tel&&a.tel) ex.tel=String(a.tel).trim(); if(!ex.mail&&a.mail) ex.mail=String(a.mail).trim(); } continue; } have.add(kk); /* déjà dans la fiche : marqué « RACING » (gras), rien n’est remplacé */
+        const row={rc:1,nom:String(a.nom||"").trim(),raison:/^b[ée]n[ée]ficiaire/i.test(a.role||"")?"client":String(a.role||"").trim(),tel:String(a.tel||"").trim(),mail:String(a.mail||"").trim()};
+        const empty=c.contacts.findIndex(k=>!(k.nom||k.raison||k.tel||k.tel2||k.mail)); if(empty>=0) c.contacts[empty]=row; else c.contacts.push(row); na++; }
+      if(na) f.push(na+" interlocuteur"+(na>1?"s":"")); }
+    if(x.src==="racing"){ c.rac_fill=racKey(c); if(!f.length) scheduleSave(id,200); }
+    if(f.length){ res.n++; scheduleSave(id,200); setTimeout(()=>autoGps(id),400); } res.f[id]=f; }
+  return res; }
+function updRosaFill(c){ const b=document.querySelector('button[data-a="rosafill"]'); if(b) b.hidden=!rosaShow(c); const k=$("#rac_ok"); if(k) k.hidden=!racDone(c); if(b&&!b.hidden){ const m=$("#rac_msg"); if(m&&/^✓/.test(m.textContent)) m.textContent=""; } }
+/* bouton « Remplir depuis RACING » (et automatiquement quand une réf. RAC complète est saisie sur une affaire à compléter) */
+let rosaBusy=false; const rosaTried=new Set();
+async function rosaFill(auto){ if(RO||rosaBusy) return; const id=currentId, c=chantiers.get(id); if(!c) return; const rac=String(c.rac||"").trim().toUpperCase();
+  const say=(t,k="")=>{ const e=$("#rac_msg"); if(e&&id===currentId){ e.textContent=t; e.style.color=k==="err"?"var(--danger,#b42318)":k==="ok"?"var(--ok,#1a7f37)":""; } };
+  if(!RAC_OK(rac)){ if(!auto) say("Saisis d’abord une réf. RAC complète (RAC-AQN-26-001234).","err"); return; }
+  if(!auto) rosaFillBm(id,rac); return; // v2.35 : RACING + favori (extensions bloquées chez Enedis) ; la suite (extension) ne sert plus
+  rosaTried.add(id+"|"+rac); rosaBusy=true; const b=document.querySelector('button[data-a="rosafill"]'); if(b){ b.disabled=true; b.lastChild.textContent="Lecture de ROSANAT…"; }
+  try{ const r=rosaApply(await rosaRead([rac])); const f=r?.inf?.f?.[id];
+    if(!f) say("Affaire introuvable dans ROSANAT avec cette réf. RAC.","err");
+    else if(f.length){ say("✓ Rempli depuis ROSANAT","ok"); const e=$("#rac_msg"); if(e) e.title="Rempli : "+f.join(", "); }
+    else say("Rien à remplir : ces champs sont déjà renseignés.");
+  }catch(err){ if(err.login){ say("Connecte-toi à ROSANAT (l’onglet vient de s’ouvrir), puis reclique sur « Remplir depuis ROSANAT ».","err"); window.open(ROSA_BASE+"/","_blank"); } else say("ROSANAT ne répond pas : "+err.message,"err"); }
+  finally{ rosaBusy=false; const b2=document.querySelector('button[data-a="rosafill"]'); if(b2){ b2.disabled=false; b2.lastChild.textContent="Remplir depuis ROSANAT"; } } }
+let rosaAutoT=null;
+function rosaAuto(c){ clearTimeout(rosaAutoT); if(!EXT||!c||!rosaNeed(c)) return; const k=currentId+"|"+String(c.rac).trim().toUpperCase(); if(rosaTried.has(k)) return;
+  rosaAutoT=setTimeout(()=>{ if(chantiers.get(currentId)===c&&rosaNeed(c)) rosaFill(true); },700); }
+let rosaWait=null;
+window.addEventListener("message",e=>{ if(!["https://rosanatv2.enedis.fr","https://racing.enedis.fr"].includes(e.origin)||typeof e.data!=="string"||!/^INGH:/.test(e.data)||RO) return;
+  const r=rosaApply(e.data); if(r&&rosaWait) rosaWait(r); });
+function rosaUrl(racs,fill){ const pay=btoa(unescape(encodeURIComponent(JSON.stringify({n:String(settings.moi_nom||"").trim(),r:racs,f:fill?1:0})))); return ROSA_URL+encodeURIComponent(racs[0]||"")+"#ingh="+encodeURIComponent(pay); }
+function rosaBmStep(){ return `<div class="rosa-st"><b>1.</b> <span>Une seule fois : glisse ce bouton dans ta barre des favoris d’Edge (si tu as déjà le favori « Heures ING », renomme-le simplement « ING Récup ») → <a class="btn sm rosa-bm" href="${esc(ROSA_BM)}" title="Glisse-moi dans la barre des favoris" onclick="return false">⭐ ING Récup</a> <button class="btn sm ghost" data-cp>ou copier le code</button></span></div>`; }
+/* sans extension : onglet ROSANAT + favori ⭐ ING Récup, le résultat revient tout seul et l'onglet se referme */
+const RACING_URL=r=>"https://racing.enedis.fr/#/synthese/"+encodeURIComponent(r);
+function rosaFillBm(id,rac){ const url=RACING_URL(rac); window.open(url,"_blank");
+  const m=modal(`<div class="m-h"><h2>Remplir depuis RACING</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
+   <div class="m-b" style="gap:10px">
+     <p class="hint">RACING s’est ouvert sur <b>${esc(rac)}</b> dans un nouvel onglet : quand l’affaire est affichée, clique sur le favori <b>⭐ ING Récup</b>. L’onglet se referme et la fiche se remplit toute seule (N° DC s’il existe, nom du chantier, adresse, code INSEE ; seules les cases vides).</p>
+     ${rosaBmStep()}
+     <div class="rosa-st"><b>2.</b> <span>Dans l’onglet RACING, clique sur <b>⭐ ING Récup</b>. <button class="btn sm ghost" data-open>Rouvrir RACING</button></span></div>
+     <details class="rosa-skip"><summary>Rien ne se passe ?</summary><p class="hint">Dans RACING, clique sur « 📋 Copier pour ING STUDIO », puis fais <b>Ctrl+V</b> dans cette case :</p><textarea data-paste rows="2" placeholder="Ctrl+V ici" style="width:100%;margin-top:6px"></textarea></details>
+   </div>
+   <div class="m-f"><span class="msg" id="rosa_m">En attente de RACING…</span><button class="btn" data-x2>Fermer</button></div>`);
+  const msg=(t,k="")=>{ const e=m.querySelector("#rosa_m"); if(e){ e.textContent=t; e.className="msg "+k; } };
+  const close=()=>{ rosaWait=null; closeModal(); };
+  rosaWait=r=>{ const i=r?.inf; const f=i?.f?.[id];
+    const t=!i||i.old?"Ton favori ⭐ ING Récup est l’ancienne version : remplace-le par le nouveau (étape 1), puis recommence.":!f?"Cette réf. RAC ne correspond à aucune affaire d’ING STUDIO.":f.length?"✓ Rempli depuis RACING":"Rien à remplir : ces cases sont déjà renseignées.";
+    const ok=/^✓/.test(t); msg(t,ok?"ok":"err"); const a=$("#rac_msg"); if(a&&id===currentId){ a.textContent=""; } if(ok) setTimeout(()=>{ if(m.isConnected) close(); },1500); };
+  m.querySelector("[data-x]").onclick=close; m.querySelector("[data-x2]").onclick=close;
+  m.querySelector("[data-open]").onclick=()=>window.open(url,"_blank");
+  m.querySelector("[data-cp]").onclick=async()=>{ try{ await navigator.clipboard.writeText(ROSA_BM); msg("Code copié : crée un favori nommé « ING Récup » et colle ce code comme adresse (URL).","ok"); }catch{ msg("Copie impossible.","err"); } };
+  m.querySelector("[data-paste]").addEventListener("input",e=>{ const r=rosaApply(e.target.value); if(r){ e.target.value=""; rosaWait?.(r); } else if(e.target.value.trim()) msg("Ce texte ne vient pas du favori ING Récup.","err"); }); }
+function openExtHelp(){ const m=modal(`<div class="m-h"><h2><img src="${ICO_ROSA}" alt="" style="width:22px;height:22px;vertical-align:-4px;border-radius:4px"> Installer l’extension ING STUDIO (une seule fois)</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
+   <div class="m-b" style="gap:10px">
+     <p class="hint">Avec l’extension, ING STUDIO lit ROSANAT tout seul : le N° DC, le nom du chantier, l’adresse et le code INSEE se remplissent dès que tu saisis la réf. RAC, et l’extraction des heures se fait en 1 clic.</p>
+     <div class="rosa-st"><b>1.</b> <span>Dans Edge, ouvre <b>edge://extensions</b> (copie-colle l’adresse) et vérifie que le <b>Mode développeur</b> est activé (en bas à gauche).</span></div>
+     <div class="rosa-st"><b>2.</b> <span>Clique sur <b>Charger l’extension décompressée</b> et choisis le dossier <b>ING-STUDIO-extension</b> (livré avec ING STUDIO, à garder au même endroit que ING STUDIO.html).</span></div>
+     <div class="rosa-st"><b>3.</b> <span>Sous « ING STUDIO - ROSANAT », clique sur <b>Détails</b> et active <b>Autoriser l’accès aux URL de fichier</b>. Puis ferme et rouvre ING STUDIO.</span></div>
+   </div>
+   <div class="m-f"><button class="btn" data-x2>Fermer</button></div>`);
+  m.querySelectorAll("[data-x],[data-x2]").forEach(x=>x.onclick=closeModal); }
 function openRosanat(){ if(RO) return;
   const name=String(settings.moi_nom||"").trim(), racs=rosaRacs();
-  const pay=btoa(unescape(encodeURIComponent(JSON.stringify({n:name,r:racs})))), url=ROSA_URL+encodeURIComponent(racs[0]||"")+"#ingh="+encodeURIComponent(pay);
+  const url=rosaUrl(racs,false);
   const m=modal(`<div class="m-h"><h2><img src="${ICO_ROSA}" alt="" style="width:22px;height:22px;vertical-align:-4px;border-radius:4px"> Extraction ROSANAT</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
    <div class="m-b" style="gap:10px">
      ${name?"":`<p class="msg err">Renseigne ton « Nom Prénom » dans les Réglages : il sert à ne garder que tes heures.</p>`}
+     ${EXT?`<div class="rosa-st"><b>⚡</b> <span>Extension ING STUDIO installée : <button class="btn primary sm" data-ext ${racs.length?"":"disabled"}>Lancer l’extraction</button> (ROSANAT est lu en arrière-plan, rien d’autre à faire).</span></div><details class="rosa-skip"><summary>Sans l’extension (favori ⭐ ING Récup)</summary>`:""}
      <p class="hint">Va chercher dans ROSANAT (Analyse MO) les heures « Réalisé (h) » où <b>${esc(name||"ton nom")}</b> apparaît (+ les « Redressement » de ton CCS), pour tes ${racs.length} affaire(s) travaux avec un DC26, ainsi que la DIE et les dépenses réalisées et engagées (État financier), et les affiche sous « Imputé ».</p>
      ${(L=>L.length?`<details class="rosa-skip"><summary>${L.length} affaire(s) travaux non cherchée(s) dans ROSANAT : voir pourquoi</summary><ul>${L.map(x=>`<li><b>${esc(x.c.dc||"(sans DC)")}</b> ${esc([x.c.rac,x.c.client].filter(Boolean).join(" · "))} : ${esc(x.why)}</li>`).join("")}</ul></details>`:"")(rosaSkipped())}
-     <div class="rosa-st"><b>1.</b> <span>Une seule fois : glisse ce bouton dans ta barre des favoris d’Edge → <a class="btn sm rosa-bm" href="${esc(ROSA_BM)}" title="Glisse-moi dans la barre des favoris" onclick="return false">⭐ Heures ING</a> <button class="btn sm ghost" data-cp>ou copier le code</button></span></div>
-     <div class="rosa-st"><b>2.</b> <span><button class="btn primary sm" data-open ${racs.length?"":"disabled"}>Ouvrir ROSANAT</button> puis, dans l’onglet ROSANAT, clique sur le favori <b>⭐ Heures ING</b> et attends la fin.</span></div>
-     <div class="rosa-st"><b>3.</b> <span>Clique sur « 📋 Copier pour ING STUDIO » dans ROSANAT, reviens ici et fais <b>Ctrl+V</b> dans cette case :<textarea data-paste rows="2" placeholder="Ctrl+V ici" style="width:100%;margin-top:6px"></textarea></span></div>
+     ${rosaBmStep()}
+     <div class="rosa-st"><b>2.</b> <span><button class="btn primary sm" data-open ${racs.length?"":"disabled"}>Ouvrir ROSANAT</button> puis, dans l’onglet ROSANAT, clique sur le favori <b>⭐ ING Récup</b> et attends la fin.</span></div>
+     <div class="rosa-st"><b>3.</b> <span>Les heures arrivent toutes seules ici (« ✅ Envoyé » dans ROSANAT). Sinon, clique sur « 📋 Copier pour ING STUDIO » dans ROSANAT, reviens ici et fais <b>Ctrl+V</b> dans cette case :<textarea data-paste rows="2" placeholder="Ctrl+V ici" style="width:100%;margin-top:6px"></textarea></span></div>${EXT?"</details>":""}
    </div>
    <div class="m-f"><span class="msg" id="rosa_m"></span><button class="btn" data-x2>Fermer</button></div>`);
   const msg=(t,c="")=>{ const e=m.querySelector("#rosa_m"); e.textContent=t; e.className="msg "+c; };
-  const done=r=>{ msg(`✓ Heures mises à jour pour ${r.n} affaire(s)${r.nf?` · ${r.nf} non trouvée(s) dans ROSANAT`:""}${r.ai?` · ${r.ai} cochée(s) « Imputé » (plus de 80 h)`:""}.`,"ok"); };
-  const close=()=>closeModal(); // pas de lecture automatique du presse-papiers (Edge redemanderait l'autorisation à chaque fois)
+  const done=r=>{ msg(`✓ Heures mises à jour pour ${r.n} affaire(s)${r.nf?` · ${r.nf} non trouvée(s) dans ROSANAT`:""}${r.ai?` · ${r.ai} cochée(s) « Imputé » (plus de 80 h)`:""}${r.inf?.n?` · ${r.inf.n} fiche(s) complétée(s) (N° DC, nom, adresse, INSEE)`:""}.`,"ok"); };
+  rosaWait=done; const close=()=>{ rosaWait=null; closeModal(); }; // pas de lecture automatique du presse-papiers (Edge redemanderait l'autorisation à chaque fois)
   m.querySelector("[data-x]").onclick=close; m.querySelector("[data-x2]").onclick=close;
-  m.querySelector("[data-open]").onclick=()=>{ window.open(url,"_blank","noopener"); msg("ROSANAT ouvert : clique sur le favori ⭐ Heures ING dans cet onglet."); setTimeout(()=>m.querySelector("[data-paste]")?.focus(),300); };
-  m.querySelector("[data-cp]").onclick=async()=>{ try{ await navigator.clipboard.writeText(ROSA_BM); msg("Code copié : crée un favori nommé « Heures ING » et colle ce code comme adresse (URL).","ok"); }catch{ msg("Copie impossible.","err"); } };
-  m.querySelector("[data-paste]").addEventListener("input",e=>{ const r=rosaApply(e.target.value); if(r){ done(r); e.target.value=""; } else if(e.target.value.trim()) msg("Ce texte ne vient pas du favori Heures ING.","err"); });
+  m.querySelector("[data-open]").onclick=()=>{ window.open(url,"_blank"); msg("ROSANAT ouvert : clique sur le favori ⭐ ING Récup dans cet onglet."); setTimeout(()=>m.querySelector("[data-paste]")?.focus(),300); };
+  m.querySelector("[data-cp]").onclick=async()=>{ try{ await navigator.clipboard.writeText(ROSA_BM); msg("Code copié : crée un favori nommé « ING Récup » et colle ce code comme adresse (URL).","ok"); }catch{ msg("Copie impossible.","err"); } };
+  m.querySelector("[data-ext]")?.addEventListener("click",async e=>{ const b=e.currentTarget; b.disabled=true;
+    try{ const r=rosaApply(await rosaRead(racs,(i,n,r)=>msg(`⏳ ${i} / ${n} : ${r}`))); if(r) done(r); }
+    catch(err){ if(err.login){ msg("Connecte-toi à ROSANAT (l’onglet vient de s’ouvrir), puis relance l’extraction.","err"); window.open(ROSA_BASE+"/","_blank"); } else msg("ROSANAT ne répond pas : "+err.message,"err"); }
+    finally{ b.disabled=false; } });
+  m.querySelector("[data-paste]").addEventListener("input",e=>{ const r=rosaApply(e.target.value); if(r){ done(r); e.target.value=""; } else if(e.target.value.trim()) msg("Ce texte ne vient pas du favori ING Récup.","err"); });
   m.addEventListener("paste",e=>{ if(e.target.matches("[data-paste]")) return; const t=e.clipboardData?.getData("text"); const r=rosaApply(t); if(r){ e.preventDefault(); done(r); } }); }
 function heroProgress(c){ const p=progress(c); return `<div class="hero-prog"><div class="hp-bar"><i style="width:${p.p}%"></i></div><span>${p.d}/${p.n} étapes · ${p.p} %</span></div>`; }
 /* ---------- Liste ---------- */
@@ -1451,6 +1658,8 @@ function telRO(t,t2,l1,l2){ // numéros affichés seulement : on les modifie dan
   t=String(t||"").trim(); t2=String(t2||"").trim(); const ti=' title="Pour modifier : annuaire (📇 / ✏️)"';
   if(!t2) return `<div class="telro"${ti}>${esc(t)}</div>`;
   return `<div class="telro two"${ti}><div><span class="tl">${esc(l1||"pro")}</span>${esc(t||"—")}</div><div><span class="tl">${esc(l2||"perso")}</span>${esc(t2)}</div></div>`; }
+function ocbBox(c){ const n=c.ocb_list.length;
+  return `<div class="ocb-box"><div class="ocb-h">OCB <span>${n} bâtiments</span></div><div class="ocb-list${n>4?" sm":""}">${c.ocb_list.map((x,i)=>`<div class="ocb-it"><input class="ocb-b" data-p="ocb_list.${i}.bat" value="${esc(x.bat)}" placeholder="Bâtiment" aria-label="Bâtiment ${i+1}"><span class="ocb-s">:</span><input class="ocb-n" data-p="ocb_list.${i}.num" value="${esc(x.num)}" placeholder="N° OCB" aria-label="Numéro OCB ${i+1}"><button type="button" class="ocb-del" data-a="rowdel" data-l="ocb_list" data-i="${i}" title="Supprimer cet OCB" aria-label="Supprimer cet OCB">×</button></div>`).join("")}</div><button type="button" class="btn sm addrow" data-a="rowadd" data-l="ocb_list">＋ Ajouter un OCB</button></div>`; }
 function inp(path,val,ph="",type="text"){ return `<input id="f_${path}" data-p="${path}" type="${type}" value="${esc(val)}" placeholder="${esc(ph)}">`; }
 
 function eplansUrl(c){ const r=[c.rac,c.dc].map(x=>String(x||"").trim()).find(x=>/^RAC-[A-Z0-9]+(-[A-Z0-9]+)+$/i.test(x)); return r?"https://www.e-plans.fr/Affaire/"+encodeURIComponent(r.toUpperCase()):""; }
@@ -1500,7 +1709,7 @@ function updTopLinks(){ const el=document.getElementById("topLinks"); if(!el) re
 function renderMain(){ if(PHONE) return;
   // un champ date en cours d'édition (calendrier ouvert) : on attend qu'il soit quitté, sinon le calendrier se ferme au changement de mois
   const a=document.activeElement; if(a&&a.type==="date"&&a.closest?.("#main")){ if(!a._rmPending){ a._rmPending=1; a.addEventListener("blur",()=>{ a._rmPending=0; setTimeout(renderMain,0); },{once:true}); } return; }
-  try{ renderMain0(); } finally { updTop(); updTopLinks(); fitPrmAll(); } }
+  try{ renderMain0(); } catch(e){ console.error(e); const m=$("#main"); if(m) m.innerHTML=`<div class="empty"><h2>Cette fiche n’a pas pu s’afficher</h2><p>Recharge ING STUDIO (F5). Si ça recommence, note l’affaire concernée.</p></div>`; } finally { updTop(); updTopLinks(); fitPrmAll(); } }
 /* tableau des PRM : la police se réduit dans une case tant que le texte ne rentre pas en entier */
 function fitIn(el){ el.style.fontSize=""; let f=parseFloat(getComputedStyle(el).fontSize)||13; while(el.scrollWidth>el.clientWidth+1&&f>9.5){ f-=0.5; el.style.fontSize=f+"px"; } }
 function fitPrmAll(){ document.querySelectorAll("#main table.grid.prm td input").forEach(fitIn); }
@@ -1546,7 +1755,7 @@ function renderMain0(){
      <h3 class="sec">Identification <div class="att-row"><button type="button" class="btn sm att-btn ${c.attente?"on":""}" data-a="attente" title="${c.attente?"Clique pour reprendre l’affaire":"Mettre l’affaire de côté jusqu’à une date"}">⏸ ${c.attente?"En attente":"Mettre en attente"}</button>${c.attente?`<label class="hint">jusqu’au <input type="date" data-p="attente_fin" value="${esc(c.attente_fin||"")}" aria-label="Date de fin d’attente"></label>${(w=>w&&w.late?`<span class="att-late">date dépassée : clique sur « En attente » pour reprendre l’affaire</span>`:"")(attenteInfo(c))}`:""}</div></h3>
      <div class="idgrid">
        <div class="f mono"><label for="f_dc">N° DC</label><input id="f_dc" data-p="dc" type="text" value="${esc(c.dc)}" placeholder="DC26/******"></div>
-       <div class="f mono"><label for="f_rac">Réf. RAC</label><input id="f_rac" data-p="rac" type="text" value="${esc(c.rac)}" placeholder="RAC-************"></div>
+       <div class="f mono rac-f"><label for="f_rac">Réf. RAC</label><div class="rac-in"><input id="f_rac" data-p="rac" type="text" value="${esc(c.rac)}" placeholder="RAC-************"><span class="rac-ok" id="rac_ok" ${RO?"":'data-a="rosafill" role="button" tabindex="0"'} title="Rempli depuis RACING${RO?"":" · clique pour relire RACING (complète les cases vides et les interlocuteurs)"}" aria-label="Rempli depuis RACING" ${racDone(c)?"":"hidden"}>✓</span></div>${RO?"":`<button type="button" class="btn sm rosa-fill" data-a="rosafill" ${rosaShow(c)?"":"hidden"} title="Va chercher dans RACING le N° DC (s’il existe), le nom du chantier, l’adresse et le code INSEE (seules les cases vides sont remplies)"><span>Remplir depuis RACING</span></button><span class="adr-msg" id="rac_msg" aria-live="polite"></span>`}</div>
        ${field("nature","Nom du chantier",c.nature,{cls:"wide",ph:"RENOV IMM, RAC C4 120 kVA…"})}
        <div class="f wide"><label for="f_adresse">Adresse (rue, code postal, commune)</label><div class="adr-row"><input id="f_adresse" data-p="adresse" type="text" value="${esc(c.adresse)}" placeholder="17 rue de ********"></div><span class="adr-msg" id="adr_msg" aria-live="polite"></span><div class="insee-row"><label for="f_insee">Code INSEE</label><input id="f_insee" data-p="insee" type="text" value="${esc(c.insee)}" placeholder="rempli automatiquement"></div></div>
        <div class="f wide imp-f">${rosaFinHtml(c)}<label for="f_impute_txt">Imputé</label><div class="imp-row"><label class="imp-cb" title="Coche quand l'imputation est faite"><input type="checkbox" data-imp ${c.impute?"checked":""} aria-label="Imputé"></label><input id="f_impute_txt" data-p="impute_txt" type="text" value="${esc(c.impute_txt||"")}">${c.rosanat?`<span class="rosa-h ${c.rosanat.nf?"nf":""}" title="Heures « Réalisé (h) » à ton nom dans ROSANAT (Analyse MO), lues le ${esc(frDate(c.rosanat.at))}">${c.rosanat.nf?"ROSANAT : affaire non trouvée":`⏱ ${rosaFmt(c.rosanat.h)} h`}<small> · ${esc(frDate(c.rosanat.at).slice(0,5))}</small></span>`:""}</div></div>
@@ -1560,15 +1769,15 @@ function renderMain0(){
          <tr><td>ICP</td><td><div class="regcell"><select id="f_icp" data-p="icp" class="${c.icp==="Faite"?"reg-diff":c.icp?"":"reg-none"}">${[["","—"],["A faire","A faire"],["Faite","Faite le…"]].map(([v,l])=>`<option value="${esc(v)}" ${v===c.icp?"selected":""}>${l}</option>`).join("")}</select>${c.icp==="Faite"?`<label class="d" for="f_icp_faite">le <input id="f_icp_faite" data-p="icp_faite" type="date" value="${esc(c.icp_faite)}"></label>`:""}</div></td></tr>
          <tr><td>Prescriptions</td><td><div class="regcell"><select id="f_prescriptions" data-p="prescriptions" class="${({"non":"reg-diff","retour ok":"reg-diff","":"reg-none"})[c.prescriptions]??""}">${[["","—"],["non","non"],["oui","oui"],["demandées","demandées le…"],["retour ok","retour ok le…"]].map(([v,l])=>`<option value="${esc(v)}" ${v===c.prescriptions?"selected":""}>${l}</option>`).join("")}</select>${c.prescriptions==="demandées"?`<label class="d red" for="f_presc_dem">le <input id="f_presc_dem" data-p="presc_dem" type="date" value="${esc(c.presc_dem)}"></label>`:c.prescriptions==="retour ok"?`<label class="d" for="f_presc_ok">le <input id="f_presc_ok" data-p="presc_ok" type="date" value="${esc(c.presc_ok)}"></label>`:""}</div></td></tr>
          <tr><td>Agglomération</td><td>${sel("agglo",c.agglo,["","oui","non"]).replace("<select ",'<select class="reg-diff" ')}</td></tr>
-         <tr><td>OCB</td><td>${inp("ocb",c.ocb)}</td></tr>
+         ${c.ocb_list.length>1?"":`<tr><td><label for="f_ocb">OCB</label></td><td><div class="ocb-one"><input id="f_ocb" data-p="ocb_list.0.num" type="text" value="${esc(c.ocb_list[0].num)}"><button type="button" class="ocb-add" data-a="rowadd" data-l="ocb_list" title="Ajouter un autre OCB (plusieurs bâtiments)" aria-label="Ajouter un autre OCB">＋</button></div></td></tr>`}
        </tbody></table>
-       <table class="kv"><tbody>
+       <div class="kvcol"><table class="kv"><tbody>
          <tr><td><span class="lbl-gr">RIP</span></td><td><div class="rip-cell${String(c.rip_tel2||"").trim()?" two":""}"><div class="rip-v"><input id="f_rip" data-p="rip" class="rip-n" value="${esc(c.rip)}" placeholder="Nom Prénom" aria-label="RIP : nom prénom">${telRO(c.rip_tel,c.rip_tel2,c.rip_l1,c.rip_l2)}</div>${String(c.rip||c.rip_tel||c.rip_tel2||"").trim()?`<button class="btn sm ghost rip-b rip-x" data-a="ripclear" title="Retirer ce RIP de la fiche" aria-label="Retirer ce RIP">✕</button>`:""}<button class="btn sm ghost rip-b" data-a="annurip" title="Annuaire des RIP" aria-label="Annuaire des RIP">📇</button></div></td></tr>
          <tr><td><span class="lbl-cy">Code GDO Poste</span></td><td><div class="gdo-cell"><textarea class="autog gdo-ta" rows="1" id="f_gdo" data-p="gdo" aria-label="Code GDO poste" spellcheck="false">${esc(c.gdo)}</textarea><button type="button" class="btn sm ghost gdo-b" data-a="gdocopy" title="Copier le code GDO poste" aria-label="Copier le code GDO poste">📋</button></div></td></tr>
          
          <tr><td>Début travaux</td><td>${inp("date_debut",c.date_debut,"","date")}</td></tr>
          <tr><td>Fin travaux</td><td>${inp("date_fin",c.date_fin,"","date")}</td></tr>
-       </tbody></table>
+       </tbody></table>${c.ocb_list.length>1?ocbBox(c):""}</div>
        <div><table class="kv plan"><thead><tr><th colspan="2">PLANNING</th></tr></thead><tbody>
          ${c.planning.map((x,i)=>`<tr data-dl="planning" data-di="${i}"><td>${ta(`planning.${i}.etape`,x.etape)}</td><td><div class="pd">${ta(`planning.${i}.date`,/^\d{4}-\d{2}-\d{2}$/.test(x.date||"")?frDate(x.date):x.date)}<button type="button" class="plcal" title="Choisir une date dans le calendrier (tu peux aussi l’écrire à la main)" aria-label="Choisir une date"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg></button><span class="grip" draggable="true" data-dl="planning" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button class="xdel" data-a="rowdel" data-l="planning" data-i="${i}" title="Supprimer la ligne" aria-label="Supprimer la ligne">×</button></div></td></tr>`).join("")}
        </tbody></table>
@@ -1585,7 +1794,7 @@ function renderMain0(){
      <div style="min-width:0">
        <h3 class="sec">Interlocuteurs</h3>
        <div class="tblwrap"><table class="grid ctb"><colgroup><col style="width:21%"><col style="width:18%"><col style="width:126px"><col><col style="width:52px"></colgroup><thead><tr><th><span>Nom de l'interlocuteur</span></th><th><span>Entreprise</span></th><th><span>Téléphone</span></th><th><span>Mail</span></th><th></th></tr></thead><tbody>
-       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td>${x.an||String(x.tel2||"").trim()?telRO(x.tel,x.tel2,x.l1,x.l2):inp(`contacts.${i}.tel`,x.tel,"","tel")}</td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
+       ${c.contacts.map((x,i)=>`<tr data-dl="contacts" data-di="${i}"${x.rc?' class="ct-rc" title="Importé de RACING"':""}><td>${wta(`contacts.${i}.nom`,x.nom,"Nom")}</td><td>${wta(`contacts.${i}.raison`,x.raison,"Entreprise")}</td><td>${x.an||String(x.tel2||"").trim()?telRO(x.tel,x.tel2,x.l1,x.l2):inp(`contacts.${i}.tel`,x.tel,"","tel")}</td><td><div class="mailc">${wta(`contacts.${i}.mail`,x.mail,"Mail")}<a class="mailto" id="mt_${i}" href="${esc(mailHref(x.mail,c))}" title="Écrire un mail (Outlook)" aria-label="Écrire un mail"${mailHref(x.mail)?"":" hidden"}>✉</a></div></td><td class="x"><div class="xg"><span class="grip" draggable="true" data-dl="contacts" data-di="${i}" title="Glisser pour déplacer la ligne" aria-label="Déplacer la ligne">⠿</span><button data-a="rowdel" data-l="contacts" data-i="${i}" title="Supprimer la ligne">×</button></div></td></tr>`).join("")}
        </tbody></table></div>
        <div class="head-row addrow"><button class="btn sm primary" data-a="annu">🔍 Rechercher dans l'annuaire</button><button class="btn sm" data-a="rowadd" data-l="contacts">＋ Ajouter une ligne vide</button></div>
      </div>
@@ -1696,11 +1905,13 @@ $("#main").addEventListener("input",e=>{
   if(e.target.tagName==="TEXTAREA") grow(e.target);
   const p=e.target.dataset.p; if(!p||!currentId) return;
   const c=chantiers.get(currentId); setPath(c,p,e.target.value);
+  if(["dc","rac","nature","adresse","insee"].includes(p)){ updRosaFill(c); if(p==="rac") rosaAuto(c); }
   if(/^prm\.\d+\.prm$/.test(p)&&syncPdl(c)){ const cb=document.querySelector('input[data-ck="pdl"]'); if(cb){ cb.checked=true; cb.closest(".row")?.classList.add("done"); } }
   { const mm=/^contacts\.(\d+)\.mail$/.exec(p); if(mm){ const a=document.getElementById("mt_"+mm[1]); if(a){ const h=mailHref(e.target.value,c); a.hidden=!h; if(h) a.href=h; } } }
   if(/^notes\.\d+\.due$/.test(p)){ scheduleSave(currentId,200); renderMain(); renderList(); return; }
   if(p==="checks.devis.at"){ c.checks.devis.d=!!e.target.value; devisStatut(c); scheduleSave(currentId,200); renderMain(); renderList(); return; }
   const chEl=$("#chips"); if(chEl) chEl.innerHTML=stateChips(c);
+  if(p.startsWith("ocb_list.")) c.ocb=ocbStr(c);
   scheduleSave(currentId);
   if(["dc","rac","nature","client","adresse","commune"].includes(p)){ const t=$("#titre"); if(t) t.innerHTML=titleHtml(c); updLinks(c); updTop(); }
   if(["dc","rac","nature","client","commune","regime","date_debut","bet_retour","det_retour","attente_fin","rro_lim"].includes(p)) renderList();
@@ -1769,8 +1980,8 @@ const mainClick=e=>{
   else if(a==="notedel"){ c.notes.splice(i,1); if(!c.notes.length) c.notes.push({t:"",imp:false}); }
   else if(a==="noteimp"){ c.notes[i].imp=!c.notes[i].imp; }
   else if(a==="notetask"){ const n=c.notes[i]; if(n.task){ delete n.task; delete n.due; delete n.done; } else { n.task=true; n.due=n.due||""; n.done=false; } }
-  else if(a==="rowadd"){ const l=b.dataset.l; c[l].push(l==="contacts"?{nom:"",raison:"",tel:"",mail:""}:l==="prm"?{voie:"",bat:"",lot:"",prm:""}:{etape:"",date:""}); }
-  else if(a==="rowdel"){ c[b.dataset.l].splice(i,1); if(b.dataset.l==="prm"&&!c.prm.length) c.prm.push({voie:"",bat:"",lot:"",prm:""}); }
+  else if(a==="rowadd"){ const l=b.dataset.l; c[l].push(l==="contacts"?{nom:"",raison:"",tel:"",mail:""}:l==="prm"?{voie:"",bat:"",lot:"",prm:""}:l==="ocb_list"?{bat:"",num:""}:{etape:"",date:""}); if(l==="ocb_list") c.ocb=ocbStr(c); }
+  else if(a==="rowdel"){ c[b.dataset.l].splice(i,1); if(b.dataset.l==="prm"&&!c.prm.length) c.prm.push({voie:"",bat:"",lot:"",prm:""}); if(b.dataset.l==="ocb_list"){ if(!c.ocb_list.length) c.ocb_list.push({bat:"",num:""}); c.ocb=ocbStr(c); } }
   else if(a==="move"){ c.type = c.type==="etudes"?"travaux":"etudes"; c.statut=STATUTS[c.type][0]; tab=c.type; placeLast(currentId); remember(currentId); scheduleSave(currentId,100); renderList(); renderMain(); askTQ(currentId); return; }
   else if(a==="pmeo"){ c.pmeo_mode = c.pmeo_mode===b.dataset.v ? "" : b.dataset.v; }
   else if(a==="prmmail"){ const MK="\u0001PRM\u0001", MP="\u0001PLAN\u0001"; const pl=planLines(c); const mk=b.dataset.k||"prm", dates=mk!=="prm"&&mk!=="prmcond"; // dates : même mail, sans les PRM ; devis : envoi du devis (RIB joint)
@@ -1821,6 +2032,7 @@ const mainClick=e=>{
     c.rip=""; c.rip_tel=""; c.rip_tel2=""; delete c.rip_l1; delete c.rip_l2; scheduleSave(currentId,100); renderMain(); return; }
   else if(a==="cadastre"){ openCadastre(); return; }
   else if(a==="rosanat"){ openRosanat(); return; }
+  else if(a==="rosafill"){ rosaFill(false); return; }
   else if(a==="betok"){ c.bet_ok=today(); c.bet_ok_u=1; }
   else if(a==="betundo"){ c.bet_ok=""; delete c.bet_ok_u; }
   else if(a==="tq"){ askTQ(currentId); return; }
@@ -1832,6 +2044,7 @@ const mainClick=e=>{
   else return;
   scheduleSave(currentId,200); renderMain(); if(a==="betok"||a==="betundo"||a==="detok"||a==="detundo") renderList();
   if(a==="noteadd"){ const ts=document.querySelectorAll(".note textarea"); ts[ts.length-1]?.focus(); }
+  if(a==="rowadd"&&b.dataset.l==="ocb_list"){ const bs=[...document.querySelectorAll(".ocb-b")]; bs.at(-1)?.focus(); }
 };
 $("#main").addEventListener("click",mainClick); $("#topLinks").addEventListener("click",mainClick);
 $("#list").addEventListener("click",e=>{
@@ -2011,9 +2224,9 @@ $("#menuBtn").addEventListener("click",()=>$("#side").classList.toggle("open"));
 $("#addBtn").addEventListener("click",()=>{
   if(db && !loaded){ $("#save").textContent="Chargement en cours, patiente une seconde…"; return; }
   const id = db ? db.collection("chantiers").doc().id : "local"+Date.now();
-  saveScroll(); chantiers.set(id, Object.assign(blank(tab),{regime:"PPOS",icp:"A faire"})); currentId=id; /* nouvelle affaire : PPOS et ICP à faire par défaut */ remember(id); scheduleSave(id,50); renderList(); renderMain(); restoreScroll(); $("#side").classList.remove("open");
+  saveScroll(); chantiers.set(id, norm(Object.assign(blank(tab),{regime:"PPOS",icp:"A faire"}))); /* v2.32 : affaire vierge complète (OCB compris), sinon la fiche précédente restait affichée */ currentId=id; /* nouvelle affaire : PPOS et ICP à faire par défaut */ remember(id); scheduleSave(id,50); renderList(); renderMain(); restoreScroll(); $("#side").classList.remove("open");
   setTimeout(()=>$("#f_dc")?.focus(),0);
-  if(tab==="travaux") askTQ(id); // affaire créée depuis Travaux : questions tout de suite
+  if(tab==="travaux") askTQ(id,true); // affaire créée depuis Travaux : questions Poste / RRO tout de suite
 });
 $("#settingsBtn").addEventListener("click",openSettings);
 $("#pasBtn").addEventListener("click",()=>openPassation());
@@ -2026,8 +2239,8 @@ function modal(html,cls=""){ const r=$("#modalRoot"); r.innerHTML=`<div class="s
   return r.querySelector(".modal"); }
 function closeModal(){ $("#modalRoot").innerHTML=""; }
 /* Questions du passage en Travaux (voir TQ) : Oui / Non, modifiables ensuite via « Questions travaux » */
-function askTQ(id){ const c=chantiers.get(id); if(!c||c.type!=="travaux") return; const a={...(c.tq||{})};
-  const m=modal(`<div class="m-h"><h2>Passage en Travaux</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
+function askTQ(id,neuf){ const c=chantiers.get(id); if(!c||c.type!=="travaux") return; const a={...(c.tq||{})};
+  const m=modal(`<div class="m-h"><h2>${neuf?"Nouvelle affaire":"Passage en Travaux"}</h2><button class="btn ghost sm" data-x aria-label="Fermer">✕</button></div>
   <div class="m-b"><p class="hint">Selon tes réponses, des lignes s’ajoutent aux check-lists. Tu pourras changer tes réponses avec le bouton « Questions travaux » des check-lists.</p>
   ${TQ.map(q=>`<div class="tq-row"><span class="tq-q">${esc(q.q)}</span><span class="tq-b"><button type="button" class="btn sm ${a[q.id]===true?"primary":""}" data-q="${q.id}" data-v="1">Oui</button><button type="button" class="btn sm ${a[q.id]===false?"primary":""}" data-q="${q.id}" data-v="0">Non</button></span></div>`).join("")}</div>
   <div class="m-f"><button class="btn" data-x>Plus tard</button><button class="btn primary" data-ok>Valider</button></div>`,"sm");
@@ -2688,6 +2901,7 @@ function mergeImport(map,payload,todayStr){
       if(c.client && nrm(c.nature).includes(nrm(c.client))) c.client="";
       if(r.adresse && c.adresse && r.adresse.length>c.adresse.length && (nrm(r.adresse).startsWith(nrm(c.adresse)) || /^\d{5}\s/.test(c.adresse.trim()))){ c.adresse=r.adresse; for(const f of ["cp","commune","insee"]) if(r[f]) c[f]=r[f]; }
     }
+    syncOcb(c);
     c.checks=c.checks||{};
     for(const id of r.checks||[]) if(!c.checks[id]?.d) c.checks[id]={...(c.checks[id]||{}),d:true,at:c.checks[id]?.at||""};
     for(const [id,t] of Object.entries(r.comments||{})) if(t && !(c.checks[id]?.c||"").trim()) c.checks[id]={d:false,at:"",...(c.checks[id]||{}),c:t};
@@ -3507,7 +3721,7 @@ const PH={tab:"travaux",q:"",id:null,arch:false,snap:null,snapAt:"",snapName:""}
 const PHS={K:"ing_phone_snap",
   idb(mode,fn){ return new Promise((res,rej)=>{ let o; try{ o=indexedDB.open("ing_studio_tel",1); }catch(e){ rej(e); return; } o.onupgradeneeded=()=>o.result.createObjectStore("s");
     o.onerror=()=>rej(o.error); o.onsuccess=()=>{ try{ const tx=o.result.transaction("s",mode), r=fn(tx.objectStore("s")); tx.oncomplete=()=>res(r&&r.result); tx.onerror=()=>rej(tx.error); }catch(e){ rej(e); } }; }); },
-  apply(s){ if(s&&s.chantiers){ PH.snap=s.chantiers; PH.snapAt=s.at||""; PH.savedAt=s.savedAt||""; PH.snapName=s.name||""; return true; } return false; },
+  apply(s){ if(s&&s.chantiers){ PH.snap=s.chantiers; PH.me=s.me||""; PH.snapAt=s.at||""; PH.savedAt=s.savedAt||""; PH.snapName=s.name||""; return true; } return false; },
   async save(o){ let ok=0; try{ localStorage.setItem(this.K,JSON.stringify(o)); if(localStorage.getItem(this.K)) ok++; }catch{}
     try{ await this.idb("readwrite",st=>st.put(o,this.K)); ok++; }catch{} PH.stored=ok>0; return ok>0; },
   async clear(){ try{ localStorage.removeItem(this.K); }catch{} try{ await this.idb("readwrite",st=>st.delete(this.K)); }catch{} } };
@@ -3530,17 +3744,20 @@ function phTel(t){ return String(t||"").replace(/[^\d+]/g,""); }
 function phLoadFile(f){ const r=new FileReader(); r.onload=()=>{ let d=null; try{ d=JSON.parse(r.result); }catch{}
     if(!d||typeof d.chantiers!=="object"){ alert("Ce fichier n'est pas une sauvegarde ING STUDIO (ING-STUDIO-sauvegarde.json)."); return; }
     PH.snap=d.chantiers; PH.snapAt=new Date().toISOString(); PH.savedAt=d.savedAt||""; PH.snapName=f.name; PHMAP=null;
-    PHS.save({chantiers:d.chantiers,at:PH.snapAt,savedAt:PH.savedAt,name:f.name}).then(ok=>{ PH.stored=ok; renderPhone(); });
+    PH.me=String(d.config?.settings?.moi_nom||"").trim();
+    PHS.save({chantiers:d.chantiers,at:PH.snapAt,savedAt:PH.savedAt,name:f.name,me:PH.me}).then(ok=>{ PH.stored=ok; renderPhone(); });
     PH.id=null; renderPhone(); };
   r.readAsText(f); }
 function renderPhone(){
   let root=document.getElementById("phone");
   if(!root){ root=document.createElement("div"); root.id="phone"; document.body.appendChild(root); document.body.classList.add("phone");
     root.addEventListener("click",phClick); root.addEventListener("input",e=>{ if(e.target.id==="ph_q"){ PH.q=e.target.value; phList(true); } });
-    window.addEventListener("popstate",()=>{ if(PH.id){ PH.id=null; renderPhone(); } }); }
+    window.addEventListener("popstate",()=>{ if(PH.cr){ crClose(); renderPhone(); } else if(PH.id){ PH.id=null; renderPhone(); } });
+    try{ const r=sessionStorage.getItem("ph_cr"); if(r) setTimeout(()=>{ const c=phData().get(r); if(c&&!CR.d){ PH.id=r; crOpen(c,r); } },300); }catch{} /* visite en cours : on la rouvre si le téléphone a rechargé l'appli (appareil photo) */ }
   PHMAP=phData();
   const c=PH.id&&PHMAP.get(PH.id);
-  if(c) root.innerHTML=phDetail(c); else { PH.id=null; root.innerHTML=phHome(); phList(); }
+  if(c&&PH.cr===PH.id&&CR.d) root.innerHTML=crView(c);
+  else if(c){ root.innerHTML=phDetail(c); const id=PH.id; crLoad(id).then(d=>{ const b=document.getElementById("ph_crb"); if(b&&PH.id===id&&d&&d.id) b.insertAdjacentHTML("beforeend",`<small>en cours · ${d.pts.length}</small>`); }); } else { PH.id=null; root.innerHTML=phHome(); phList(); }
 }
 function phHome(){
   const logo=(document.querySelector(".brand .mark")?.outerHTML||"").replace(/lgIS/g,"lgISph"); // id propre : le dégradé de l'en-tête masqué ne s'affiche pas
@@ -3587,7 +3804,7 @@ function phDetail(c){
     ["PMEO",c.pmeo_mode==="sans"?"Sans PMEO"+(c.pmeo?" le "+frDate(c.pmeo):""):c.pmeo_mode==="le"?"le "+frDate(c.pmeo):c.pmeo_mode==="faite"?"faite le "+frDate(c.pmeo):""],["Client",c.client],["Code GDO poste",c.gdo]].filter(x=>x[1]);
   const notes=(c.notes||[]).filter(n=>n.t&&n.t.trim()).sort((x,y)=>(y.imp?1:0)-(x.imp?1:0));
   const prm=(c.prm||[]).filter(p=>p.voie||p.bat||p.lot||p.prm), pv=prm.some(p=>p.voie);
-  return `<header class="ph-top ph-dt"><button class="ph-back" data-ph="back">‹ Affaires</button>
+  return `<header class="ph-top ph-dt"><div class="ph-row1"><button class="ph-back" data-ph="back">‹ Affaires</button><button class="ph-crb" id="ph_crb" data-ph="cr"><i>📝</i>Compte rendu<br>de visite</button></div>
     <h1>${esc([c.dc,c.rac].filter(Boolean).join(" / ")||"Affaire")}</h1><p class="ph-nat">${esc(c.nature||"")}</p>
     ${a?`<a class="ph-addr" href="${esc(maps)}" target="_blank" rel="noopener">📍 ${esc(a)}</a><div class="ph-nav"><a class="ph-act waze" href="${esc(wazeUrl(c,a))}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_WAZE}" alt=""> Waze</a><a class="ph-act gmaps" href="${esc(maps)}" target="_blank" rel="noopener"><img class="ph-ico" src="${PH_ICO_MAPS}" alt=""> Maps</a><button class="ph-act ph-cpa" data-ph="copy" data-v="${esc(a)}">📋 Copier</button></div>`:""}<div class="ph-chips">${stateChips(c,true)}</div></header>
     <main class="ph-main">
@@ -3605,6 +3822,7 @@ function phClick(e){
   else if(a==="open"){ PH.id=b.dataset.id; try{ history.pushState({ph:1},""); }catch{} renderPhone(); window.scrollTo(0,0); }
   else if(a==="back"){ if(history.state?.ph) history.back(); else { PH.id=null; renderPhone(); } }
   else if(a==="arch"){ PH.arch=true; phList(); }
+  else if(a==="cr"){ const c=PHMAP?.get(PH.id); if(c) crOpen(c,PH.id); }
   else if(a==="copy"){ const v=b.dataset.v, lab=b.textContent; const ok=()=>{ b.textContent="Copié ✓"; setTimeout(()=>b.textContent=lab,1800); };
     const fb=()=>{ const t=document.createElement("textarea"); t.value=v; t.setAttribute("readonly",""); t.style.cssText="position:fixed;opacity:0;top:0"; document.body.appendChild(t); t.select(); t.setSelectionRange(0,99); try{ document.execCommand("copy"); ok(); }catch{ prompt("Numéro :",v); } t.remove(); };
     try{ navigator.clipboard.writeText(v).then(ok,fb); }catch{ fb(); } }
@@ -3612,6 +3830,213 @@ function phClick(e){
   else if(a==="full"){ try{ localStorage.setItem("sc_full","1"); }catch{} location.reload(); }
 }
 document.addEventListener("change",e=>{ if(e.target.classList?.contains("ph-file")&&e.target.files[0]){ phLoadFile(e.target.files[0]); e.target.value=""; } });
+
+/* ---------- Compte rendu de visite de chantier (téléphone, v2.40) ----------
+   Bouton « Compte rendu de visite » sur la fiche affaire du téléphone : photos + localisation + commentaire par remarque,
+   remarques générales, puis PDF fabriqué sur le téléphone (sans serveur) et partagé vers l'appli mail (Web Share API).
+   Brouillon gardé dans IndexedDB (clé cr_<id affaire>) : rien n'est perdu si l'appli se ferme pendant la visite. */
+const CR_STD=["Affaissement de la chaussée","Coffret manquant ou mal scellé","Comptage LINKY manquant","Cornet d'épanouissement manquant","Disjoncteur manquant","Elagage à prévoir","Étiquetage des câbles manquant ou erroné","Mise à la terre manquante ou erronée","Percement de mur manquant","TPC à prolonger","TPC en sous profondeur"];
+const CR_FW=[[278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584,350,556,350,222,556,333,1000,556,556,333,1000,667,333,1000,350,611,350,350,222,222,333,333,350,556,1000,333,1000,500,333,944,350,500,667,278,333,556,556,556,556,260,556,333,737,370,556,584,333,737,333,400,584,333,333,333,556,537,278,333,333,365,556,834,834,834,611,667,667,667,667,667,667,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,500,556,556,556,556,278,278,278,278,556,556,556,556,556,556,556,584,611,556,556,556,556,500,556,500],[278,333,474,556,556,889,722,238,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,333,333,584,584,584,611,975,722,722,722,722,667,611,778,722,278,556,722,611,833,722,778,667,778,722,667,611,722,667,944,667,667,611,333,278,333,584,556,333,556,611,556,611,556,333,611,611,278,278,556,278,889,611,611,611,611,389,556,333,611,556,778,556,556,500,389,280,389,584,350,556,350,278,556,500,1000,556,556,333,1000,667,333,1000,350,611,350,350,278,278,500,500,350,556,1000,333,1000,556,333,944,350,500,667,278,333,556,556,556,556,280,556,333,737,370,556,584,333,737,333,400,584,333,333,333,611,556,278,333,333,365,556,834,834,834,611,722,722,722,722,722,722,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,556,556,556,556,556,278,278,278,278,611,611,611,611,611,611,611,584,611,611,611,611,611,556,611,556]];
+const CR_LOGO={w:420,h:86,b:"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"};
+const CR_BAND={w:806,h:6,b:"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAGAyYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7T/4VD8ff+iof+Vu9/wDiKP8AhUPx9/6Kh/5W73/4iiive9o/L7kfkv1On3l/4HL/ADD/AIVD8ff+iof+Vu9/+Io/4VD8ff8AoqH/AJW73/4iiij2j8vuQfU6feX/AIHL/MP+FQ/H3/oqH/lbvf8A4ij/AIVD8ff+iof+Vu9/+Iooo9o/L7kH1On3l/4HL/MzdZ+Cn7R94sQ074t+RtLb/wDifX656Y6R/Wsv/hQv7UX/AEWf/wAuLUf/AI3RRXjYt81ZtnfRwsFBay/8Cl/mdfY/Cj46QWVvDc/ErzJo4kWR/wC2bw7mAAJyUyean/4Vb8bv+ijf+Ve7/wDiKKK/GsRgqbrTd5bv7c+/+I+xpwSgt9l1Yf8ACrfjd/0Ub/yr3f8A8RR/wq343f8ARRv/ACr3f/xFFFY/UqXeX/gc/wD5IvkX9NnJfFL4GftNeKPBl3o3gn4xf2Rq00kTRXf/AAkGoW+xVcFhvjjLDKgjgc5rw3/hjj/goT/0dT/5fGt//GKKK/p3wbrywWQVKdJJr2sn70VN/DDrNSdvK9jCrTTl1+9/5h/wxx/wUJ/6Op/8vjW//jFH/DHH/BQn/o6n/wAvjW//AIxRRX6x/adb+WH/AILp/wDyJl7KPn97/wAw/wCGOP8AgoT/ANHU/wDl8a3/APGKP+GOP+ChP/R1P/l8a3/8Yooo/tOt/LD/AMF0/wD5EPZR8/vf+Yf8Mcf8FCf+jqf/AC+Nb/8AjFH/AAxx/wAFCf8Ao6n/AMvjW/8A4xRRR/adb+WH/gun/wDIh7KPn97/AMw/4Y4/4KE/9HU/+Xxrf/xitTwz+yN+3tpmt217rP7Tv2qzj3+ZD/wmmsybsowHytDg4JB59KKK58VmVZ0Jrlhs/wDl3T7f4TLEUoujNa7Pq+3qd3/wzl+15/0Xj/y6NT/+NUf8M5ftef8AReP/AC6NT/8AjVFFfGfW6naP/gMf8j5b6pT7y/8AApf5h/wzl+15/wBF4/8ALo1P/wCNUf8ADOX7Xn/ReP8Ay6NT/wDjVFFH1up2j/4DH/IPqlPvL/wKX+Z5h/wxx/wUJ/6Op/8AL41v/wCMV6z8Av2eP2sPAVzrU3xS+OJ8RreJAtiv/CT6ndiAqXMhxPGoXOU5GenaiisPFXF1MXwhjKM1FJqHwxjB/wASG0opSXyautHofo/D8VTzGnJee+v2X0d0exf8ID8Uv+h0/wDKlc//ABNH/CA/FL/odP8AypXP/wATRRX8Xf2dR/mn/wCDKn/yR+nfWZ9l/wCAx/yOB8TfBT9o7Utcub3Rfi39ks5dnlw/2/fptwgB+VUIGSCePWsv/hQv7UX/AEWf/wAuLUf/AI3RRX7hlMFDAUIrpCPVv7K6vV/M/Bs4oQnmNeTb1nLaTS+J9E7L0Qf8KF/ai/6LP/5cWo//AButjSPgv+0XZ2zRX/xZ8+QyFg39vXzYXA4yU9jRRXtYJ8tW6PHr4WDhvL/wKX+Ze/4VD8ff+iof+Vu9/wDiKP8AhUPx9/6Kh/5W73/4iiivY9o/L7kcX1On3l/4HL/MP+FQ/H3/AKKh/wCVu9/+Io/4VD8ff+iof+Vu9/8AiKKKPaPy+5B9Tp95f+By/wAw/wCFQ/H3/oqH/lbvf/iK8C8S/si/t8al4j1XUdH/AGnvsthdXs89rB/wmutJ5ULSEom1Ydq4UgYHAxxRRX2PB2KqUa9VxUdlvGL6+aZ7GT4aEKkrN7dZSf5szf8Ahjj/AIKE/wDR1P8A5fGt/wDxij/hjj/goT/0dT/5fGt//GKKK/QP7Trfyw/8F0//AJE9/wBlHz+9/wCZ618GP2ef2sPBmlajbfEP44nXbq5uFkt5P+Em1O68uMLgrmaMFeecCvRf+FW/G7/oo3/lXu//AIiiiv4+8RKMcTxPi6s27uS2bivhjsotJfJI6qcFyrf72H/Crfjd/wBFG/8AKvd//EVRk+EXx7aRmT4n4UsSB/bV7wP++KKK24Foxw+IquDesVu3Lr/ebPEz2hGpTgm3v0k108mN/wCFQ/H3/oqH/lbvf/iKP+FQ/H3/AKKh/wCVu9/+Ioor9K9o/L7kfM/U6feX/gcv8w/4VD8ff+iof+Vu9/8AiKP+FQ/H3/oqH/lbvf8A4iiij2j8vuQfU6feX/gcv8w/4VD8ff8AoqH/AJW73/4iqOr/AAX/AGi7u1EVh8WPJk3glv7dvl4weMiP6UUVjiJt0pL9EaUsJT51rL/wOX+Zj/8AChf2ov8Aos//AJcWo/8Axuuo0X4R/Huy0yG21H4nefcJu3yf21etuyxI5KZPBFFFfn3FNKNXBxjK/wAS2bXR9mj6HK6EYVm03t/M31Xdl7/hVvxu/wCijf8AlXu//iKP+FW/G7/oo3/lXu//AIiiivgvqVLvL/wOf/yR73Iv6bD/AIVb8bv+ijf+Ve7/APiKwPHnwX/aN13wfqmkeFviyNO1W6g8u1ujrt9F5T5HO9Iyy8Z5AzRRXscPYSnTzfCzTlpUg9ZSa+Jbptpryas+onBW/wCCz5//AOGOP+ChP/R1P/l8a3/8Yo/4Y4/4KE/9HU/+Xxrf/wAYoor+3f7Trfyw/wDBdP8A+ROT2UfP73/mH/DHH/BQn/o6n/y+Nb/+MUf8Mcf8FCf+jqf/AC+Nb/8AjFFFH9p1v5Yf+C6f/wAiHso+f3v/ADD/AIY4/wCChP8A0dT/AOXxrf8A8Yo/4Y4/4KE/9HU/+Xxrf/xiiij+0638sP8AwXT/APkQ9lHz+9/5h/wxx/wUJ/6Op/8AL41v/wCMUf8ADHH/AAUJ/wCjqf8Ay+Nb/wDjFFFH9p1v5Yf+C6f/AMiHso+f3v8AzLWl/sf/APBQC11Ozub39qPzreGeOSaP/hNtabegYFlwYcHIyMHivRf+Gcv2vP8AovH/AJdGp/8Axqiivns5x1Wc43UdukIL8oni5ph4TnG7e380l+TD/hnL9rz/AKLx/wCXRqf/AMao/wCGcv2vP+i8f+XRqf8A8aoorxfrdTtH/wABj/keX9Up95f+BS/zD/hnL9rz/ovH/l0an/8AGq861T9j/wD4KAXWp3lzZftR+TbzTySQx/8ACba0uxCxKrgQ4GBgYHFFFe1kuOqwqSaUdusIP84nq5Xh4QnKze380n+bO7+Bf7NX7Yngfxfdav8AE34/HxBpcmnSW8NqPFeq3Wy4MkZWTZNEq8KsgznPzdOTXu3/AAgPxS/6HT/ypXP/AMTRRX8x+M1GOO4olVqtp8kPhbgtn9mDjH8D9g4ZqypYBRjbd7pP8Wmw/wCEB+KX/Q6f+VK5/wDia4rxj8Gv2hdX1Zbvw98VTY2whVGj/t2+jy4JycIhHQj8qKK+S4PwdOhmSlFy+F7zk106OTRxcaTdfK+SVrcy2ST+9WZhf8KF/ai/6LP/AOXFqP8A8bo/4UL+1F/0Wf8A8uLUf/jdFFfq1j8h+rQ7v/wKX+Zp6N8E/wBpCz87+0fi35+/bs/4n9+2MZz1j46itP8A4VD8ff8AoqH/AJW73/4iiivawk2qMUvyXc4a2Epub1l/4FL/ADD/AIVD8ff+iof+Vu9/+Io/4VD8ff8AoqH/AJW73/4iiiun2j8vuRl9Tp95f+By/wAw/wCFQ/H3/oqH/lbvf/iKP+FQ/H3/AKKh/wCVu9/+Iooo9o/L7kH1On3l/wCBy/zPFPiL+yl+3N4i8Y6hrHhL9pP+zNJuPK+z2v8AwmOsQ+XtiRW+SOEqMsGPB5znqa5v/hjj/goT/wBHU/8Al8a3/wDGKKK/Y8rzGtDA0YpQ0hH/AJdwfRdXG59jhaUVQgtdl1fZeYf8Mcf8FCf+jqf/AC+Nb/8AjFejfBf9mv8AbD8GalqV18RPj6ddguIEjto/+Eq1W68pw2WOJogBkY5HNFFfLeI2MqYnhfF0pqKTUfhhGL+OO0opNfJnTTpx5lv97/zPWf8AhVvxu/6KN/5V7v8A+Io/4Vb8bv8Aoo3/AJV7v/4iiiv5B+pUu8v/AAOf/wAkdPIv6bKdx8JPj1JMzxfE3apxgf21ejt/uVH/AMKh+Pv/AEVD/wArd7/8RRRX7plEnDL6EV0hHz+yur1fzPhMZhKcsRUbcvif2pd/UP8AhUPx9/6Kh/5W73/4ij/hUPx9/wCiof8Albvf/iKKK9D2j8vuRz/U6feX/gcv8w/4VD8ff+iof+Vu9/8AiKP+FQ/H3/oqH/lbvf8A4iiij2j8vuQfU6feX/gcv8ytqPwb/aGuLOSG0+KvlTMBtf8Aty+GORnkJnpWF/woX9qL/os//lxaj/8AG6KK8rHNyqK/b9Tsw+FpqO8v/Apf5nReHfg9+0Dp9k8OrfFL7TM0pZX/ALcvXwuAMZZM9QfzrU/4Vb8bv+ijf+Ve7/8AiKKK/Is4wlOeOqyblv0lJfgnY+uwdNRoRSvt3f8AmH/Crfjd/wBFG/8AKvd//EUUUV5v1Kl3l/4HP/5I6eRf02f/2Q=="};
+const CR={d:null,edit:null,isNew:false,undo:null,pdf:null,sent:false,urls:{},t:null,busy:false};
+const crKey=id=>"cr_"+id;
+const crNow=d=>{ const x=new Date(d||Date.now()), p=n=>String(n).padStart(2,"0"); return `${p(x.getDate())}/${p(x.getMonth()+1)}/${x.getFullYear()} ${p(x.getHours())}:${p(x.getMinutes())}`; };
+function crTitre(c){ const n=String(c.nature||"").trim(), m=String(c.commune||"").trim(); return n&&m&&!nrm(n).includes(nrm(m))?n+" – "+m:(n||m||[c.dc,c.rac].filter(Boolean).join(" / ")); }
+function crPar(){ let v=""; try{ v=localStorage.getItem("ing_cr_par")||""; }catch{} return v||PH.me||""; }
+function crSave(now){ clearTimeout(CR.t); const d=CR.d; if(!d) return Promise.resolve(); const go=()=>PHS.idb("readwrite",st=>st.put(d,crKey(d.id))).catch(()=>{}); if(now) return go(); CR.t=setTimeout(go,400); return Promise.resolve(); }
+function crLoad(id){ return PHS.idb("readonly",st=>st.get(crKey(id))).catch(()=>null); }
+function crUrl(p){ if(!p.img) return ""; return CR.urls[p.k]||(CR.urls[p.k]=URL.createObjectURL(new Blob([p.img],{type:"image/jpeg"}))); }
+function crFlush(){ for(const u of Object.values(CR.urls)) URL.revokeObjectURL(u); CR.urls={}; }
+/* photo : redressée (orientation du téléphone), réduite à 1600 px, JPEG ≈ 200–400 Ko */
+async function crImg(f){ const url=URL.createObjectURL(f);
+  try{ const im=new Image(); im.src=url; await im.decode(); let w=im.naturalWidth,h=im.naturalHeight; const s=Math.min(1,1600/Math.max(w,h)); w=Math.max(1,Math.round(w*s)); h=Math.max(1,Math.round(h*s));
+    const cv=document.createElement("canvas"); cv.width=w; cv.height=h; const g=cv.getContext("2d"); g.fillStyle="#fff"; g.fillRect(0,0,w,h); g.drawImage(im,0,0,w,h);
+    const b=await new Promise(r=>cv.toBlob(r,"image/jpeg",.82)); if(!b) throw new Error("jpeg"); return {img:await b.arrayBuffer(),w,h}; }
+  finally{ URL.revokeObjectURL(url); } }
+/* ouverture depuis la fiche affaire */
+async function crOpen(c,id){ crFlush(); CR.edit=null; CR.pdf=null; CR.sent=false;
+  let d=await crLoad(id);
+  if(!d||!d.id) d={v:1,id,debut:new Date().toISOString(),titre:crTitre(c),par:crPar(),gen:"",pts:[],n:0};
+  CR.d=d; PH.cr=id; try{ sessionStorage.setItem("ph_cr",id); }catch{} try{ history.pushState({ph:2},""); }catch{}
+  crSave(true); renderPhone(); window.scrollTo(0,0); }
+function crClose(){ crSave(true); crFlush(); PH.cr=null; CR.d=null; CR.edit=null; CR.pdf=null; try{ sessionStorage.removeItem("ph_cr"); }catch{} }
+function crPtCard(p,i){ const u=crUrl(p), t=[p.txt,...(p.std||[])].filter(x=>x&&String(x).trim());
+  return `<button class="cr-pt" data-cr="edit" data-i="${i}">${u?`<img src="${u}" alt="">`:`<span class="cr-noimg">✏️</span>`}<span class="cr-ptx"><b>${i+1}. ${esc(p.loc||"Sans localisation")}</b><span>${t.length?esc(t.join(" · ")):"<i>Pas de commentaire</i>"}</span></span></button>`; }
+function crView(c){ const d=CR.d; if(!d) return "";
+  if(CR.edit!=null&&d.pts[CR.edit]) return crEditor(c);
+  const head=`<header class="ph-top ph-dt cr-top"><button class="ph-back" data-cr="back">‹ Affaire</button><h1>Compte rendu de visite</h1><p class="ph-nat">${esc([c.dc,c.rac].filter(Boolean).join(" / "))}</p><p class="cr-when">Visite démarrée le ${esc(crNow(d.debut).replace(" "," à "))}</p></header>`;
+  if(CR.pdf) return head+crSendView(c);
+  return head+`<main class="ph-main cr">
+    <label class="cr-l">Intitulé du chantier<input data-crf="titre" value="${esc(d.titre)}" autocomplete="off"></label>
+    <label class="cr-l">Réalisé par<input data-crf="par" value="${esc(d.par)}" placeholder="Prénom NOM" autocomplete="off"></label>
+    <h2 class="cr-h">Remarques <span>${d.pts.length}</span></h2>
+    ${d.pts.length?d.pts.map(crPtCard).join(""):`<p class="ph-empty">Aucune remarque. À chaque point à signaler : prends une photo et tape ton commentaire.</p>`}
+    <div class="cr-add"><label class="cr-big">📷 Prendre une photo<input type="file" accept="image/*" capture="environment" class="cr-file" hidden></label>
+      <label class="cr-btn2">🖼️ Galerie<input type="file" accept="image/*" multiple class="cr-file" hidden></label></div>
+    <button class="ph-link" data-cr="nophoto">✏️ Ajouter une remarque sans photo</button>
+    ${CR.busy?`<p class="cr-busy">Préparation de la photo…</p>`:""}
+    <label class="cr-l">Remarques générales<textarea data-crf="gen" rows="4" placeholder="Sans objet">${esc(d.gen)}</textarea></label>
+    <button class="cr-go" data-cr="finish">📄 Terminer et envoyer</button>
+    <button class="ph-link cr-del" data-cr="drop">🗑 Supprimer cette visite</button>
+  </main>`; }
+function crEditor(c){ const d=CR.d, i=CR.edit, p=d.pts[i], u=crUrl(p), std=p.std||[];
+  return `<header class="ph-top ph-dt cr-top"><button class="ph-back" data-cr="cancel">‹ ${CR.isNew?"Annuler":"Retour"}</button><h1>Remarque ${i+1}</h1></header>
+  <main class="ph-main cr">
+    ${u?`<img class="cr-photo" src="${u}" alt="">`:""}
+    <div class="cr-add sm"><label class="cr-btn2">📷 ${u?"Reprendre la photo":"Ajouter une photo"}<input type="file" accept="image/*" capture="environment" class="cr-file" data-repl="1" hidden></label>${u?`<button class="cr-btn2" data-cr="rmimg">Retirer la photo</button>`:""}</div>
+    <label class="cr-l">Localisation<input data-crp="loc" value="${esc(p.loc||"")}" placeholder="RM2, logement 3e étage, poste…" autocomplete="off"></label>
+    <label class="cr-l">Commentaire<textarea data-crp="txt" rows="4" placeholder="Ce que tu as constaté…">${esc(p.txt||"")}</textarea></label>
+    <h2 class="cr-h">Commentaires standardisés</h2>
+    <div class="cr-std">${CR_STD.map(s=>`<button class="${std.includes(s)?"on":""}" data-cr="std" data-v="${esc(s)}">${std.includes(s)?"✓ ":""}${esc(s)}</button>`).join("")}</div>
+    <button class="cr-go" data-cr="ok">✓ Valider la remarque</button>
+    <button class="ph-link cr-del" data-cr="rmpt">🗑 Supprimer cette remarque</button>
+  </main>`; }
+function crSendView(c){ const f=CR.pdf, can=crCanShare(f.file);
+  return `<main class="ph-main cr"><div class="cr-ok"><b>📄 Compte rendu prêt</b><span>${esc(f.file.name)}</span><span>${f.pages} page${f.pages>1?"s":""} · ${(f.file.size/1048576).toFixed(1).replace(".",",")} Mo · ${CR.d.pts.length} remarque${CR.d.pts.length>1?"s":""}</span></div>
+    ${can?`<button class="cr-go" data-cr="share">📧 Envoyer par mail</button><p class="cr-hint">Choisis ton appli mail : le PDF est joint et le texte du mail est prêt. L'objet est aussi copié : colle-le si l'appli ne l'a pas mis.</p>`
+      :`<button class="cr-go" data-cr="mailto">📧 Préparer le mail</button><p class="cr-hint">Ce téléphone ne sait pas joindre un fichier directement : le PDF est d'abord enregistré, puis le mail s'ouvre avec l'objet et le texte. Joins le PDF depuis tes téléchargements.</p>`}
+    <div class="cr-add sm"><button class="cr-btn2" data-cr="view">👁 Voir le PDF</button><button class="cr-btn2" data-cr="dl">⬇ Enregistrer</button></div>
+    <p class="cr-subj"><small>Objet</small>${esc(f.subject)}</p>
+    ${CR.sent?`<div class="cr-done"><p>Mail envoyé ? Tu peux effacer la visite de ce téléphone.</p><button class="cr-btn2" data-cr="drop">🗑 Effacer cette visite</button></div>`:""}
+    <button class="ph-link" data-cr="edit-back">‹ Revenir à la visite (modifier)</button>
+  </main>`; }
+function crCanShare(file){ try{ return !!(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})); }catch{ return false; } }
+function crMail(c){ const d=CR.d, day=crNow(d.debut).slice(0,10), refs=[c.dc,c.rac].filter(Boolean).join(" / ");
+  const subject=`Compte rendu de visite de chantier – ${d.titre||refs}${refs&&d.titre?" – "+refs:""} – ${day}`;
+  const a=fullAddr(c);
+  const text=`Bonjour,\n\nVeuillez trouver ci-joint le compte rendu de la visite de chantier du ${crNow(d.debut).replace(" "," à ")}${d.titre?" : "+d.titre:""}${a?" ("+a+")":""}.\n\nRemarques générales : ${String(d.gen||"").trim()||"Sans objet"}\n${d.pts.length} remarque${d.pts.length>1?"s":""} avec photos dans le PDF joint.\n\nCordialement,\n${d.par||""}`;
+  return {subject,text}; }
+function crFileName(d){ const t=String(d.titre||"chantier").replace(/[\\/:*?"<>|#%&{}$!'@+`=]/g," ").replace(/\s+/g," ").trim().slice(0,60); return `CR visite ${t} ${crNow(d.debut).slice(0,10).replace(/\//g,"-")}.pdf`; }
+function crDl(f){ const a=document.createElement("a"); a.href=URL.createObjectURL(f); a.download=f.name; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },4000); }
+function crCopy(t){ try{ navigator.clipboard?.writeText(t).catch(()=>{}); }catch{} }
+async function crAddFiles(files,repl){ const d=CR.d; if(!d||!files.length) return;
+  CR.busy=true; renderPhone();
+  try{ for(const f of files){ let r; try{ r=await crImg(f); }catch{ alert("Cette photo n'a pas pu être lue (format non reconnu)."); continue; }
+      if(repl&&CR.edit!=null&&d.pts[CR.edit]){ const p=d.pts[CR.edit]; if(CR.urls[p.k]){ URL.revokeObjectURL(CR.urls[p.k]); delete CR.urls[p.k]; } Object.assign(p,r); }
+      else { d.n=(d.n||0)+1; d.pts.push({k:d.n,loc:"",txt:"",std:[],...r}); if(files.length===1){ CR.edit=d.pts.length-1; CR.isNew=true; CR.undo=null; } } }
+    await crSave(true); }
+  finally{ CR.busy=false; renderPhone(); window.scrollTo(0,0); } }
+function crClick(e){ const b=e.target.closest("[data-cr]"); if(!b||!CR.d) return; const a=b.dataset.cr, d=CR.d, c=PHMAP?.get(PH.id);
+  const pt=CR.edit!=null?d.pts[CR.edit]:null;
+  if(a==="back"){ if(history.state?.ph===2) history.back(); else { crClose(); renderPhone(); } return; }
+  if(a==="edit"){ CR.edit=+b.dataset.i; CR.isNew=false; CR.undo=JSON.stringify({loc:d.pts[CR.edit].loc,txt:d.pts[CR.edit].txt,std:d.pts[CR.edit].std}); renderPhone(); window.scrollTo(0,0); return; }
+  if(a==="nophoto"){ d.n=(d.n||0)+1; d.pts.push({k:d.n,loc:"",txt:"",std:[],img:null}); CR.edit=d.pts.length-1; CR.isNew=true; crSave(true); renderPhone(); window.scrollTo(0,0); return; }
+  if(a==="cancel"){ if(pt){ if(CR.isNew&&!pt.img&&!pt.loc&&!(pt.txt||"").trim()&&!(pt.std||[]).length) d.pts.splice(CR.edit,1); else if(!CR.isNew&&CR.undo) Object.assign(pt,JSON.parse(CR.undo)); } CR.edit=null; crSave(true); renderPhone(); return; }
+  if(a==="ok"){ CR.edit=null; crSave(true); renderPhone(); return; }
+  if(a==="rmpt"){ if(!confirm("Supprimer cette remarque ?")) return; d.pts.splice(CR.edit,1); CR.edit=null; crSave(true); renderPhone(); return; }
+  if(a==="rmimg"&&pt){ if(CR.urls[pt.k]){ URL.revokeObjectURL(CR.urls[pt.k]); delete CR.urls[pt.k]; } pt.img=null; crSave(true); renderPhone(); return; }
+  if(a==="std"&&pt){ const v=b.dataset.v, s=pt.std=pt.std||[]; const j=s.indexOf(v); if(j>=0) s.splice(j,1); else s.push(v); crSave(); b.classList.toggle("on"); b.textContent=(j>=0?"":"✓ ")+v; return; }
+  if(a==="drop"){ if(!confirm(CR.sent?"Effacer cette visite du téléphone ?":"Supprimer cette visite (photos et commentaires) ?")) return; const id=d.id; PHS.idb("readwrite",st=>st.delete(crKey(id))).catch(()=>{}); CR.d=null; if(history.state?.ph===2) history.back(); else { crClose(); renderPhone(); } return; }
+  if(a==="finish"){ if(!d.pts.length&&!String(d.gen||"").trim()&&!confirm("Aucune remarque ni commentaire général. Faire quand même le compte rendu ?")) return;
+    b.disabled=true; b.textContent="Fabrication du PDF…";
+    setTimeout(()=>{ try{ const bytes=crPdf(d,c), file=new File([bytes],crFileName(d),{type:"application/pdf"}); CR.pdf={file,pages:crPdf.pages,...crMail(c)}; CR.sent=false; crSave(true); }
+      catch(err){ alert("Le PDF n'a pas pu être fabriqué : "+(err?.message||err)); } renderPhone(); window.scrollTo(0,0); },30); return; }
+  if(a==="edit-back"){ CR.pdf=null; renderPhone(); return; }
+  const f=CR.pdf; if(!f) return;
+  if(a==="share"){ crCopy(f.subject); navigator.share({files:[f.file],title:f.subject,text:f.text}).then(()=>{ CR.sent=true; renderPhone(); },err=>{ if(err?.name!=="AbortError") alert("Partage impossible : "+(err?.message||err)); }); return; }
+  if(a==="mailto"){ crDl(f.file); CR.sent=true; setTimeout(()=>{ location.href=`mailto:?subject=${encodeURIComponent(f.subject)}&body=${encodeURIComponent(f.text)}`; renderPhone(); },600); return; }
+  if(a==="view"){ const u=URL.createObjectURL(f.file); const w=window.open(u,"_blank"); if(!w) location.href=u; setTimeout(()=>URL.revokeObjectURL(u),120000); return; }
+  if(a==="dl"){ crDl(f.file); return; }
+}
+document.addEventListener("click",e=>{ if(PH.cr&&e.target.closest?.("#phone")) crClick(e); });
+document.addEventListener("input",e=>{ const t=e.target; if(!PH.cr||!CR.d||!t.closest?.("#phone")) return;
+  if(t.dataset.crf){ CR.d[t.dataset.crf]=t.value; if(t.dataset.crf==="par"){ try{ localStorage.setItem("ing_cr_par",t.value.trim()); }catch{} } crSave(); }
+  else if(t.dataset.crp&&CR.edit!=null&&CR.d.pts[CR.edit]){ CR.d.pts[CR.edit][t.dataset.crp]=t.value; crSave(); } });
+document.addEventListener("change",e=>{ const t=e.target; if(t.classList?.contains("cr-file")&&t.files?.length){ const fs=[...t.files]; t.value=""; crAddFiles(fs,!!t.dataset.repl); } });
+
+/* ---- PDF minimal (A4, Helvetica, photos JPEG telles quelles) : aucune bibliothèque, fonctionne hors connexion ---- */
+const CR_W1252={8364:128,8218:130,402:131,8222:132,8230:133,8224:134,8225:135,710:136,8240:137,352:138,8249:139,338:140,381:142,8216:145,8217:146,8220:147,8221:148,8226:149,8211:150,8212:151,732:152,8482:153,353:154,8250:155,339:156,382:158,376:159};
+function crEnc(s){ let o=""; for(const ch of String(s||"").normalize("NFC")){ const u=ch.codePointAt(0); let b=u<128||(u>=160&&u<256)?u:CR_W1252[u]; if(u===9) b=32; if(b==null) b=63; if(u===10) b=10; else if(b<32) continue; o+=String.fromCharCode(b); } return o; }
+function crTw(s,sz,bold){ const W=CR_FW[bold?1:0]; let w=0; for(let i=0;i<s.length;i++){ const b=s.charCodeAt(i); w+=W[b-32]||556; } return w*sz/1000; }
+function crWrap(s,sz,bold,max){ const out=[]; for(const para of crEnc(String(s||"").replace(/\r/g,"")).split("\n")){ let line="";
+    for(let w of para.split(" ")){ while(crTw(w,sz,bold)>max){ let k=w.length; while(k>1&&crTw(w.slice(0,k),sz,bold)>max) k--; if(line){ out.push(line); line=""; } out.push(w.slice(0,k)); w=w.slice(k); }
+      const t=line?line+" "+w:w; if(crTw(t,sz,bold)<=max) line=t; else { out.push(line); line=w; } }
+    out.push(line); } return out; }
+function crU16(s){ let h="<FEFF"; for(const ch of String(s)){ const u=ch.codePointAt(0); if(u>65535) continue; h+=u.toString(16).padStart(4,"0"); } return h+">"; }
+function crB64(b){ const s=atob(b), u=new Uint8Array(s.length); for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return u; }
+function crPdf(d,c){
+  const PW=595.28, PH_=841.89, M=40, CW=PW-2*M, BLUE="0.12 0.44 0.75 rg", DARK="0.13 0.13 0.13 rg", GREY="0.38 0.38 0.38 rg", pages=[]; let pg=null, y=0;
+  const imgs=[{w:CR_LOGO.w,h:CR_LOGO.h,data:crB64(CR_LOGO.b)},{w:CR_BAND.w,h:CR_BAND.h,data:crB64(CR_BAND.b)}];
+  const S=s=>"("+s.replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)")+")";
+  const BOT=56;
+  const newPage=()=>{ pg={ops:[]}; pages.push(pg); y=PH_-44; };
+  const textAt=(s,sz,bold,color,x)=>pg.ops.push(`BT ${color} /${bold?"F2":"F1"} ${sz} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td ${S(s)} Tj ET`);
+  const text=(s,sz,bold,color,align)=>textAt(s,sz,bold,color,align==="c"?(PW-crTw(s,sz,bold))/2:M);
+  const para=(s,sz,bold,color,align,lh)=>{ for(const l of crWrap(s,sz,bold,CW)){ if(y-lh<BOT) newPage(); y-=lh; text(l,sz,bold,color,align); } };
+  const hline=(x1,x2,yy,col,w)=>pg.ops.push(`q ${col} ${w} w ${x1.toFixed(2)} ${yy.toFixed(2)} m ${x2.toFixed(2)} ${yy.toFixed(2)} l S Q`);
+  const head=t=>{ if(y-40<BOT) newPage(); y-=22; textAt(crEnc(t),11.5,true,BLUE,M); y-=6; hline(M,PW-M,y,"0.12 0.44 0.75 RG",1); };
+  const img=(p,x,yy,w,h)=>{ const k=imgs.length; imgs.push({w:p.w,h:p.h,data:new Uint8Array(p.img)}); pg.ops.push(`q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${x.toFixed(2)} ${yy.toFixed(2)} cm /Im${k} Do Q`); };
+  const pts=d.pts.map((p,i)=>({p,n:i+1,loc:String(p.loc||"").trim(),com:[p.txt,...(p.std||[])].map(x=>String(x||"").trim()).filter(Boolean).join("\n")}));
+  newPage();
+  // en-tête : logo + bandeau de couleurs, titre, chantier, références
+  const lw=104, lh=lw*CR_LOGO.h/CR_LOGO.w; pg.ops.push(`q ${lw} 0 0 ${lh.toFixed(2)} ${M} ${(PH_-28-lh).toFixed(2)} cm /Im0 Do Q`);
+  pg.ops.push(`q ${(PW-M-(M+lw+8)).toFixed(2)} 0 0 3 ${M+lw+8} ${(PH_-28-lh/2-1.5).toFixed(2)} cm /Im1 Do Q`);
+  y=PH_-28-lh-12;
+  para("Compte rendu de visite de chantier",16,true,DARK,"c",24);
+  y-=2; para(d.titre||"Chantier",12,true,DARK,"c",16);
+  const refs=[c?.dc,c?.rac].filter(Boolean).join(" / "), adr=c?fullAddr(c):"";
+  // cartouche : date, rédacteur, références, adresse
+  const kv=[["Date de la visite",crNow(d.debut).replace(" "," à ")],["Réalisé par",d.par||""],["Références",refs],["Adresse",adr],["Remarques",String(pts.length)]].filter(r=>r[1]);
+  y-=12; const top=y; pg.ops.push(`q 0.95 0.97 0.99 rg ${M} ${(top-kv.length*14-8).toFixed(2)} ${CW} ${(kv.length*14+8).toFixed(2)} re f Q`);
+  y-=4; for(const [k,v] of kv){ y-=14; textAt(crEnc(k),9,true,GREY,M+10); const l=crWrap(v,9.5,false,CW-130)[0]; textAt(l,9.5,false,DARK,M+120); }
+  y-=4;
+  head("Remarques générales");
+  y-=2; for(const l of crWrap(String(d.gen||"").trim()||"Sans objet",10,false,CW)){ if(y-14<BOT) newPage(); y-=14; textAt(l,10,false,DARK,M); }
+  // récapitulatif des remarques (tableau)
+  if(pts.length){
+    head("Récapitulatif des remarques");
+    const X=[M,M+28,M+178], WW=[24,144,CW-182];
+    for(const r of pts){ const L=crWrap(r.loc||"—",9.5,true,WW[1]), C=crWrap(r.com||"—",9.5,false,WW[2]), nl=Math.max(L.length,C.length), h=nl*12+6;
+      if(y-h<BOT){ newPage(); }
+      const y0=y; y-=12; textAt(String(r.n),9.5,true,BLUE,X[0]+4);
+      L.forEach((l,j)=>{ y=y0-12*(j+1); textAt(l,9.5,true,BLUE,X[1]); }); C.forEach((l,j)=>{ y=y0-12*(j+1); textAt(l,9.5,false,DARK,X[2]); });
+      y=y0-h; hline(M,PW-M,y+2,"0.8 0.82 0.86 RG",0.5); }
+  }
+  // photos : deux par ligne, numérotées comme le récapitulatif
+  const ph=pts.filter(r=>r.p.img&&r.p.w);
+  if(ph.length){
+    if(y-330<BOT) newPage(); head("Photos et constats"); y-=6;
+    const G=16, cw=(CW-G)/2, MH=250;
+    for(let i=0;i<ph.length;i+=2){
+      const row=ph.slice(i,i+2).map(r=>{ let iw=0,ih=0; if(r.p.img&&r.p.w&&r.p.h){ const s=Math.min(cw/r.p.w,MH/r.p.h); iw=r.p.w*s; ih=r.p.h*s; }
+        const L=crWrap(r.n+". "+(r.loc||"Remarque "+r.n),10,true,cw), C=crWrap(r.com,9.5,false,cw); return {r,iw,ih,L,C,h:ih+6+L.length*13+C.length*12}; });
+      const rh=Math.max(...row.map(x=>x.h))+18;
+      if(y-rh<BOT){ newPage(); y-=6; }
+      const y0=y;
+      row.forEach((x,j)=>{ const cx=M+j*(cw+G); y=y0;
+        if(x.ih){ img(x.r.p,cx+(cw-x.iw)/2,y-x.ih,x.iw,x.ih); y-=x.ih; pg.ops.push(`q 0.75 0.77 0.8 RG 0.5 w ${(cx+(cw-x.iw)/2).toFixed(2)} ${y.toFixed(2)} ${x.iw.toFixed(2)} ${x.ih.toFixed(2)} re S Q`); }
+        y-=6; for(const l of x.L){ y-=13; textAt(l,10,true,BLUE,cx+(cw-crTw(l,10,true))/2); }
+        for(const l of x.C){ y-=12; textAt(l,9.5,false,DARK,cx+(cw-crTw(l,9.5,false))/2); } });
+      y=y0-rh; if(i+2<ph.length) pg.ops.push(`q 0.6 0.62 0.66 RG 0.6 w [3 2] 0 d ${M} ${(y+8).toFixed(2)} m ${PW-M} ${(y+8).toFixed(2)} l S Q`);
+    }
+  }
+  const n=pages.length, foot=`  –  ${d.titre||"Chantier"}  –  ${crNow(d.debut)}${d.par?"  –  réalisé par "+d.par:""}`;
+  pages.forEach((p,i)=>{ const fl=crWrap(`Page ${i+1} sur ${n}`+foot,8,false,CW); let fy=24+(fl.length-1)*10;
+    p.ops.push(`q 0.8 0.82 0.86 RG 0.5 w ${M} ${fy+12} m ${PW-M} ${fy+12} l S Q`);
+    for(const l of fl){ const w=crTw(l,8,false); p.ops.push(`BT 0.38 0.38 0.38 rg /F1 8 Tf ${((PW-w)/2).toFixed(2)} ${fy.toFixed(2)} Td ${S(l)} Tj ET`); fy-=10; } });
+  // écriture du fichier
+  const parts=[], offs=[]; let len=0;
+  const bin=s=>{ const u=new Uint8Array(s.length); for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i)&255; return u; };
+  const put=u=>{ if(typeof u==="string") u=bin(u); parts.push(u); len+=u.length; };
+  const obj=(num,body,stream)=>{ offs[num]=len; put(`${num} 0 obj\n`); put(body); if(stream){ put("\nstream\n"); put(stream); put("\nendstream"); } put("\nendobj\n"); };
+  const nImg=imgs.length, firstImg=5, firstPage=firstImg+nImg;
+  put("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n");
+  obj(1,"<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2,`<< /Type /Pages /Count ${n} /Kids [${pages.map((_,i)=>`${firstPage+2*i} 0 R`).join(" ")}] >>`);
+  obj(3,"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>");
+  obj(4,"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>");
+  imgs.forEach((im,k)=>obj(firstImg+k,`<< /Type /XObject /Subtype /Image /Width ${im.w} /Height ${im.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${im.data.length} >>`,im.data));
+  const xo=imgs.map((_,k)=>`/Im${k} ${firstImg+k} 0 R`).join(" ");
+  pages.forEach((p,i)=>{ const cs=bin(p.ops.join("\n")), pn=firstPage+2*i;
+    obj(pn,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PW} ${PH_}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> /XObject << ${xo} >> >> /Contents ${pn+1} 0 R >>`);
+    obj(pn+1,`<< /Length ${cs.length} >>`,cs); });
+  const total=firstPage+2*n, info=total; obj(info,`<< /Title ${crU16("Compte rendu de visite – "+(d.titre||""))} /Author ${crU16(d.par||"")} /Creator (ING STUDIO v${APP_VERSION}) >>`);
+  const xref=len; let x=`xref\n0 ${total+1}\n0000000000 65535 f \n`; for(let i=1;i<=total;i++) x+=String(offs[i]).padStart(10,"0")+" 00000 n \n";
+  put(x+`trailer\n<< /Size ${total+1} /Root 1 0 R /Info ${info} 0 R >>\nstartxref\n${xref}\n%%EOF\n`);
+  crPdf.pages=n;
+  const out=new Uint8Array(len); let o=0; for(const u of parts){ out.set(u,o); o+=u.length; } return out;
+}
 
 if(IS_MOBILE&&!PHONE&&!window.SC_PHONE_APP){ setTimeout(()=>{ const b=document.createElement("button"); b.className="ph-back2"; b.textContent="📱 Version téléphone"; b.onclick=()=>{ try{ localStorage.removeItem("sc_full"); }catch{} location.reload(); }; document.body.appendChild(b); },0); }
 /* ---------- Démarrage ---------- */
@@ -3662,4 +4087,11 @@ function boot(d){
   subscribe();
 }
 </script>
+
+
+
+
+
+
+
 <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script></body></html>
